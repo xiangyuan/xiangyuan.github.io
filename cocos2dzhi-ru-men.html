@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>cocos2d之入门</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/cocos2dzhi-ru-men.html" rel="bookmark"
+           title="Permalink to cocos2d之入门">cocos2d之入门</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-03T11:16:00">
+                Mon 03 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+
+</footer><!-- /.post-info -->      <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/cocos2d_tutorail.rst</tt>, line 4)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>:category:cocos2d</p>
+<p>cocos2d中核心以前关键的一些类别</p>
+<p>像是现实如下的电影流程</p>
+<p>导演---》场景--》各种层--》然后加杂着一些动作</p>
+<p>CCDirector</p>
+<ol class="arabic simple">
+<li>切换场景</li>
+<li>存储cocos2d配置信息</li>
+<li>访问视图（uiview opengl等）</li>
+<li>暂停、恢复和终止游戏</li>
+<li>uikit与opengl坐标之间的转换。</li>
+</ol>
+<div><p>这个类在整个框架里面像是一个mediator模式。</p>
+</div><div></div><div><p>第二个概念</p>
+</div><div><p>CCSecene</p>
+</div><div><ol class="arabic simple">
+<li>包括很多layer元素 综合就构成了一个场景</li>
+<li>然后会有ccsprite精灵。</li>
+<li>还有一些文字。</li>
+<li>菜单等</li>
+</ol>
+<div><p>CCSprite:</p>
+</div><div></div><div><p>CCLabel</p>
+</div><div></div><div><p>CCAction</p>
+</div><div></div><div><p>CCLayer等</p>
+</div><div><p>下面是类层次结构图</p>
+</div><div><p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_1.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_1-283x300.png" /></a></p>
+</div><div><p>action图2</p>
+</div><div><p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_2.png"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_2-206x300.png" /></a></p>
+</div></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

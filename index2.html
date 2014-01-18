@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>85后那些年</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/imageiojie-shao.html" rel="bookmark"
+                           title="Permalink to ImageIO介绍">ImageIO介绍</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-02-25T19:18:00">
+                Mon 25 February 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>Image IO允许应用程序读写大部分图片文件格式。起初是作为Core Graphics
+框架的一部分，后来独立出来，允许开发者操作图像数据且非常高效。读取图片属性，提供颜色管理。（此接口osx
+v10.4 ios4.0）</p>
+<div class="line-block">
+<div class="line">Image I/O框架的特点：</div>
+<div class="line-block">
+<div class="line">1、mac平台最快的图像编码解码操作。</div>
+<div class="line">2、渐增的图片加载方式。</div>
+<div class="line">3、图片metadata信息的访问（ios不支持）。</div>
+<div class="line">4、有效的缓存。</div>
+</div>
+</div>
+<p>下面是访问图片的exif等信息的事例操作。当然还可以通过asset
+library去操作。<a class="reference external" href="https://developer.apple.com/library/ios/#documentation/AssetsLibrary/Reference/ALAsset_Class/Reference/Reference.html">参考</a></p>
+<p>通过io框架操作代码如下</p>
+<pre class="literal-block">
+//1.create the image source
+    NSURL * imageURL = [[NSBundle mainBundle] URLForImageResource:&#64;&quot;test_img.JPG&quot;];
+
+    CFDictionaryRef myOptions = NULL;
+
+    CFStringRef myKeys[2];
+    myKeys ...</pre>
+                <a class="readmore" href="/imageiojie-shao.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/opengles20na-xie-shi-zhi.html" rel="bookmark"
+                           title="Permalink to opengles2.0那些事之一">opengles2.0那些事之一</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-02-04T11:41:00">
+                Mon 04 February 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/iosopengles.html">ios,opengles</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。</div>
+<div class="line-block">
+<div class="line">至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。</div>
+<div class="line">在OpenGL</div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL
+ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES
+1.1的GL_OES_framebuffer_object扩展。
+|  帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil
+targets您还可以创建多个帧缓冲对象在一个单一context中，可能在帧缓冲区之间的资源共享。
+|  一般步骤 ...</p>
+                <a class="readmore" href="/opengles20na-xie-shi-zhi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/pai-zhao-jie-mian-de-ding-zhi.html" rel="bookmark"
+                           title="Permalink to 拍照界面的定制">拍照界面的定制</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-30T16:18:00">
+                Wed 30 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>下面是通AVFoundation进行图像摄取，然后定制所显示的界面</p>
+<div class="line-block">
+<div class="line">AVCaptureSession使用，参照官方文档。</div>
+<div class="line"><br /></div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst</tt>, line 11)</p>
+Line block ends without a blank line.</div>
+<p><a class="reference external" href="https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture">https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture</a>.html#//apple_ref/doc/uid/TP40010188-CH5-SW2</p>
+<div class="line-block">
+<div class="line">原理图</div>
+<div class="line-block">
+<div class="line"><img alt="image0" src="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Art/captureDetail.png" /></div>
+<div class="line">下面是效果图如下，比较的简陋。</div>
+</div>
+</div>
+<p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/01/Screenshot-2013.01.30-15.58.03.png"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2013/01/Screenshot-2013.01.30-15.58.03-200x300.png" /></a></p>
+<p>使用步骤；</p>
+<p>1、创建AVCaptureSesssion</p>
+<p>2、添加输入设备AVCaptureDeviceInput ...</p>
+                <a class="readmore" href="/pai-zhao-jie-mian-de-ding-zhi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian.html" rel="bookmark"
+                           title="Permalink to apple个人开发者证书无线发布app的实现">apple个人开发者证书无线发布app的实现</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-21T14:23:00">
+                Mon 21 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>apple个人开发者证书无线发布app的实现，也就是说不经过发布到app
+store，直接在ios设备上安装app，注：ios设备不需要越狱。</p>
+<p>之所以有这篇文章的产生，可以看这里：</p>
+<p>不通过App Store，在iOS设备上直接安装应用程序</p>
+<p>以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。</p>
+<p><a class="reference external" href="http://aaronparecki.com/articles/2011/01/21/1/how-to-distribute-your-ios-apps-over-the-air">具体参考下面文章</a></p>
+
+                <a class="readmore" href="/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/macxia-phpxiang-guan-pei-zhi-wen-jian.html" rel="bookmark"
+                           title="Permalink to mac下php相关配置文件">mac下php相关配置文件</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-16T10:48:00">
+                Wed 16 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/macphp.html">mac,php</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">昨天偶尔想用php写一个发http请求来写一个api。</div>
+<div class="line-block">
+<div class="line">结果HttpRequest类找不到。</div>
+</div>
+</div>
+<p>找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。</p>
+<pre class="literal-block">
+sudo find / php.ini
+</pre>
+<p>命令查找了一个居然没有这个文件。</p>
+<pre class="literal-block">
+php -i | less
+</pre>
+<p>用上述命令查看下.</p>
+<pre class="literal-block">
+Configuration File (php.ini) Path   /etc
+Loaded Configuration File   （none）
+Scan this dir for additional .ini files (none)
+Additional .ini files parsed    (none)
+</pre>
+<p>发现这个文件需要自己却创建一下.</p>
+<pre class="literal-block">
+cp php.ini.default php.ini
+</pre>
+<p>php.ini.default文件在/etc/目录下面，是一个默认的配置文件 ...</p>
+                <a class="readmore" href="/macxia-phpxiang-guan-pei-zhi-wen-jian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi.html" rel="bookmark"
+                           title="Permalink to lbs之两坐标点之间的距离">lbs之两坐标点之间的距离</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-27T21:51:00">
+                Thu 27 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>在LBS应用中，需要知到两坐标点之间的距离，从而在手机应用中实现离自己多少距离的附近的人员。</p>
+<div class="line-block">
+<div class="line">计算方法从Haversine formula 这个公式得来。</div>
+<div class="line-block">
+<div class="line">查看wiki : <a class="reference external" href="http://en.wikipedia.org/wiki/Haversine_formula">Haversine公式</a></div>
+</div>
+</div>
+<p>下面写出的php实现，</p>
+<pre class="literal-block">
+public class LBS {
+    private $earthRadius = 6367000;
+
+    /*
+     * Using the Haversine formula
+     *
+     *http://en.wikipedia.org/wiki/Haversine_formula
+     * calculate the distance
+     */
+    public function getDistance($lant1,$lon1,$lant2,$lon2) {
+        $nDlat = ($lant1 - $lant2) * pi() / 180;
+        $nDlon = ($lon1 - $lon2) * pi() / 180;
+
+        $nA = pow (sin($nDlat / 2 ...</pre>
+                <a class="readmore" href="/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/shi-yong-ta-ren-appli-mian-tu-pian.html" rel="bookmark"
+                           title="Permalink to 使用他人app里面图片">使用他人app里面图片</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-26T14:20:00">
+                Wed 26 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/extract_other_app_images.rst</tt>, line 2)</p>
+<p>Title underline too short.</p>
+<pre class="literal-block">
+使用他人app里面图片
+##################
+</pre>
+</div>
+<p>有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取</p>
+<p>1、首先在itunes里面打开ipa包。</p>
+<p>2、使用归档工具解压查看。</p>
+<div class="line-block">
+<div class="line">3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</div>
+<div class="line-block">
+<div class="line">使用方法为</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">$ /Applications ...</div></div>
+                <a class="readmore" href="/shi-yong-ta-ren-appli-mian-tu-pian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tu-ceng-ji-he-wen-dang.html" rel="bookmark"
+                           title="Permalink to 图层几何(文档)">图层几何(文档)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-19T09:06:00">
+                Wed 19 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">动画主题里面</div>
+<div class="line-block">
+<div class="line">虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何</div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 8)</p>
+Line block ends without a blank line.</div>
+<p>却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式
+和显式动画。
+|  下图显示可以在上下文中指定图层几何的属性:
+|  <a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM-300x172.png" /></a></p>
+<div class="line-block">
+<div class="line">图层的 position 属性是一个 CGPoint</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 15)</p>
+Line ...</div>
+                <a class="readmore" href="/tu-ceng-ji-he-wen-dang.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/ios-ge-qi-pao-liao-tian-ye-mian.html" rel="bookmark"
+                           title="Permalink to ios一个汽泡聊天页面">ios一个汽泡聊天页面</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-18T17:17:00">
+                Tue 18 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">效果如图所示。</div>
+</div>
+<img alt="chat Screenshot" class="image" src="images/Screenshot.png" style="width: 200px; height: 300px;" />
+<p><a class="reference external" href="https://github.com/xiangyuan/BubbleMsg">项目地址：https://github.com/xiangyuan/BubbleMsg</a></p>
+
+                <a class="readmore" href="/ios-ge-qi-pao-liao-tian-ye-mian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts.html" rel="bookmark"
+                           title="Permalink to cocos2d中与ios中加载custom fonts">cocos2d中与ios中加载custom fonts</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-05T11:51:00">
+                Wed 05 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/misc.html">misc</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst</tt>, line 5)</p>
+Field list ends without a blank line; unexpected unindent.</div>
+<p>:category:ios</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://www.webpagepublicity.com/free-fonts.html#FreeFonts">下载免费字体</a></div>
+<div class="line-block">
+<div class="line">加载客户字体的一般步骤为</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li>将ttf字体文件加入到工程资源文件中，确保在bundle里面可以找到。</li>
+<li>向工程的Info.Plist文件中添加UIAppFonts的键值。</li>
+<li>向2中的键值里面添加array对象的fonts名字。</li>
+<li>保存Info.Plist文件。</li>
+</ol>
+<div><p>可以通过如下方式进行文字使用。</p>
+</div><div></div><pre class="literal-block">
+[_mLabel setFont:[UIFont fontWithName:&#64;&quot;Alpha Romanie Outline G98&quot; size:20]];
+[_mLabel setText:&#64;&quot;What Happened&quot;];
+</pre>
+<div class="line-block">
+<div class="line">特别注意 ...</div></div>
+                <a class="readmore" href="/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/index.html">&laquo;</a>
+    Page 2 / 5
+        <a href="/index3.html">&raquo;</a>
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

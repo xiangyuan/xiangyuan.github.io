@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>android源码下编译自有工程通用make模板</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/android.html">android</a></li>
+                    <li><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban.html" rel="bookmark"
+           title="Permalink to android源码下编译自有工程通用make模板">android源码下编译自有工程通用make模板</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-12-02T14:56:00">
+                Sun 02 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/android.html">android</a>. </p>
+
+</footer><!-- /.post-info -->      <p>android 源码下建立自有工程下编译</p>
+<p>1、source build/envsetup.sh</p>
+<p>下面列出一个通用makefile模板</p>
+<pre class="literal-block">
+# This makefile supplies the rules for building a library of JNI code for
+
+# use by our example of how to bundle a shared library with an APK.
+
+LOCAL_PATH:= $(call my-dir)
+
+tw_module_tags := eng debug
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := $(tw_module_tags)
+
+# This is the target being built.
+LOCAL_MODULE:= libmyhello
+
+#the target platform
+#TARGET_PLATFORM := android-4
+# All of the source files that we will compile.
+LOCAL_SRC_FILES:= \
+com_wonder_MyJniAppActivity.h calllocal.c
+#system lib to use log
+#LOCAL_LDLIBS+= -L$(SYSROOT)/system/lib -llog
+# All of the shared libraries we link against.
+LOCAL_SHARED_LIBRARIES := \
+liblog
+
+# No static libraries.
+LOCAL_STATIC_LIBRARIES :=
+# Also need the JNI headers.
+LOCAL_C_INCLUDES += \
+$(JNI_H_INCLUDE)
+
+LOCAL_ARM_MODE := arm
+# No special compiler flags.
+LOCAL_CFLAGS +=
+
+# Don't prelink this library. For more efficient code, you may want
+# to add this library to the prelink map and set this to true. However,
+# it's difficult to do this for applications that are not supplied as
+# part of a system image.
+
+LOCAL_PRELINK_MODULE := false
+
+include $(BUILD_SHARED_LIBRARY)
+</pre>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

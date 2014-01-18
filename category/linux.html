@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>85后那些年 - linux</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li class="active"><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/wen-jian-xia-zai-shi-hui-yong-dao-de-httpxie-yi-she-zhi.html">文件下载时会用到的http协议设置</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-12-02T15:00:00">
+                Sun 02 December 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/linux.html">linux</a>. </p>
+
+</footer><!-- /.post-info --><div class="line-block">
+<div class="line">http协议中的应答头 说明</div>
+<div class="line-block">
+<div class="line">1.Allow 服务器支持哪些请求方法（如GET、POST等）。</div>
+<div class="line">2.Content-Encoding</div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/http_protocol.rst</tt>, line 8)</p>
+Line block ends without a blank line.</div>
+<p>文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档
+的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE
+4、IE
+5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-
+Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。
+|  3.Content-Length
+表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入
+ByteArrayOutputStram，完成后查看其大小，然后把该值放入Content-Length头，最后通过
+byteArrayStream.writeTo(response.getOutputStream()发送内容。
+|  4.Content-Type
+表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置
+Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。
+|  5.Date
+当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。
+|  6.Expires 应该在什么时候认为文档已经过期，从而不再缓存它？
+|  7.Last-Modified
+文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文
+档才会返回，否则返回一个304（Not
+Modified）状态。Last-Modified也可用setDateHeader方法来设置。
+|  8.Location
+表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。
+|  9.Refresh
+表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”,
+“5; URL=http://host/path”)让浏览器读取指定的页面。
+|  注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV=”Refresh”
+CONTENT=”5;URL=http://host/path”＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的
+HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。</p>
+<p>而上面提到的MIME类型(Multipurpose Internet Mail Extensions 简称MIME
+多用途互联网络电子邮件格式的扩展):通常有application/msexcel
+application/msword application/x-msdownload application/mspowerpoint
+application/xml等.</p>
+                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>85后那些年 - mac,php</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li class="active"><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/macxia-phpxiang-guan-pei-zhi-wen-jian.html">mac下php相关配置文件</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2013-01-16T10:48:00">
+                Wed 16 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/macphp.html">mac,php</a>. </p>
+
+</footer><!-- /.post-info --><div class="line-block">
+<div class="line">昨天偶尔想用php写一个发http请求来写一个api。</div>
+<div class="line-block">
+<div class="line">结果HttpRequest类找不到。</div>
+</div>
+</div>
+<p>找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。</p>
+<pre class="literal-block">
+sudo find / php.ini
+</pre>
+<p>命令查找了一个居然没有这个文件。</p>
+<pre class="literal-block">
+php -i | less
+</pre>
+<p>用上述命令查看下.</p>
+<pre class="literal-block">
+Configuration File (php.ini) Path   /etc
+Loaded Configuration File   （none）
+Scan this dir for additional .ini files (none)
+Additional .ini files parsed    (none)
+</pre>
+<p>发现这个文件需要自己却创建一下.</p>
+<pre class="literal-block">
+cp php.ini.default php.ini
+</pre>
+<p>php.ini.default文件在/etc/目录下面，是一个默认的配置文件。需要把里面的display_error打开，否刚就不会出现错误信息在开发过程中。</p>
+<div class="line-block">
+<div class="line">回到最开始的问题，类找不到需要添加扩展。</div>
+<div class="line-block">
+<div class="line">phpinfo里面就可以发现下面这一项。</div>
+</div>
+</div>
+<pre class="literal-block">
+extension_dir   /usr/lib/php/extensions/no-debug-non-zts-20090626   /usr/lib/php/extensions/no-debug-non-zts-20090626
+</pre>
+<p>只xdebug.so扩展，添添加扩展。</p>
+<div class="line-block">
+<div class="line">在安装扩展时有一个命令pear</div>
+<div class="line-block">
+<div class="line">发现我的mac居然没有这个管理工具</div>
+</div>
+</div>
+<pre class="literal-block">
+/usr/lib/php/
+</pre>
+<div class="line-block">
+<div class="line">在上面目录下面install-pear-nozlib.phar 这个文件</div>
+<div class="line-block">
+<div class="line">运行下面命令就可以安装成功了</div>
+</div>
+</div>
+<pre class="literal-block">
+php install-pear-nozlib.phar
+</pre>
+                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

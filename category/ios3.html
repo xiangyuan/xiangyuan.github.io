@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>85后那些年 - ios</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li class="active"><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/mknetworkwang-luo-qing-qiu-guo-cheng-zhong-oncompletiondiao-yong-liang-ci-de-wen-ti.html" rel="bookmark"
+                           title="Permalink to MKNetwork网络请求过程中onCompletion调用两次的问题">MKNetwork网络请求过程中onCompletion调用两次的问题</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-05-30T17:45:00">
+                Wed 30 May 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>MKNetwork在网络请求过程中，MKNetworkOperation操作同一个url请求（GET请求）时会调用两次onCompletion。</p>
+<p>这样会引起两次的数据问题。</p>
+<p>现在一种解决方法。</p>
+<pre class="literal-block">
+if ([operation isCachedResponse]) {
+        //cached data
+        NSString *jonData = [[operation responseString] JSONString];//直接清除原理数据
+        NSLog(&#64;&quot;Cache %&#64;&quot;,jonData);
+        [operation cancel];
+    } else {
+        //if (cached == NO) {//追加数据
+            //fresh data
+            NSString *jonData = [[operation responseString] JSONString];
+            NSLog(&#64;&quot;Server %&#64;&quot;,jonData);
+       // }
+    }
+</pre>
+
+                <a class="readmore" href="/mknetworkwang-luo-qing-qiu-guo-cheng-zhong-oncompletiondiao-yong-liang-ci-de-wen-ti.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng.html" rel="bookmark"
+                           title="Permalink to JWfolder列表展开时问题修正">JWfolder列表展开时问题修正</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-05-03T09:32:00">
+                Thu 03 May 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p><a href="#id1"><span class="problematic" id="id2">``</span></a>_</p>
+<div class="system-message" id="id1">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst</tt>, line 8); <em><a href="#id2">backlink</a></em></p>
+Inline literal start-string without end-string.</div>
+<div class="line-block">
+<div class="line">这是一个可展开示例</div>
+<div class="line-block">
+<div class="line"><img alt="image0" src="https://a248.e.akamai.net/camo.github.com/ade2f6e0148967944bc32a363765972ff8467355/687474703a2f2f7777772e6170706a6f6e2e636f6d2f6173736574732f6769746875622f6a77666f6c646572735f717569636b776561746865722e706e67" /></div>
+</div>
+</div>
+<p>但在使用到tableview里面操作时却会出现 重叠问题</p>
+<p>解决办法</p>
+<pre class="literal-block">
+UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        CGFloat y = cell.frame.origin.y;
+        CGFloat varY = abs(y - tableView.contentOffset.y);
+        if (varY &gt; 316.f) {
+           CGPoint point =  CGPointMake ...</pre>
+                <a class="readmore" href="/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tian-qi-yu-bao-zu-jian.html" rel="bookmark"
+                           title="Permalink to 天气预报组件">天气预报组件</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-02-29T15:05:00">
+                Wed 29 February 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>一个天气显示组件，显示城市地址，图片 温度 具体时间</p>
+<div class="line-block">
+<div class="line">如图</div>
+<div class="line-block">
+<div class="line"><img alt="天气" src="https://raw.github.com/xiangyuan/weathElement/master/Screenshot.png" /></div>
+</div>
+</div>
+<p>项目地址：</p>
+<p><a class="reference external" href="https://github.com/xiangyuan/weathElement">项目地址</a></p>
+
+                <a class="readmore" href="/tian-qi-yu-bao-zu-jian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/viewcontroller-sheng-ming-zhou-qi.html" rel="bookmark"
+                           title="Permalink to viewcontroller 生命周期">viewcontroller 生命周期</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-01-30T17:47:00">
+                Mon 30 January 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="line-block">
+<div class="line">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系</div>
+<div class="line-block">
+<div class="line">init方法</div>
+<div class="line">在init方法中实例化必要的对象（遵从LazyLoad思想）</div>
+<div class="line">init方法中初始化ViewController本身</div>
+<div class="line">loadView方法</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。
+|  如果手工维护views，必须重写该方法
+|  如果使用IB维护views，必须不能重写该方法
+|  loadView和IB构建view
+|  viewDidLoad方法
+|  重写该方法以进一步定制view
+|  在iPhone OS
+3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引
+|  viewDidLoad后调用数据Model
+|  viewDidUnload方法
+|  当系统内存吃紧的时候会调用该方法（注 ...</p>
+                <a class="readmore" href="/viewcontroller-sheng-ming-zhou-qi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/ocxiao-xi-zhuan-fa.html" rel="bookmark"
+                           title="Permalink to oc消息转发">oc消息转发</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-11-03T10:28:00">
+                Thu 03 November 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <div class="section" id="id1">
+<h2>消息转发流程</h2>
+<p>当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message
+forwarding)流程开始启动。</p>
+<ol class="arabic">
+<li><p class="first">动态方法解析(Dynamic Method Resolution或Lazy method resolution)</p>
+<p>向当前类(Class)发送<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/clm/NSObject/resolveInstanceMethod:">resolveInstanceMethod:</a>(对于类方法则为`resolveClassMethod:<a href="#id2"><span class="problematic" id="id3">`</span></a>_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。</p>
+<div class="system-message" id="id2">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst</tt>, line 16); <em><a href="#id3">backlink</a></em></p>
+<p>Inline interpreted text or phrase reference start-string without end-string.</p>
+</div>
+</li>
+<li><p class="first">快速转发路径(Fast ...</p></li></ol></div>
+                <a class="readmore" href="/ocxiao-xi-zhuan-fa.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/ios-fa-urlqing-qiu-shi-zhu-yi.html" rel="bookmark"
+                           title="Permalink to ios 发url请求时注意">ios 发url请求时注意</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-10-02T17:18:00">
+                Sun 02 October 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->                <p>今天在做自动补全请求时出现下面错误</p>
+<pre class="literal-block">
+Error Domain=NSURLErrorDomain Code=-1000 &quot;bad URL&quot;
+</pre>
+<p>后来发现，是因为url地址里面需要将中文字符转换下</p>
+<p>得用下面方法处理</p>
+<pre class="literal-block">
+NSString *properlyEscapedURL = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+</pre>
+<p>以此记录</p>
+
+                <a class="readmore" href="/ios-fa-urlqing-qiu-shi-zhu-yi.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/category/ios2.html">&laquo;</a>
+    Page 3 / 3
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

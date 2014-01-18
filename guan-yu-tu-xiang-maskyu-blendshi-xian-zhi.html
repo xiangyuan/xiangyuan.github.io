@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>关于图象mask与blend实现之一</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+<a href="http://xiangyuan.github.io">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="/">85后那些年 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/android.html">android</a></li>
+                    <li class="active"><a href="/category/ios.html">ios</a></li>
+                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
+                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
+                    <li><a href="/category/linux.html">linux</a></li>
+                    <li><a href="/category/linux-c.html">linux c</a></li>
+                    <li><a href="/category/mac.html">mac</a></li>
+                    <li><a href="/category/macphp.html">mac,php</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/objc.html">objc</a></li>
+                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/pythonios.html">python,ios</a></li>
+                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/guan-yu-tu-xiang-maskyu-blendshi-xian-zhi.html" rel="bookmark"
+           title="Permalink to 关于图象mask与blend实现之一">关于图象mask与blend实现之一</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-03-22T17:05:00">
+                Fri 22 March 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
+        </address>
+<p>In <a href="/category/ios.html">ios</a>. </p>
+
+</footer><!-- /.post-info -->      <div class="line-block">
+<div class="line">1、关于使用 CGImageCreateWithMask(&lt;#CGImageRef image#&gt;, &lt;#CGImageRefmask#&gt;)来进行|| 掩码时。</div>
+<div class="line-block">
+<div class="line">情况一：第二个参数是用CGImageMaskCreate创建生成的 image mask。</div>
+<div class="line">那么就会是黑色部分出现，白色部分消失。</div>
+</div>
+</div>
+<pre class="literal-block">
+CGImageRef topRef = mask.CGImage;
+CGImageRef maskImage = CGImageMaskCreate(CGImageGetWidth(topRef),
+CGImageGetHeight(topRef), CGImageGetBitsPerComponent(topRef),
+CGImageGetBitsPerPixel(topRef), CGImageGetBytesPerRow(topRef),
+CGImageGetDataProvider(topRef), CGImageGetDecode(topRef), false);
+// CGImageRef target = CGImageCreateWithMask(origin.CGImage,maskImage);
+// UIImage \* image = [UIImage imageWithCGImage:target];
+
+//release
+CGImageRelease(maskImage);
+</pre>
+<div class="line-block">
+<div class="line">情况二：第二个参数是用cgimagecreate创建生成的一个image对象时，</div>
+<div class="line">那么就会和情况一产生相反的结果。多半可能会不显示.</div>
+</div>
+<p>注意：外部图片不能直接用来作为mask的图像。</p>
+<p>2、色彩来做为Mask</p>
+<p>3、context clip来实现Mask</p>
+<div class="line-block">
+<div class="line">使用两个图片实现圆角图形</div>
+<div class="line-block">
+<div class="line">如下代码</div>
+</div>
+</div>
+<pre class="literal-block">
+UIImage \*background = [UIImage imageNamed:&#64;&quot;logo\_back&quot;];
+UIImage \*front = [UIImage imageNamed:&#64;&quot;profile&quot;];
+
+CGContextRef context = UIGraphicsGetCurrentContext();
+CGContextSaveGState(context);
+CGContextSetBlendMode(context, kCGBlendModeDarken);
+CGRect size = CGRectMake(0.f, 0.f, background.size.width,background.size.height);
+[background drawAtPoint:CGPointMake(0.f, 0.f)];
+CGContextTranslateCTM(context, 0.f, background.size.height);
+CGContextScaleCTM(context, 1.f, -1);
+CGContextDrawImage(context, size, front.CGImage);
+CGContextRestoreGState(context);
+</pre>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
