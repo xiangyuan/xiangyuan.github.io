@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>viewcontroller 生命周期 - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
+
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
+
+    <h1 class="title">viewcontroller 生命周期</h1>
+
+        <div class="date">
+            <p>written on Mon 30 January 2012
+            by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></p>
+        </div>
+
+    <div class="clearboth"><div class="line-block">
+<div class="line">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系</div>
+<div class="line-block">
+<div class="line">init方法</div>
+<div class="line">在init方法中实例化必要的对象（遵从LazyLoad思想）</div>
+<div class="line">init方法中初始化ViewController本身</div>
+<div class="line">loadView方法</div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst</tt>, line 9)</p>
+Line block ends without a blank line.</div>
+<p>当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。
+|  如果手工维护views，必须重写该方法
+|  如果使用IB维护views，必须不能重写该方法
+|  loadView和IB构建view
+|  viewDidLoad方法
+|  重写该方法以进一步定制view
+|  在iPhone OS
+3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引
+|  viewDidLoad后调用数据Model
+|  viewDidUnload方法
+|  当系统内存吃紧的时候会调用该方法（注：viewController没有被dealloc）
+|  内存吃紧时，在iPhone OS
+3.0之前didReceiveMemoryWarning是释放无用内存的唯一方式，但是OS
+3.0及以后viewDidUnload方法是更好的方式
+|
+在该方法中将所有IBOutlet（无论是property还是实例变量）置为nil（系统release
+view时已经将其release掉了）
+|
+在该方法中释放其他与view有关的对象、其他在运行时创建（但非系统必须）的对象、在viewDidLoad中被创建的对象、缓存数据等
+|  release对象后，将对象置为nil（IBOutlet只需要将其置为nil，系统release
+view时已经将其release掉了）
+|
+一般认为viewDidUnload是viewDidLoad的镜像，因为当view被重新请求时，viewDidLoad还会重新被执行
+|
+viewDidUnload中被release的对象必须是很容易被重新创建的对象（比如在viewDidLoad或其他方法中创建的对象），不要release用户数据或其他很难被重新创建的对象
+|  dealloc方法
+|  viewDidUnload和dealloc方法没有关联，dealloc还是继续做它该做的事情
+|  举例：</p>
+<pre class="literal-block">
+/*
+ *The viewhierarchy forthis controller has been torn down. This usually happens inresponse tolow memory notifications.
+ *All IBOutlets should be released bysetting their propertytonil inorder tofree upasmuch memory aspossible.
+ *This isalso a good place torelease other variables thatcan be recreated when needed.
+ */
+-(void)viewDidUnload {
+    self.startButton =nil;
+    [setupViewController release];
+    setupViewController =nil;
+}
+-(void)dealloc {
+    [startButton release];
+    [setupViewController release];
+    [super dealloc];
+}
+</pre>
+<p>转自：<a class="reference external" href="http://xyxdasnjss.iteye.com/blog/1563926">http://xyxdasnjss.iteye.com/blog/1563926</a></p>
+</div>
+
+
+
+          </section>
+       </div>
+
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
+
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="#" target="_blank">You can add links in your config file&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Another social link&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/05/index.html">May 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/02/index.html">February 2013</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/12/index.html">December 2012</a></li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/05/index.html">May 2012</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/02/index.html">February 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/01/index.html">January 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/10/index.html">October 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/08/index.html">August 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/05/index.html">May 2011</a></li>
+      
+
+   </ul>
+</div>
+
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
+
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
+
+</body>
+
+</html>

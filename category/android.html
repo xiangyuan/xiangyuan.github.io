@@ -1,402 +1,199 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-        <meta charset="utf-8" />
-        <title>85后那些年 - android</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+<!doctype html>
+<html lang="en">
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+<head>
+
+    <title>Entries Category "android" - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
 </head>
 
-<body id="index" class="home">
-<a href="http://xiangyuan.github.io">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
-</a>
-        <header id="banner" class="body">
-                <h1><a href="/">85后那些年 </a></h1>
-                <nav><ul>
-                    <li class="active"><a href="/category/android.html">android</a></li>
-                    <li><a href="/category/ios.html">ios</a></li>
-                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
-                    <li><a href="/category/iosopengles.html">ios,opengles</a></li>
-                    <li><a href="/category/linux.html">linux</a></li>
-                    <li><a href="/category/linux-c.html">linux c</a></li>
-                    <li><a href="/category/mac.html">mac</a></li>
-                    <li><a href="/category/macphp.html">mac,php</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-                    <li><a href="/category/objc.html">objc</a></li>
-                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
-                    <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/pythonios.html">python,ios</a></li>
-                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<body>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/androidying-yong-zhong-shi-xian-drag-listview.html">android应用中实现drag listview</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2012-12-03T09:35:00">
-                Mon 03 December 2012
-        </abbr>
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
 
-        <address class="vcard author">
-                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
-        </address>
-<p>In <a href="/category/android.html">android</a>. </p>
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
 
-</footer><!-- /.post-info --><p>一些应用在拖动一个列表项时会浮现一个小图片用于代表当前拖动的列表项</p>
-<p>核心代码如下。</p>
-<pre class="literal-block">
-//自定义ListView，准备改造成自己想要的ListView
+    <h1 class="title">Entries Category “android”</h1>        <article class="entry-overview">
+            <div class="date">Mon 03 December 2012</div>
+            <div class="detail">
+                <header><h3>
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/" rel="bookmark" title="Permalink to android应用中实现drag listview">
+                        android应用中实现drag listview
+                    </a>
+                </h3></header>
+                <div class="summary">一些应用在拖动一个列表项时会浮现一个小图片用于代表当前拖动的列表项 核心代码如下。 //自定义ListView，准备改造成自己想要的ListView //这样的好处是我们不仅可以直接使用ListView很多现成的稳定的方法，而且可以重写方法改写ListView的行为（利用的是java面向对象的继承特性，本人喜欢在任何代码中分析面向对象的特性、原则和模式） public class DragListView extends ListView { private static final String TAG = DragListView.class.getSimpleName(); /** * 被拖拽项的影像，其实就是一个ImageView * */ private ImageView dragImageView; private int dragPointX;//手指拖动的位置坐标 private int dragPointY; private int dragOffsetX;//拖动影像与手指拖动位置的偏移 private int dragOffsetY; private int dragDownX;//手指开始拖拽的起始点x坐标 private WindowManager windowManager;// windows窗口控制类 private ... <a href="http://xiangyuan.github.io/posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/">read more</a></div>
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Sun 02 December 2012</div>
+            <div class="detail">
+                <header><h3>
+                    <a href="http://xiangyuan.github.io/posts/2012/12/02/androidquan-xian-jian-cha/" rel="bookmark" title="Permalink to android权限检查">
+                        android权限检查
+                    </a>
+                </h3></header>
+                <div class="summary">1、checkpermission部分写到服务端的是： writeInterfaceToken -->> android.app.IActivityManager writeString---> permission 字符串 writeInt -->pid writeInt -->uid 写过去的code是Check_permission_transcation System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/android_permission_check.rst, line 10) Line block ends without a blank line. 2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值 | 只要分别是哪一个值就可以读取相关的值(理论) 3、下面做验证 从一些错误信息如下来看code是53 PID: 5165, UID: 10046 D ... <a href="http://xiangyuan.github.io/posts/2012/12/02/androidquan-xian-jian-cha/">read more</a></div>
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Sun 02 December 2012</div>
+            <div class="detail">
+                <header><h3>
+                    <a href="http://xiangyuan.github.io/posts/2012/12/02/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban/" rel="bookmark" title="Permalink to android源码下编译自有工程通用make模板">
+                        android源码下编译自有工程通用make模板
+                    </a>
+                </h3></header>
+                <div class="summary">android 源码下建立自有工程下编译 1、source build/envsetup.sh 下面列出一个通用makefile模板 # This makefile supplies the rules for building a library of JNI code for # use by our example of how to bundle a shared library with an APK. LOCAL_PATH:= $(call my-dir) tw_module_tags := eng debug include $(CLEAR_VARS) LOCAL_MODULE_TAGS := $(tw_module_tags) # This is the target being ... <a href="http://xiangyuan.github.io/posts/2012/12/02/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban/">read more</a></div>
+            </div>
+        </article>
 
-//这样的好处是我们不仅可以直接使用ListView很多现成的稳定的方法，而且可以重写方法改写ListView的行为（利用的是java面向对象的继承特性，本人喜欢在任何代码中分析面向对象的特性、原则和模式）
+          </section>
+       </div>
 
-public class DragListView extends ListView {
-    private static final String TAG = DragListView.class.getSimpleName();
-    /**
-     * 被拖拽项的影像，其实就是一个ImageView
-     * */
-    private ImageView dragImageView;
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
 
-    private int dragPointX;//手指拖动的位置坐标
-    private int dragPointY;
-    private int dragOffsetX;//拖动影像与手指拖动位置的偏移
-    private int dragOffsetY;
-
-    private int dragDownX;//手指开始拖拽的起始点x坐标
-
-    private WindowManager windowManager;// windows窗口控制类
-
-    private WindowManager.LayoutParams windowParams;// 用于控制拖拽项的显示的参数
-
-    private DragListener mDragListener;
-
-    public DragListView(Context context, AttributeSet attrs) {
-
-        super(context, attrs);
-
-        setOnItemLongClickListener(new OnItemLongClickListener() {
-            &#64;Override
-            public boolean onItemLongClick(AdapterView&lt;?&gt; parent, View v,
-                    int position, long id) {
-                Log.e(TAG, &quot;onItemLongClick&quot;);
-                // 设置Drawingcache为true，获得选中项的影像bm，就是后面我们拖动的哪个头像
-                v.setDrawingCacheEnabled(true);
-                Bitmap bm = Bitmap.createBitmap(v.getDrawingCache());
-
-                startDrag(bm);
-                return true;
-            }
-        });
-    }
-
-    &#64;Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        // 捕获down事件
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            int x = (int) ev.getX();
-            int y = (int) ev.getY();
-
-            // 如果是无效位置(超出边界，分割线等位置)，返回
-            if (getCount() &lt; 1) {
-
-                return super.onInterceptTouchEvent(ev);
-
-            }
-
-            if (mDragListener != null) {
-                mDragListener.down(x, y);
-            }
-
-            ViewGroup itemView = (ViewGroup) getChildAt(0);
-
-            if (itemView != null) {
-                dragPointY = (int) (ev.getRawY() - (itemView.getHeight() / 2));
-                dragOffsetY = (itemView.getHeight() / 2);
-                dragOffsetX = (int) (itemView.getWidth() / 2);
-                dragPointX = x + dragOffsetX;
-                dragDownX = x;
-            }
-
-            return false;
-
-        }
-
-        return super.onInterceptTouchEvent(ev);
-
-    }
-
-    /**
-     *
-     * 准备拖动，初始化拖动项的图像
-     *
-     * &#64;param bm
-     *
-     * &#64;param y
-     */
-    public void startDrag(Bitmap bm) {
-        // 释放影像，在准备影像的时候，防止影像没释放，每次都执行一下
-        stopDrag();
-        windowParams = new WindowManager.LayoutParams();
-        // 从上到下计算y方向上的相对位置，
-        windowParams.gravity = Gravity.TOP | Gravity.LEFT;
-        windowParams.x = dragPointX;
-        windowParams.y = dragPointY;
-        windowParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        windowParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
-        LogEx.i(TAG, &quot;x:--&gt;&quot; + windowParams.x + &quot; y: &quot; + windowParams.y);
-        // 下面这些参数能够帮助准确定位到选中项点击位置，照抄即可
-        windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-                | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-
-        windowParams.format = PixelFormat.TRANSLUCENT;
-        windowParams.windowAnimations = 0;
-
-        // 把影像ImagView添加到当前视图中
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageBitmap(bm);
-        windowManager = (WindowManager) getContext().getSystemService(&quot;window&quot;);
-        windowManager.addView(imageView, windowParams);
-
-        // 把影像ImageView引用到变量drawImageView，用于后续操作(拖动，释放等等)
-        dragImageView = imageView;
-    }
-
-    /**
-     *
-     * 停止拖动，去除拖动项的头像
-     */
-
-    public void stopDrag() {
-        if (dragImageView != null) {
-            dragPointX = 0;
-            dragOffsetX = 0;
-            windowManager.removeView(dragImageView);
-            dragImageView = null;
-        }
-    }
-
-
-过客/ty  20:41:41
-    /**
-     *
-     * 触摸事件
-     */
-
-    &#64;Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        // LogEx.v(TAG, &quot;x: &quot; + ev.getX() + &quot; y: &quot; + ev.getY());
-        // 如果dragmageView为空，说明拦截事件中已经判定仅仅是点击，不是拖动，返回
-        // 如果点击的是无效位置，返回，需要重新判断
-        if (dragImageView != null) {
-            int action = ev.getAction();
-            int moveY = (int) ev.getY();
-            int moveX = (int) ev.getX();
-
-            switch (action) {
-            case MotionEvent.ACTION_UP:
-                // 释放拖动影像
-                stopDrag();
-                // 放下后，判断位置，实现相应的位置删除和插入
-                onDrop(moveX, moveY);
-                break;
-            case MotionEvent.ACTION_MOVE:
-
-                dragPointY = (int) ev.getRawY() - dragOffsetY;
-                dragPointX = (int) moveX + dragOffsetX;
-                // 拖动影像
-                onDrag(moveY, moveX);
-                break;
-            default:
-                break;
-            }
-            return true;
-        }
-        // 这个返回值能够实现selected的选中效果，如果返回true则无选中效果
-        return super.onTouchEvent(ev);
-
-    }
-
-    /**
-     *
-     * 拖动执行，在Move方法中执行
-     *
-     * &#64;param y
-     */
-
-    public void onDrag(int moveY, int moveX) {
-
-        if (dragImageView != null) {
-            windowParams.alpha = 0.8f;
-            windowParams.y = dragPointY;
-            windowParams.x = dragPointX;
-            windowManager.updateViewLayout(dragImageView, windowParams);
-        }
-
-        if (mDragListener != null) {
-            mDragListener.move(dragPointX, moveY);
-        }
-
-
-    }
-
-    /**
-     *
-     * 拖动放下的时候
-     *
-     * &#64;param y
-     */
-
-    public void onDrop(int x, int y) {
-        if (mDragListener != null) {
-            if (x &lt; dragDownX - 30) {
-                mDragListener.drop(dragPointX, y);
-            } else {
-                mDragListener.removeBg();
-            }
-        }
-
-    }
-
-    public void setPointView(DragListener dragListener) {
-        this.mDragListener = dragListener;
-    }
-
-    public interface DragListener {
-        void down(int x, int y);
-
-        void drop(int x, int y);
-
-        void move(int x, int y);
-
-        void removeBg();
-    }
-}
-</pre>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/androidquan-xian-jian-cha.html" rel="bookmark"
-                           title="Permalink to android权限检查">android权限检查</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-12-02T14:58:00">
-                Sun 02 December 2012
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
-        </address>
-<p>In <a href="/category/android.html">android</a>. </p>
-
-</footer><!-- /.post-info -->                <p>1、checkpermission部分写到服务端的是：</p>
-<div class="line-block">
-<div class="line">writeInterfaceToken --&gt;&gt; android.app.IActivityManager</div>
-<div class="line-block">
-<div class="line">writeString---&gt; permission 字符串</div>
-<div class="line">writeInt --&gt;pid</div>
-<div class="line">writeInt --&gt;uid</div>
-<div class="line">写过去的code是Check_permission_transcation</div>
-<div class="line"><br /></div>
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
 </div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="#" target="_blank">You can add links in your config file&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Another social link&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+   </ul>
 </div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/android_permission_check.rst</tt>, line 10)</p>
-Line block ends without a blank line.</div>
-<p>2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值
-|  只要分别是哪一个值就可以读取相关的值(理论)</p>
-<p>3、下面做验证</p>
-<p>从一些错误信息如下来看code是53</p>
-<pre class="literal-block">
-PID: 5165, UID: 10046
-D ...</pre>
-                <a class="readmore" href="/androidquan-xian-jian-cha.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban.html" rel="bookmark"
-                           title="Permalink to android源码下编译自有工程通用make模板">android源码下编译自有工程通用make模板</a></h1>
-                </header>
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2012-12-02T14:56:00">
-                Sun 02 December 2012
-        </abbr>
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+   </ul>
+</div>
 
-        <address class="vcard author">
-                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
-        </address>
-<p>In <a href="/category/android.html">android</a>. </p>
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
 
-</footer><!-- /.post-info -->                <p>android 源码下建立自有工程下编译</p>
-<p>1、source build/envsetup.sh</p>
-<p>下面列出一个通用makefile模板</p>
-<pre class="literal-block">
-# This makefile supplies the rules for building a library of JNI code for
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2012/12/index.html">December 2012</a></li>
+      
 
-# use by our example of how to bundle a shared library with an APK.
+      
 
-LOCAL_PATH:= $(call my-dir)
+      
 
-tw_module_tags := eng debug
+   </ul>
+</div>
 
-include $(CLEAR_VARS)
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
 
-LOCAL_MODULE_TAGS := $(tw_module_tags)
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
 
-# This is the target being ...</pre>
-                <a class="readmore" href="/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
 
 </body>
+
 </html>

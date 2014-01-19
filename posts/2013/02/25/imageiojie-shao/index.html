@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>ImageIO介绍 - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
+
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
+
+    <h1 class="title">ImageIO介绍</h1>
+
+        <div class="date">
+            <p>written on Mon 25 February 2013
+            by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></p>
+        </div>
+
+    <div class="clearboth"><p>Image IO允许应用程序读写大部分图片文件格式。起初是作为Core Graphics
+框架的一部分，后来独立出来，允许开发者操作图像数据且非常高效。读取图片属性，提供颜色管理。（此接口osx
+v10.4 ios4.0）</p>
+<div class="line-block">
+<div class="line">Image I/O框架的特点：</div>
+<div class="line-block">
+<div class="line">1、mac平台最快的图像编码解码操作。</div>
+<div class="line">2、渐增的图片加载方式。</div>
+<div class="line">3、图片metadata信息的访问（ios不支持）。</div>
+<div class="line">4、有效的缓存。</div>
+</div>
+</div>
+<p>下面是访问图片的exif等信息的事例操作。当然还可以通过asset
+library去操作。<a class="reference external" href="https://developer.apple.com/library/ios/#documentation/AssetsLibrary/Reference/ALAsset_Class/Reference/Reference.html">参考</a></p>
+<p>通过io框架操作代码如下</p>
+<pre class="literal-block">
+//1.create the image source
+    NSURL * imageURL = [[NSBundle mainBundle] URLForImageResource:&#64;&quot;test_img.JPG&quot;];
+
+    CFDictionaryRef myOptions = NULL;
+
+    CFStringRef myKeys[2];
+    myKeys[0] = kCGImageSourceShouldCache;
+    myKeys[1] = kCGImageSourceShouldAllowFloat;
+
+    CFStringRef myValues[2];
+    myValues[0] = (CFTypeRef)kCFBooleanTrue;
+    myValues[1] = (CFTypeRef)kCFBooleanTrue;
+//    NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:kCFBooleanTrue,kCGImageSourceShouldCache,kCFBooleanTrue,kCGImageSourceShouldAllowFloat, nil];
+
+    myOptions = CFDictionaryCreate(NULL, (const void **)myKeys, (const void**)myValues, 2, &amp;kCFTypeDictionaryKeyCallBacks, &amp;kCFTypeDictionaryValueCallBacks);
+    CGImageSourceRef imageSourceRef = CGImageSourceCreateWithURL((CFURLRef)imageURL, myOptions);
+    CFRelease(myOptions);
+
+    if (imageSourceRef == NULL) {
+        NSLog(&#64;&quot;imagesource is NULL&quot;);
+    } else {
+        // read the image meta data
+        CFDictionaryRef properties = CGImageSourceCopyPropertiesAtIndex(imageSourceRef, 0, NULL);
+//        CFDictionaryRef properties = CGImageSourceCopyProperties(imageSourceRef, nil);
+        NSDictionary * dictionary = (NSDictionary*)properties;
+        [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            NSLog(&#64;&quot;key = %&#64; value = %&#64;&quot;,key,obj);
+        }];
+
+//        CGImageMetadataRef metaRef = CGImageSourceCopyMetadataAtIndex(imageSourceRef, 0, NULL);
+//        CFArrayRef  metaTags = CGImageMetadataCopyTags(metaRef);
+//        CFIndex len = CFArrayGetCount(metaTags);
+//        for (int i = 0; i &lt; len; i ++) {
+//            CGImageMetadataTagRef tagRef = (CGImageMetadataTagRef)CFArrayGetValueAtIndex(metaTags, i);
+//            NSLog(&#64;&quot;tag name =&quot;,CGImageMetadataTagCopyName(tagRef),CGImageMetadataTagCopyValue(tagRef))
+//        }
+    }
+</pre>
+<p>结果如下</p>
+<pre class="literal-block">
+/*
+ key = {TIFF} value = {
+ DateTime = &quot;2012:09:23 11:33:51&quot;;
+ ImageDescription = &quot;                               &quot;;
+ Make = Canon;
+ Model = &quot;Canon IXUS 220HS&quot;;
+ Orientation = 1;
+ ResolutionUnit = 2;
+ XResolution = 180;
+ YResolution = 180;
+ }
+ 2013-02-25 17:31:22.261 ImageIODemo[2571:303] key = {Exif} value = {
+ ApertureValue = &quot;2.875&quot;;
+ ColorSpace = 1;
+ ComponentsConfiguration =     (
+ 1,
+ 2,
+ 3,
+ 0
+ );
+ CompressedBitsPerPixel = 3;
+ CustomRendered = 0;
+ DateTimeDigitized = &quot;2012:09:23 11:33:51&quot;;
+ DateTimeOriginal = &quot;2012:09:23 11:33:51&quot;;
+ DigitalZoomRatio = 1;
+ ExifVersion =     (
+ 2,
+ 3
+ );
+ ExposureBiasValue = 0;
+ ExposureMode = 0;
+ ExposureTime = &quot;0.04&quot;;
+ FNumber = &quot;2.7&quot;;
+ FileSource = 3;
+ Flash = 16;
+ FlashPixVersion =     (
+ 1,
+ 0
+ );
+ FocalLength = &quot;4.3&quot;;
+ FocalPlaneResolutionUnit = 2;
+ FocalPlaneXResolution = &quot;11540.98360655738&quot;;
+ FocalPlaneYResolution = &quot;11540.98360655738&quot;;
+ ISOSpeedRatings =     (
+ 800
+ );
+ MaxApertureValue = &quot;2.875&quot;;
+ MeteringMode = 5;
+ PixelXDimension = 2816;
+ PixelYDimension = 2112;
+ SceneCaptureType = 0;
+ SensingMethod = 2;
+ ShutterSpeedValue = &quot;4.65625&quot;;
+ WhiteBalance = 0;
+ }
+ 2013-02-25 17:31:22.261 ImageIODemo[2571:303] key = PixelWidth value = 2816
+ 2013-02-25 17:31:22.262 ImageIODemo[2571:303] key = PixelHeight value = 2112
+ 2013-02-25 17:31:22.262 ImageIODemo[2571:303] key = {IPTC} value = {
+ &quot;Caption/Abstract&quot; = &quot;                               &quot;;
+ StarRating = 0;
+ }
+ 2013-02-25 17:31:22.262 ImageIODemo[2571:303] key = {MakerCanon} value = {
+ ContinuousDrive = 0;
+ ImageSerialNumber = 1785006;
+ MaxAperture = &quot;2.708511093873785&quot;;
+ MinAperture = 8;
+ UniqueModelID = 50593792;
+ WhiteBalanceIndex = 0;
+ }
+ 2013-02-25 17:31:22.263 ImageIODemo[2571:303] key = ProfileName value = sRGB IEC61966-2.1
+ 2013-02-25 17:31:22.263 ImageIODemo[2571:303] key = {ExifAux} value = {
+ AFInfo =     (
+ &quot;0.23&quot;,
+ &quot;0.23&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.41&quot;,
+ &quot;0.23&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.59&quot;,
+ &quot;0.23&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.23&quot;,
+ &quot;0.41&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.41&quot;,
+ &quot;0.41&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.59&quot;,
+ &quot;0.41&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ f,
+ &quot;0.23&quot;,
+ &quot;0.59&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n,
+ &quot;0.41&quot;,
+ &quot;0.59&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ f,
+ &quot;0.59&quot;,
+ &quot;0.59&quot;,
+ &quot;0.18&quot;,
+ &quot;0.18&quot;,
+ n
+ );
+ Firmware = &quot;Firmware Version 1.00&quot;;
+ FlashCompensation = 0;
+ FocusMode = 1;
+ ImageStabilization = 3;
+ LensInfo =     (
+ &quot;4.3&quot;,
+ &quot;21.5&quot;,
+ 0,
+ 0
+ );
+ LensModel = &quot;4.3-21.5 mm&quot;;
+ }
+ 2013-02-25 17:31:22.264 ImageIODemo[2571:303] key = DPIWidth value = 180
+ 2013-02-25 17:31:22.264 ImageIODemo[2571:303] key = DPIHeight value = 180
+ 2013-02-25 17:31:22.265 ImageIODemo[2571:303] key = ColorModel value = RGB
+ 2013-02-25 17:31:22.265 ImageIODemo[2571:303] key = Orientation value = 1
+ 2013-02-25 17:31:22.265 ImageIODemo[2571:303] key = Depth value = 8
+ */
+</pre>
+</div>
+
+
+
+          </section>
+       </div>
+
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
+
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="#" target="_blank">You can add links in your config file&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Another social link&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/05/index.html">May 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/02/index.html">February 2013</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/12/index.html">December 2012</a></li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/05/index.html">May 2012</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/02/index.html">February 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/01/index.html">January 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/10/index.html">October 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/08/index.html">August 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/05/index.html">May 2011</a></li>
+      
+
+   </ul>
+</div>
+
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
+
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
+
+</body>
+
+</html>

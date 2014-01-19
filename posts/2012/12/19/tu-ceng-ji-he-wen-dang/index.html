@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>图层几何(文档) - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
+
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
+
+    <h1 class="title">图层几何(文档)</h1>
+
+        <div class="date">
+            <p>written on Wed 19 December 2012
+            by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></p>
+        </div>
+
+    <div class="clearboth"><div class="line-block">
+<div class="line">动画主题里面</div>
+<div class="line-block">
+<div class="line">虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何</div>
+</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 8)</p>
+Line block ends without a blank line.</div>
+<p>却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式
+和显式动画。
+|  下图显示可以在上下文中指定图层几何的属性:
+|  <a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM-300x172.png" /></a></p>
+<div class="line-block">
+<div class="line">图层的 position 属性是一个 CGPoint</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 15)</p>
+Line block ends without a blank line.</div>
+<p>的值,它指定图层相当于它父图层的位置, 该值基于父图层的坐标系。
+|  图层的 bounds 属性是一个 CGRect
+的值,指定图层的大小(bounds.size)和图层的
+原点(bounds.origin)。当你重写图层的重画方法的时候,bounds
+的原点可以作为图形 上下文的原点。</p>
+<p>图层拥有一个隐式的 frame,它是 position,bounds,anchorPoint 和 transform
+属性 的一部分。设置新的 frame 将会相应的改变图层的 position 和 bounds
+属性,但是 frame 本身并没有被保存。但是设置新的 frame 时候,bounds
+的原点不受干扰,bounds 的大 小变为 frame 的大小,即
+bounds.size=frame.size。图层的位置被设置为相对于锚点 (anchor
+point)的适合位置。当你设置 frame 的值的时候,它的计算方式和 position、
+bounds、和 anchorPoint 的属性相关。</p>
+<div class="line-block">
+<div class="line">图层的 anchorPoint 属性是一个 CGPoint 值,它指定了一个基于图层 bounds</div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 30)</p>
+Line block ends without a blank line.</div>
+<p>的符 合位置坐标系的位置。锚点(anchor point)指定了 bounds 相对于 position
+的值,同
+时也作为变换时候的支点。锚点使用单元空间坐标系表示,(0.0,0.0)点接近图层
+的原点,而(1.0,1.0)是原点的对角点。改变图层的父图层的变换属性(如果存在
+的话)将会影响到 anchorPoint 的方向,具体变化取决于父图层坐标系的 Y 轴。
+|  当你设置图层的 frame 属性的时候,position
+会根据锚点(anchorPoint)相应的改 变,而当你设置图层的 position
+属性的时候,bounds 会根据锚点(anchorPoint)做相应 的改变。
+|  iOS 注意:以下示例描述基于 Mac OS X
+的图层,它的坐标系原点基于左下角。在 iOS 上面,
+图层的坐标系原点位于左上角,原点向下和向右为正值。这变化用具体数值显示,而不是概念描￼述。</p>
+</div>
+
+
+
+          </section>
+       </div>
+
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
+
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="#" target="_blank">You can add links in your config file&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Another social link&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/05/index.html">May 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/02/index.html">February 2013</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/12/index.html">December 2012</a></li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/05/index.html">May 2012</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/02/index.html">February 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/01/index.html">January 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/10/index.html">October 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/08/index.html">August 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/05/index.html">May 2011</a></li>
+      
+
+   </ul>
+</div>
+
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
+
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
+
+</body>
+
+</html>

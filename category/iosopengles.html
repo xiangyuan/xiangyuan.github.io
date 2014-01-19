@@ -1,178 +1,173 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-        <meta charset="utf-8" />
-        <title>85后那些年 - ios,opengles</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+<!doctype html>
+<html lang="en">
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+<head>
+
+    <title>Entries Category "ios,opengles" - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
 </head>
 
-<body id="index" class="home">
-<a href="http://xiangyuan.github.io">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
-</a>
-        <header id="banner" class="body">
-                <h1><a href="/">85后那些年 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/android.html">android</a></li>
-                    <li><a href="/category/ios.html">ios</a></li>
-                    <li><a href="/category/iosgong-ju.html">ios,工具</a></li>
-                    <li class="active"><a href="/category/iosopengles.html">ios,opengles</a></li>
-                    <li><a href="/category/linux.html">linux</a></li>
-                    <li><a href="/category/linux-c.html">linux c</a></li>
-                    <li><a href="/category/mac.html">mac</a></li>
-                    <li><a href="/category/macphp.html">mac,php</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
-                    <li><a href="/category/objc.html">objc</a></li>
-                    <li><a href="/category/openglesios.html">opengles,ios</a></li>
-                    <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/pythonios.html">python,ios</a></li>
-                    <li><a href="/category/sui-sui-nian.html">碎碎念</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<body>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/opengles20na-xie-shi-zhi.html">opengles2.0那些事之一</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2013-02-04T11:41:00">
-                Mon 04 February 2013
-        </abbr>
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
 
-        <address class="vcard author">
-                By <a class="url fn" href="/author/xiang-yuan.html">向远</a>
-        </address>
-<p>In <a href="/category/iosopengles.html">ios,opengles</a>. </p>
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
 
-</footer><!-- /.post-info --><div class="line-block">
-<div class="line">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。</div>
-<div class="line-block">
-<div class="line">至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。</div>
-<div class="line">在OpenGL</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 9)</p>
-Line block ends without a blank line.</div>
-<p>ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL
-ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES
-1.1的GL_OES_framebuffer_object扩展。
-|  帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil
-targets您还可以创建多个帧缓冲对象在一个单一context中，可能在帧缓冲区之间的资源共享。
-|  一般步骤：
-|  1、create the frame buffer
-|  2、create a frame buffer object
-|
-3、创建一个或多个的目标（renderbuffers或纹理），分配存储空间，并且将每个帧缓冲对象的连接点上。
-|  测试的framebuffer的完整性。</p>
-<div class="line-block">
-<div class="line">在ios上流程如下图。</div>
-<div class="line-block">
-<div class="line"><img alt="image0" src="https://photos-5.dropbox.com/t/0/AAAKRhPEqFRXpTB2zn8SYebvLMVaqsxjJTnkMn0mJg3cFg/12/125005714/jpeg/32x32/3/_/1/2/Photo%2012-12-27%2017%2008%2030.jpg/P5IfzzmBT2mRFE2kP_ZyKt9F4984yzsx5MIRXS0FZVQ?size=1024x768" /></div>
-</div>
-</div>
-<p>glcontext----》pipline处理---》render-----》vision</p>
-<div class="line-block">
-<div class="line">在es2.0中很重要的一个部分是顶点，下图是一个关于es20也是opengl的处理过程。</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/11.jpg"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2013/05/11-300x210.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">上图顶点shader可以完成</div>
-<div class="line-block">
-<div class="line">1、顶点转换</div>
-<div class="line">2、光照计算（per-vertex 色彩）</div>
-<div class="line">3、变换纹理坐标。</div>
-<div class="line">顶点shader属性如下图</div>
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/111.jpg"><img alt="image2" src="http://kingiol.com/bl/wp-content/uploads/2013/05/111-300x222.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">顶点的坐标需要转换，如下图</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/112.jpg"><img alt="image3" src="http://kingiol.com/bl/wp-content/uploads/2013/05/112-300x118.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">2。裁减空间</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/113.jpg"><img alt="image4" src="http://kingiol.com/bl/wp-content/uploads/2013/05/113-300x168.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">3、视口变换</div>
-<div class="line-block">
-<div class="line">4、光栅化(Rasterization)</div>
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/114.jpg"><img alt="image5" src="http://kingiol.com/bl/wp-content/uploads/2013/05/114-300x145.jpg" /></a></div>
-</div>
-</div>
-<p>vertex shader ---&gt;fragment shader 输出过程中的处理。</p>
-<div class="line-block">
-<div class="line">5、在三角形图元在光栅化之前，需要决定哪个是front-face 和back-face</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 51)</p>
-Line block ends without a blank line.</div>
-<p>,front-face面对观察者的
-|  <a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/115.jpg"><img alt="image6" src="http://kingiol.com/bl/wp-content/uploads/2013/05/115-300x131.jpg" /></a>
-|  使用glFrontFace(GLenum dir) 来决定是顺时针方向还是逆时针方向
-|  dir: GL_CW or GL_CCW default value is CL_CCW
-|  6、cull (去除光栅化操作面)
-|  glCullFace(GLenum mode)
-|  mode :选择GL_FRONT GL_BACK GL_FRONT_BACK 默认是gl_back
-|  cull操作需要开启 GL_CULL_FACE 开启glenable
-|  注意：防止GPU费时去光栅化不可见区域，开启cull操作</p>
-<p>上面是opengl的大体处理流程，其间还有一个东西就是buffer object
-data。还有一些光照，纹理等操作。后面再发文章。随后会发一个实例流程，来说明ios中的开发过程。</p>
-<div class="line-block">
-<div class="line">参考文章：</div>
-<div class="line"><br /></div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 65)</p>
-Line block ends without a blank line.</div>
-<p>1。官方http://developer.apple.com/library/ios/#documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/Introduction/Introduction.html
-|  2、大神 <a class="reference external" href="http://db-in.com/blog/">http://db-in.com/blog/</a>
-|  3、jeff blog :
-<a class="reference external" href="http://iphonedevelopment.blogspot.com/2010/11/opengl-es-20-for-ios-chapter-4.html">http://iphonedevelopment.blogspot.com/2010/11/opengl-es-20-for-ios-chapter-4.html</a></p>
-                </article>
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </aside><!-- /#featured -->
-            </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+    <h1 class="title">Entries Category “ios,opengles”</h1>        <article class="entry-overview">
+            <div class="date">Mon 04 February 2013</div>
+            <div class="detail">
+                <header><h3>
+                    <a href="http://xiangyuan.github.io/posts/2013/02/04/opengles20na-xie-shi-zhi/" rel="bookmark" title="Permalink to opengles2.0那些事之一">
+                        opengles2.0那些事之一
+                    </a>
+                </h3></header>
+                <div class="summary">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。 至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。 在OpenGL System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst, line 9) Line block ends without a blank line. ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES 1.1的GL_OES_framebuffer_object扩展。 | 帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil targets您还可以创建多个帧缓冲对象在一个单一context中，可能在帧缓冲区之间的资源共享。 | 一般步骤 ... <a href="http://xiangyuan.github.io/posts/2013/02/04/opengles20na-xie-shi-zhi/">read more</a></div>
+            </div>
+        </article>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+          </section>
+       </div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="#" target="_blank">You can add links in your config file&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Another social link&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2013/02/index.html">February 2013</a></li>
+      
+
+   </ul>
+</div>
+
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
+
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
 
 </body>
+
 </html>
