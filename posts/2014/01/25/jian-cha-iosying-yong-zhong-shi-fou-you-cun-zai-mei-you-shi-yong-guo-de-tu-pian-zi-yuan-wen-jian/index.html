@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>检查ios应用中是否有存在没有使用过的图片资源文件 - 85后那些年</title>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta name="author" content="向远" />
+    <meta name="dc.language" content="en" />
+    <meta name="dc.license" content="">
+
+    <!-- favicon -->
+    <link rel="icon" href="http://xiangyuan.github.io/theme/favicon.ico" type="image/x-icon">
+
+    <!-- newsfeeds -->
+        <link href="http://xiangyuan.github.io/feeds/index.xml" type="application/atom+xml" rel="alternate" title="85后那些年 Full Atom Feed" />
+        <link href="http://xiangyuan.github.io/rss/index.xml" type="application/rss+xml" rel="alternate" title="85后那些年 Full RSS Feed" />
+
+    <!-- assets -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+    <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/simplegrid.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/main.css" type="text/css">
+    <link rel="stylesheet" href="http://xiangyuan.github.io/theme/css/pygments.css" type="text/css">
+    <!--[if lt IE 8]>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+   <div class="grid grid-pad">
+     <div class="col-1-1">        
+       <ul id="mainnav">
+          <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
+       </ul>
+       <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
+       <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
+     </div>
+    </div>
+
+    <div class="grid grid-pad">
+       <div id="left-side" class="col-8-12">
+          <section id="content" class="hyphenate">
+
+    <h1 class="title">检查ios应用中是否有存在没有使用过的图片资源文件</h1>
+
+        <div class="date">
+            <p>written on Sat 25 January 2014
+            by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></p>
+        </div>
+
+    <div class="clearboth"><p>我在开发ios应用的时候，会添加很多图片资源文件进去，更多时候当是多人协作时，添加的图片资源有些可能会没有使用的到，然而被我们忽略了。</p>
+<p>然后我就用python写了一个脚本文件去查换一些没有使用的资源图片。在开始之前让我们先了解一下ack命令工具。</p>
+<div class="section" id="ack">
+<h2>ack 是一个非常高效的查换工具</h2>
+<p>可以查找文件中哪些地方使用了一些特殊指定的字符串
+比如</p>
+<pre class="literal-block">
+ack -i 'about'
+</pre>
+</div>
+<div class="section" id="install-ack-on-osx">
+<h2>Install ack on OSX</h2>
+<pre class="literal-block">
+brew install ack
+</pre>
+<ol class="arabic simple">
+<li>find命令查找出所有图片</li>
+<li>ack命令处理</li>
+<li>得出所有的无用图片资源文件</li>
+</ol>
+<pre class="literal-block">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# find no use image files
+#
+import os
+import subprocess
+# import shlex
+import pprint
+import glob
+
+path = '.'
+bundle = ''
+
+try:
+   f = glob.glob('*.xcodeproj')
+   if not f:
+           print &quot;can't find the xcode project&quot;
+                   exit(1)
+                       else:
+                               fname = f[0]
+                                       name, ext = os.path.splitext(fname)
+                                               path = path + os.path.sep + name
+                                               except:
+                                                   exit(1)
+                                                   # root = os.path.expanduser(path)
+                                                   os.chdir(path)
+                                                   print os.getcwd()
+
+                                                   # files = os.listdir(root)
+                                                   # print files
+                                                   result = []
+                                                   try:
+                                                       command = 'find . -name &quot;*.png&quot; -or -name &quot;*.jpg&quot; -or -name &quot;*.gif&quot; -or -name &quot;*.jpeg&quot;'
+                                                           r = subprocess.check_output(command, shell=True)
+                                                               lines = r.split('\n')
+                                                                   for line in lines:
+                                                                           fname = os.path.basename(line)
+                                                                                   c = fname.count('&#64;')
+                                                                                           if c &gt; 0:
+                                                                                                       name, _ = fname.split('&#64;')
+                                                                                                               else:
+                                                                                                                           name, ext = os.path.splitext(fname)
+                                                                                                                                   if name != '':
+                                                                                                                                               if not bundle:
+                                                                                                                                                               target = name
+                                                                                                                                                                           else:
+                                                                                                                                                                                           target = ''.join((bundle, name))
+                                                                                                                                                                                                       print target
+                                                                                                                                                                                                                   cmd = '/usr/local/bin/ack -i &quot;%s&quot;' % target
+                                                                                                                                                                                                                               c = subprocess.call(cmd, shell=True)
+                                                                                                                                                                                                                                           # p = subprocess.Popen(cmd, shell=True)
+                                                                                                                                                                                                                                                       # o, e = p.communicate()
+                                                                                                                                                                                                                                                                   if c == 1:
+                                                                                                                                                                                                                                                                                   result.append(target)
+                                                                                                                                                                                                                                                                                   except:
+                                                                                                                                                                                                                                                                                       raise
+
+                                                                                                                                                                                                                                                                                       print(&quot;===================\n&quot;)
+                                                                                                                                                                                                                                                                                       print(&quot;no used files&quot;)
+                                                                                                                                                                                                                                                                                       pprint.pprint(result)
+</pre>
+</div>
+</div>
+
+        <div class="tags">
+            <p>This entry was tagged on  
+                <a href="http://xiangyuan.github.io/tag/ios.html">#ios</a> and                 <a href="http://xiangyuan.github.io/tag/python.html">#python</a></p>
+        </div>
+
+
+          </section>
+       </div>
+
+       <div id="right-side" class="col-1-12">&nbsp;</div>
+       <div id="right-side" class="col-3-12">
+
+<div class="section-container">
+   <h3>Blogroll</h3>
+   <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
+      <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Social Network</h3>
+   <ul>
+      <li>
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
+           <i class="fa fa-globe fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
+        </a>
+      </li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Categories</h3>
+   <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Tags</h3>
+   <ul class="tagcloud">
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Feeds</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/feeds/index.xml" rel="alternate">atom feed <i class="fa fa-rss fa-fw"></i></a></li>
+      <li><a href="http://xiangyuan.github.io/rss/index.xml" rel="alternate">rss feed <i class="fa fa-rss-square fa-fw"></i></a></li>
+   </ul>
+</div>
+
+<div class="section-container">
+   <h3>Archives</h3>
+   <ul>
+      <li><a href="http://xiangyuan.github.io/archives.html">All Archives</a></li>
+    
+            <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/05/index.html">May 2013</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/02/index.html">February 2013</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/12/index.html">December 2012</a></li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/05/index.html">May 2012</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/02/index.html">February 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2012/01/index.html">January 2012</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
+      
+
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/10/index.html">October 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/08/index.html">August 2011</a></li>
+      
+
+            <li><a href="http://xiangyuan.github.io/posts/2011/05/index.html">May 2011</a></li>
+      
+
+   </ul>
+</div>
+
+          <div class="section-container" id="copyright">
+             <p>This Blog generated by <a href="http://getpelican.com/">Pelican</a> using <a href="https://github.com/habibillah/pujangga">Pujangga</a> theme. All content on this blog, unless stated otherwise, is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International license</a>.</p>
+          </div>
+       </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+ 
+
+    <script type="text/javascript" src="http://xiangyuan.github.io/theme/js/hyphenator.js"></script>
+    <script type="text/javascript">
+      Hyphenator.config({
+          donthyphenateclassname: 'docutils',
+          useCSS3hyphenation: true
+      });
+      Hyphenator.run();
+    </script>
+
+</body>
+
+</html>

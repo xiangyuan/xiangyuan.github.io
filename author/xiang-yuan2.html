@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -52,6 +53,76 @@
           <section id="content" class="hyphenate">
 
         <article class="entry-overview">
+            <div class="date">Mon 01 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/" rel="bookmark" title="Permalink to Removing NSLogs for distribution">
+                        Removing NSLogs for distribution
+                    </a>
+                </h2></header>
+
+                   <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
+
+
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Fri 22 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2013/03/22/fen-fan/" rel="bookmark" title="Permalink to 纷繁">
+                        纷繁
+                    </a>
+                </h2></header>
+
+                   <div class="summary">突然觉得人的一生非常短暂，而且人与人之间的差距。或是贫穷、或是富有，每个人都有自己要去做的一些事情。然而纷繁复杂的社会使那偶尔清静的一隅渐渐消逝。使得我们放下了好多曾经放在心上的事情也慢慢的被我们遗忘。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/emotion_feng_fan.rst, line 8) Line block ends without a blank line. 身边多了新的朋友、新的牵挂、新的责任，也让我们变得不知所挫。而且我相信人的一生说不定哪天就没有了，有很多的不平，很多的放不下在岁月中慢慢变淡。从而又进入了一个新的起点。 | 做一些没有做的事情就变得必要了，曾经自己觉得以后我们可以改变很多人，帮助很多人。岁月如河，随着时间的向前推移，那些让自己觉得是己任的东西太多被我们放下了。虽然我们不能改变世界，但我们可以改变自己。今天开始想做的事情一定去一件件的做完，就当作是死前的那种必要性的东西去看待。 | 没有人会在意你的不存在，因为或是没有被别人放在心上 ... <a href="http://xiangyuan.github.io/posts/2013/03/22/fen-fan/">read more</a></div>
+
+
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Fri 22 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2013/03/22/guan-yu-tu-xiang-maskyu-blendshi-xian-zhi/" rel="bookmark" title="Permalink to 关于图象mask与blend实现之一">
+                        关于图象mask与blend实现之一
+                    </a>
+                </h2></header>
+
+                   <div class="summary">1、关于使用 CGImageCreateWithMask(<#CGImageRef image#>, <#CGImageRefmask#>)来进行|| 掩码时。 情况一：第二个参数是用CGImageMaskCreate创建生成的 image mask。 那么就会是黑色部分出现，白色部分消失。 CGImageRef topRef = mask.CGImage; CGImageRef maskImage = CGImageMaskCreate(CGImageGetWidth(topRef), CGImageGetHeight(topRef), CGImageGetBitsPerComponent(topRef), CGImageGetBitsPerPixel(topRef), CGImageGetBytesPerRow(topRef), CGImageGetDataProvider(topRef), CGImageGetDecode(topRef), false); // CGImageRef target = CGImageCreateWithMask(origin.CGImage,maskImage); // UIImage \* image = [UIImage imageWithCGImage:target]; //release CGImageRelease(maskImage ... <a href="http://xiangyuan.github.io/posts/2013/03/22/guan-yu-tu-xiang-maskyu-blendshi-xian-zhi/">read more</a></div>
+
+
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Tue 05 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/" rel="bookmark" title="Permalink to ios项目中c++头文件找不到错误">
+                        ios项目中c++头文件找不到错误
+                    </a>
+                </h2></header>
+
+                   <div class="summary">我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。 但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/ios_cplusplus_header.rst, line 10) Line block ends without a blank line. found 编译错误。 | 解决办法如下： #include #ifdef __cplusplus #include #include #include #include #include #include #endif #ifdef __OBJC__ ... <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/">read more</a></div>
+
+
+            </div>
+        </article>
+        <article class="entry-overview">
+            <div class="date">Mon 25 February 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2013/02/25/imageiojie-shao/" rel="bookmark" title="Permalink to ImageIO介绍">
+                        ImageIO介绍
+                    </a>
+                </h2></header>
+
+                   <div class="summary">Image IO允许应用程序读写大部分图片文件格式。起初是作为Core Graphics 框架的一部分，后来独立出来，允许开发者操作图像数据且非常高效。读取图片属性，提供颜色管理。（此接口osx v10.4 ios4.0） Image I/O框架的特点： 1、mac平台最快的图像编码解码操作。 2、渐增的图片加载方式。 3、图片metadata信息的访问（ios不支持）。 4、有效的缓存。 下面是访问图片的exif等信息的事例操作。当然还可以通过asset library去操作。参考 通过io框架操作代码如下 //1.create the image source NSURL * imageURL = [[NSBundle mainBundle] URLForImageResource:@"test_img.JPG"]; CFDictionaryRef myOptions = NULL; CFStringRef myKeys[2]; myKeys ... <a href="http://xiangyuan.github.io/posts/2013/02/25/imageiojie-shao/">read more</a></div>
+
+
+            </div>
+        </article>
+        <article class="entry-overview">
             <div class="date">Mon 04 February 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
@@ -60,502 +131,14 @@
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="line-block">
-<div class="line">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。</div>
-<div class="line-block">
-<div class="line">至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。</div>
-<div class="line">在OpenGL</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 9)</p>
-Line block ends without a blank line.</div>
-<p>ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL
-ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES
-1.1的GL_OES_framebuffer_object扩展。
-|  帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil
-targets您还可以创建多个帧缓冲对象在一个单一context中，可能在帧缓冲区之间的资源共享。
-|  一般步骤：
-|  1、create the frame buffer
-|  2、create a frame buffer object
-|
-3、创建一个或多个的目标（renderbuffers或纹理），分配存储空间，并且将每个帧缓冲对象的连接点上。
-|  测试的framebuffer的完整性。</p>
-<div class="line-block">
-<div class="line">在ios上流程如下图。</div>
-<div class="line-block">
-<div class="line"><img alt="image0" src="https://photos-5.dropbox.com/t/0/AAAKRhPEqFRXpTB2zn8SYebvLMVaqsxjJTnkMn0mJg3cFg/12/125005714/jpeg/32x32/3/_/1/2/Photo%2012-12-27%2017%2008%2030.jpg/P5IfzzmBT2mRFE2kP_ZyKt9F4984yzsx5MIRXS0FZVQ?size=1024x768" /></div>
-</div>
-</div>
-<p>glcontext----》pipline处理---》render-----》vision</p>
-<div class="line-block">
-<div class="line">在es2.0中很重要的一个部分是顶点，下图是一个关于es20也是opengl的处理过程。</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/11.jpg"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2013/05/11-300x210.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">上图顶点shader可以完成</div>
-<div class="line-block">
-<div class="line">1、顶点转换</div>
-<div class="line">2、光照计算（per-vertex 色彩）</div>
-<div class="line">3、变换纹理坐标。</div>
-<div class="line">顶点shader属性如下图</div>
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/111.jpg"><img alt="image2" src="http://kingiol.com/bl/wp-content/uploads/2013/05/111-300x222.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">顶点的坐标需要转换，如下图</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/112.jpg"><img alt="image3" src="http://kingiol.com/bl/wp-content/uploads/2013/05/112-300x118.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">2。裁减空间</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/113.jpg"><img alt="image4" src="http://kingiol.com/bl/wp-content/uploads/2013/05/113-300x168.jpg" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">3、视口变换</div>
-<div class="line-block">
-<div class="line">4、光栅化(Rasterization)</div>
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/114.jpg"><img alt="image5" src="http://kingiol.com/bl/wp-content/uploads/2013/05/114-300x145.jpg" /></a></div>
-</div>
-</div>
-<p>vertex shader ---&gt;fragment shader 输出过程中的处理。</p>
-<div class="line-block">
-<div class="line">5、在三角形图元在光栅化之前，需要决定哪个是front-face 和back-face</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 51)</p>
-Line block ends without a blank line.</div>
-<p>,front-face面对观察者的
-|  <a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/115.jpg"><img alt="image6" src="http://kingiol.com/bl/wp-content/uploads/2013/05/115-300x131.jpg" /></a>
-|  使用glFrontFace(GLenum dir) 来决定是顺时针方向还是逆时针方向
-|  dir: GL_CW or GL_CCW default value is CL_CCW
-|  6、cull (去除光栅化操作面)
-|  glCullFace(GLenum mode)
-|  mode :选择GL_FRONT GL_BACK GL_FRONT_BACK 默认是gl_back
-|  cull操作需要开启 GL_CULL_FACE 开启glenable
-|  注意：防止GPU费时去光栅化不可见区域，开启cull操作</p>
-<p>上面是opengl的大体处理流程，其间还有一个东西就是buffer object
-data。还有一些光照，纹理等操作。后面再发文章。随后会发一个实例流程，来说明ios中的开发过程。</p>
-<div class="line-block">
-<div class="line">参考文章：</div>
-<div class="line"><br /></div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst</tt>, line 65)</p>
-Line block ends without a blank line.</div>
-<p>1。官方http://developer.apple.com/library/ios/#documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/Introduction/Introduction.html
-|  2、大神 <a class="reference external" href="http://db-in.com/blog/">http://db-in.com/blog/</a>
-|  3、jeff blog :
-<a class="reference external" href="http://iphonedevelopment.blogspot.com/2010/11/opengl-es-20-for-ios-chapter-4.html">http://iphonedevelopment.blogspot.com/2010/11/opengl-es-20-for-ios-chapter-4.html</a></p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 30 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/" rel="bookmark" title="Permalink to 拍照界面的定制">
-                        拍照界面的定制
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>下面是通AVFoundation进行图像摄取，然后定制所显示的界面</p>
-<div class="line-block">
-<div class="line">AVCaptureSession使用，参照官方文档。</div>
-<div class="line"><br /></div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst</tt>, line 11)</p>
-Line block ends without a blank line.</div>
-<p><a class="reference external" href="https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture">https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture</a>.html#//apple_ref/doc/uid/TP40010188-CH5-SW2</p>
-<div class="line-block">
-<div class="line">原理图</div>
-<div class="line-block">
-<div class="line"><img alt="image0" src="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Art/captureDetail.png" /></div>
-<div class="line">下面是效果图如下，比较的简陋。</div>
-</div>
-</div>
-<p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/01/Screenshot-2013.01.30-15.58.03.png"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2013/01/Screenshot-2013.01.30-15.58.03-200x300.png" /></a></p>
-<p>使用步骤；</p>
-<p>1、创建AVCaptureSesssion</p>
-<p>2、添加输入设备AVCaptureDeviceInput</p>
-<p>3、设置预览层</p>
-<pre class="literal-block">
-    _captureSession = [[AVCaptureSession alloc]init];
-    // Do any additional setup after loading the view, typically from a nib.
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if (device) {
-        NSError * error;
-        AVCaptureDeviceInput * deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&amp;error];
-        if (!error) {
-            if ([_captureSession canAddInput:deviceInput]) {
-                [_captureSession addInput:deviceInput];
-            } else {
-                NSLog(&#64;&quot;No input&quot;);
-            }
-        } else {
-            NSLog(&#64;&quot;device input encounter some error %&#64;&quot;,[error description]);
-        }
-    }
-    else
-        NSLog(&#64;&quot;no device input&quot;);
-
-    //2.add the device preview
-    _previewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:_captureSession];
-    [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-
-    //3. add the preview layer
-    CGRect frame = self.view.frame;
-    _previewLayer.frame = frame;
-//    _previewLayer.position =
-    [[self.view layer] addSublayer:_previewLayer];
-    [_previewLayer release];
-
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(80.f, 120.f, 100.f, 44.f);
-    [button addTarget:self action:&#64;selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:&#64;&quot;Capture&quot; forState:UIControlStateNormal];
-
-    [self.view addSubview:button];
-
-    [_captureSession startRunning];
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 21 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/" rel="bookmark" title="Permalink to apple个人开发者证书无线发布app的实现">
-                        apple个人开发者证书无线发布app的实现
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>apple个人开发者证书无线发布app的实现，也就是说不经过发布到app
-store，直接在ios设备上安装app，注：ios设备不需要越狱。</p>
-<p>之所以有这篇文章的产生，可以看这里：</p>
-<p>不通过App Store，在iOS设备上直接安装应用程序</p>
-<p>以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。</p>
-<p><a class="reference external" href="http://aaronparecki.com/articles/2011/01/21/1/how-to-distribute-your-ios-apps-over-the-air">具体参考下面文章</a></p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 16 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/" rel="bookmark" title="Permalink to mac下php相关配置文件">
-                        mac下php相关配置文件
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">昨天偶尔想用php写一个发http请求来写一个api。</div>
-<div class="line-block">
-<div class="line">结果HttpRequest类找不到。</div>
-</div>
-</div>
-<p>找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。</p>
-<pre class="literal-block">
-sudo find / php.ini
-</pre>
-<p>命令查找了一个居然没有这个文件。</p>
-<pre class="literal-block">
-php -i | less
-</pre>
-<p>用上述命令查看下.</p>
-<pre class="literal-block">
-Configuration File (php.ini) Path   /etc
-Loaded Configuration File   （none）
-Scan this dir for additional .ini files (none)
-Additional .ini files parsed    (none)
-</pre>
-<p>发现这个文件需要自己却创建一下.</p>
-<pre class="literal-block">
-cp php.ini.default php.ini
-</pre>
-<p>php.ini.default文件在/etc/目录下面，是一个默认的配置文件。需要把里面的display_error打开，否刚就不会出现错误信息在开发过程中。</p>
-<div class="line-block">
-<div class="line">回到最开始的问题，类找不到需要添加扩展。</div>
-<div class="line-block">
-<div class="line">phpinfo里面就可以发现下面这一项。</div>
-</div>
-</div>
-<pre class="literal-block">
-extension_dir   /usr/lib/php/extensions/no-debug-non-zts-20090626   /usr/lib/php/extensions/no-debug-non-zts-20090626
-</pre>
-<p>只xdebug.so扩展，添添加扩展。</p>
-<div class="line-block">
-<div class="line">在安装扩展时有一个命令pear</div>
-<div class="line-block">
-<div class="line">发现我的mac居然没有这个管理工具</div>
-</div>
-</div>
-<pre class="literal-block">
-/usr/lib/php/
-</pre>
-<div class="line-block">
-<div class="line">在上面目录下面install-pear-nozlib.phar 这个文件</div>
-<div class="line-block">
-<div class="line">运行下面命令就可以安装成功了</div>
-</div>
-</div>
-<pre class="literal-block">
-php install-pear-nozlib.phar
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Thu 27 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/" rel="bookmark" title="Permalink to lbs之两坐标点之间的距离">
-                        lbs之两坐标点之间的距离
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>在LBS应用中，需要知到两坐标点之间的距离，从而在手机应用中实现离自己多少距离的附近的人员。</p>
-<div class="line-block">
-<div class="line">计算方法从Haversine formula 这个公式得来。</div>
-<div class="line-block">
-<div class="line">查看wiki : <a class="reference external" href="http://en.wikipedia.org/wiki/Haversine_formula">Haversine公式</a></div>
-</div>
-</div>
-<p>下面写出的php实现，</p>
-<pre class="literal-block">
-public class LBS {
-    private $earthRadius = 6367000;
-
-    /*
-     * Using the Haversine formula
-     *
-     *http://en.wikipedia.org/wiki/Haversine_formula
-     * calculate the distance
-     */
-    public function getDistance($lant1,$lon1,$lant2,$lon2) {
-        $nDlat = ($lant1 - $lant2) * pi() / 180;
-        $nDlon = ($lon1 - $lon2) * pi() / 180;
-
-        $nA = pow (sin($nDlat / 2),2) + cos($nDlat) * cos($nDlat) * pow(sin($nDlon / 2),2);
-
-        $nC = 2 * atan(sqrt($nA),sqrt(1 - $nA));
-        $nD = $earthRadius * $nC;
-        return $nD;
-    }
-}
-</pre>
-<p>就可以计算地球上面两个位置点之间的距离。</p>
-<div class="line-block">
-<div class="line">现在引起另外一问题，如果数据量大时，查找附近人的方法。网上有专门介绍方法的。参见。|  <a class="reference external" href="http://tech.idv2.com/2011/07/05/geohash-intro/">查找附近人的方法</a></div>
-</div>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 26 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/" rel="bookmark" title="Permalink to 使用他人app里面图片">
-                        使用他人app里面图片
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/extract_other_app_images.rst</tt>, line 2)</p>
-<p>Title underline too short.</p>
-<pre class="literal-block">
-使用他人app里面图片
-##################
-</pre>
-</div>
-<p>有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取</p>
-<p>1、首先在itunes里面打开ipa包。</p>
-<p>2、使用归档工具解压查看。</p>
-<div class="line-block">
-<div class="line">3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush</div>
-<div class="line-block">
-<div class="line">使用方法为</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">$ /Applications/Xcode.app/Contents/Developer\</div>
-<div class="line-block">
-<div class="line">/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush \</div>
-<div class="line">-revert-iphone-optimizations -q xx.png xx_revert.png</div>
-</div>
-</div>
-<p>就可以将图片还原。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 19 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/19/tu-ceng-ji-he-wen-dang/" rel="bookmark" title="Permalink to 图层几何(文档)">
-                        图层几何(文档)
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">动画主题里面</div>
-<div class="line-block">
-<div class="line">虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 8)</p>
-Line block ends without a blank line.</div>
-<p>却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式
-和显式动画。
-|  下图显示可以在上下文中指定图层几何的属性:
-|  <a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/Screen-Shot-2012-12-19-at-9.04.31-AM-300x172.png" /></a></p>
-<div class="line-block">
-<div class="line">图层的 position 属性是一个 CGPoint</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 15)</p>
-Line block ends without a blank line.</div>
-<p>的值,它指定图层相当于它父图层的位置, 该值基于父图层的坐标系。
-|  图层的 bounds 属性是一个 CGRect
-的值,指定图层的大小(bounds.size)和图层的
-原点(bounds.origin)。当你重写图层的重画方法的时候,bounds
-的原点可以作为图形 上下文的原点。</p>
-<p>图层拥有一个隐式的 frame,它是 position,bounds,anchorPoint 和 transform
-属性 的一部分。设置新的 frame 将会相应的改变图层的 position 和 bounds
-属性,但是 frame 本身并没有被保存。但是设置新的 frame 时候,bounds
-的原点不受干扰,bounds 的大 小变为 frame 的大小,即
-bounds.size=frame.size。图层的位置被设置为相对于锚点 (anchor
-point)的适合位置。当你设置 frame 的值的时候,它的计算方式和 position、
-bounds、和 anchorPoint 的属性相关。</p>
-<div class="line-block">
-<div class="line">图层的 anchorPoint 属性是一个 CGPoint 值,它指定了一个基于图层 bounds</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst</tt>, line 30)</p>
-Line block ends without a blank line.</div>
-<p>的符 合位置坐标系的位置。锚点(anchor point)指定了 bounds 相对于 position
-的值,同
-时也作为变换时候的支点。锚点使用单元空间坐标系表示,(0.0,0.0)点接近图层
-的原点,而(1.0,1.0)是原点的对角点。改变图层的父图层的变换属性(如果存在
-的话)将会影响到 anchorPoint 的方向,具体变化取决于父图层坐标系的 Y 轴。
-|  当你设置图层的 frame 属性的时候,position
-会根据锚点(anchorPoint)相应的改 变,而当你设置图层的 position
-属性的时候,bounds 会根据锚点(anchorPoint)做相应 的改变。
-|  iOS 注意:以下示例描述基于 Mac OS X
-的图层,它的坐标系原点基于左下角。在 iOS 上面,
-图层的坐标系原点位于左上角,原点向下和向右为正值。这变化用具体数值显示,而不是概念描￼述。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 18 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/18/ios-ge-qi-pao-liao-tian-ye-mian/" rel="bookmark" title="Permalink to ios一个汽泡聊天页面">
-                        ios一个汽泡聊天页面
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">效果如图所示。</div>
-</div>
-<img alt="chat Screenshot" class="image" src="images/Screenshot.png" style="width: 200px; height: 300px;" />
-<p><a class="reference external" href="https://github.com/xiangyuan/BubbleMsg">项目地址：https://github.com/xiangyuan/BubbleMsg</a></p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 05 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/" rel="bookmark" title="Permalink to cocos2d中与ios中加载custom fonts">
-                        cocos2d中与ios中加载custom fonts
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst</tt>, line 5)</p>
-Field list ends without a blank line; unexpected unindent.</div>
-<p>:category:ios</p>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://www.webpagepublicity.com/free-fonts.html#FreeFonts">下载免费字体</a></div>
-<div class="line-block">
-<div class="line">加载客户字体的一般步骤为</div>
-</div>
-</div>
-<ol class="arabic simple">
-<li>将ttf字体文件加入到工程资源文件中，确保在bundle里面可以找到。</li>
-<li>向工程的Info.Plist文件中添加UIAppFonts的键值。</li>
-<li>向2中的键值里面添加array对象的fonts名字。</li>
-<li>保存Info.Plist文件。</li>
-</ol>
-<div><p>可以通过如下方式进行文字使用。</p>
-</div><div></div><pre class="literal-block">
-[_mLabel setFont:[UIFont fontWithName:&#64;&quot;Alpha Romanie Outline G98&quot; size:20]];
-[_mLabel setText:&#64;&quot;What Happened&quot;];
-</pre>
-<div class="line-block">
-<div class="line">特别注意。</div>
-<div class="line-block">
-<div class="line">在上面操作过程中，[UIFont fontWithName:&#64;&quot;Alpha Romanie Outline G98&quot;</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst</tt>, line 41)</p>
-Line block ends without a blank line.</div>
-<p>size:20]]加载使用的名字并不是文件的名字。
-|  真实名可以通过双击ttf文件可以看到。否则就会加载不成功。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/iossuo-you-zhi-chi-de-zi-xing-ming-cheng-yi-ji-xiang-guan-yang-shi/" rel="bookmark" title="Permalink to ios所有支持的字型名称以及相关样式">
-                        ios所有支持的字型名称以及相关样式
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>发现一个很不错的东东</p>
-<p>对比所有的ios字体样式。</p>
-<p>如图：</p>
-<p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/t.jpg"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/t-300x167.jpg" /></a></p>
-<p>连接地址&nbsp;<a class="reference external" href="http://iosfonts.com/">http://iosfonts.com/</a></p>
-</div>
+                   <div class="summary">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。 至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。 在OpenGL System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/opengles2.0_one.rst, line 9) Line block ends without a blank line. ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES 1.1的GL_OES_framebuffer_object扩展。 | 帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil targets您还可以创建多个帧缓冲对象在一个单一context中 ... <a href="http://xiangyuan.github.io/posts/2013/02/04/opengles20na-xie-shi-zhi/">read more</a></div>
 
 
             </div>
         </article>
 <p class="paginator">
         <a href="http://xiangyuan.github.io/author/xiang-yuan.html">&laquo;</a>
-    Page 2 / 5
+    Page 2 / 9
         <a href="http://xiangyuan.github.io/author/xiang-yuan3.html">&raquo;</a>
 </p>
 
@@ -568,10 +151,10 @@ Line block ends without a blank line.</div>
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -579,13 +162,18 @@ Line block ends without a blank line.</div>
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -594,18 +182,21 @@ Line block ends without a blank line.</div>
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -615,6 +206,8 @@ Line block ends without a blank line.</div>
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -646,6 +239,8 @@ Line block ends without a blank line.</div>
 
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
       
 
@@ -659,8 +254,6 @@ Line block ends without a blank line.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -710,7 +303,6 @@ Line block ends without a blank line.</div>
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -730,6 +322,8 @@ Line block ends without a blank line.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

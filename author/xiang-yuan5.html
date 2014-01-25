@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -52,306 +53,93 @@
           <section id="content" class="hyphenate">
 
         <article class="entry-overview">
-            <div class="date">Thu 03 May 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/" rel="bookmark" title="Permalink to JWfolder列表展开时问题修正">
-                        JWfolder列表展开时问题修正
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/" rel="bookmark" title="Permalink to 小总结--2012-4-24">
+                        小总结--2012-4-24
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p><a href="#id1"><span class="problematic" id="id2">``</span></a>_</p>
-<div class="system-message" id="id1">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst</tt>, line 8); <em><a href="#id2">backlink</a></em></p>
-Inline literal start-string without end-string.</div>
-<div class="line-block">
-<div class="line">这是一个可展开示例</div>
-<div class="line-block">
-<div class="line"><img alt="image0" src="https://a248.e.akamai.net/camo.github.com/ade2f6e0148967944bc32a363765972ff8467355/687474703a2f2f7777772e6170706a6f6e2e636f6d2f6173736574732f6769746875622f6a77666f6c646572735f717569636b776561746865722e706e67" /></div>
-</div>
-</div>
-<p>但在使用到tableview里面操作时却会出现 重叠问题</p>
-<p>解决办法</p>
-<pre class="literal-block">
-UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-        CGFloat y = cell.frame.origin.y;
-        CGFloat varY = abs(y - tableView.contentOffset.y);
-        if (varY &gt; 316.f) {
-           CGPoint point =  CGPointMake(tableView.contentOffset.x, tableView.contentOffset.y + 80.f);
-            [tableView setContentOffset:point animated:NO];
-        }
-        CGFloat y1 = cell.center.y;
-        CGFloat offset = tableView.contentOffset.y;
-        CGFloat deltaY = y1 - offset;
-        if (deltaY &lt; 156) {
-            deltaY += 83.f;
-            CGPoint openPoint = CGPointMake(0, deltaY); //arbitrary point
-            JWFolders *folder = [JWFolders folder];
-            folder.contentView = controller.view;
-            folder.containerView = self.view;
-            folder.position = openPoint;
-            folder.direction = JWFoldersOpenDirectionDown;
-            folder.transparentPane = NO;
-            [folder open];
-        } else {
-            deltaY += 83.f;
-            CGPoint openPoint = CGPointMake(0, deltaY);
-            [JWFolders openFolderWithContentView:controller.view
-                                        position:openPoint
-                                   containerView:self.view
-                                       openBlock:^(UIView *contentView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction) {
-                                           //perform custom animation here on contentView if you wish
-
-                                           [controller changeData];
-
-                                       }
-                                      closeBlock:^(UIView *contentView, CFTimeInterval duration, CAMediaTimingFunction *timingFunction) {
-
-                                      }
-                                 completionBlock:^ {
-                                     //the folder is closed and gone, lets do something cool!
-                                 }
-                                       direction:JWFoldersOpenDirectionUp
-             ];
-        }
-</pre>
-<!-- _: https://github.com/jwilling/JWFolders.git -->
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst</tt>, line 61)</p>
-malformed hyperlink target.</div>
-</div>
+                   <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst, line 6) Field list ends without a blank line; unexpected unindent. :category:碎碎念 回首过去的一年，从一个青涩的实习生慢慢走来。如今变成了一个某中意义上的老员工、 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst, line 9) Line block ends without ... <a href="http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Wed 29 February 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/02/29/tian-qi-yu-bao-zu-jian/" rel="bookmark" title="Permalink to 天气预报组件">
-                        天气预报组件
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/" rel="bookmark" title="Permalink to ios中使用google voice">
+                        ios中使用google voice
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>一个天气显示组件，显示城市地址，图片 温度 具体时间</p>
-<div class="line-block">
-<div class="line">如图</div>
-<div class="line-block">
-<div class="line"><img alt="天气" src="https://raw.github.com/xiangyuan/weathElement/master/Screenshot.png" /></div>
-</div>
-</div>
-<p>项目地址：</p>
-<p><a class="reference external" href="https://github.com/xiangyuan/weathElement">项目地址</a></p>
-</div>
+                   <div class="summary">现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。 缺点： 1、精确度不够。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_google_voice.rst, line 11) Line block ends without a blank line. 2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。 | 3、使用的是sbjson框架解析json数据，速度慢。 | 4、你的工程编译linker参数里面不能加 -all_load 不然就会引起相当大的问题。 以下使用的google voice的api是网上chrome的语音识别的api。 优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。 你可以将你的数据发到你自己的服务端 然后再转到google上去。 地址在我的bitbucket上面 地址在我的bitbucket上面 <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 30 January 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/" rel="bookmark" title="Permalink to viewcontroller 生命周期">
-                        viewcontroller 生命周期
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/iosxia-shi-xian-lei-si-wei-xin-lu-yin-shi-de-ui/" rel="bookmark" title="Permalink to ios下实现类似微信录音时的ui">
+                        ios下实现类似微信录音时的ui
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="line-block">
-<div class="line">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系</div>
-<div class="line-block">
-<div class="line">init方法</div>
-<div class="line">在init方法中实例化必要的对象（遵从LazyLoad思想）</div>
-<div class="line">init方法中初始化ViewController本身</div>
-<div class="line">loadView方法</div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst</tt>, line 9)</p>
-Line block ends without a blank line.</div>
-<p>当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。
-|  如果手工维护views，必须重写该方法
-|  如果使用IB维护views，必须不能重写该方法
-|  loadView和IB构建view
-|  viewDidLoad方法
-|  重写该方法以进一步定制view
-|  在iPhone OS
-3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引
-|  viewDidLoad后调用数据Model
-|  viewDidUnload方法
-|  当系统内存吃紧的时候会调用该方法（注：viewController没有被dealloc）
-|  内存吃紧时，在iPhone OS
-3.0之前didReceiveMemoryWarning是释放无用内存的唯一方式，但是OS
-3.0及以后viewDidUnload方法是更好的方式
-|
-在该方法中将所有IBOutlet（无论是property还是实例变量）置为nil（系统release
-view时已经将其release掉了）
-|
-在该方法中释放其他与view有关的对象、其他在运行时创建（但非系统必须）的对象、在viewDidLoad中被创建的对象、缓存数据等
-|  release对象后，将对象置为nil（IBOutlet只需要将其置为nil，系统release
-view时已经将其release掉了）
-|
-一般认为viewDidUnload是viewDidLoad的镜像，因为当view被重新请求时，viewDidLoad还会重新被执行
-|
-viewDidUnload中被release的对象必须是很容易被重新创建的对象（比如在viewDidLoad或其他方法中创建的对象），不要release用户数据或其他很难被重新创建的对象
-|  dealloc方法
-|  viewDidUnload和dealloc方法没有关联，dealloc还是继续做它该做的事情
-|  举例：</p>
-<pre class="literal-block">
-/*
- *The viewhierarchy forthis controller has been torn down. This usually happens inresponse tolow memory notifications.
- *All IBOutlets should be released bysetting their propertytonil inorder tofree upasmuch memory aspossible.
- *This isalso a good place torelease other variables thatcan be recreated when needed.
- */
--(void)viewDidUnload {
-    self.startButton =nil;
-    [setupViewController release];
-    setupViewController =nil;
-}
--(void)dealloc {
-    [startButton release];
-    [setupViewController release];
-    [super dealloc];
-}
-</pre>
-<p>转自：<a class="reference external" href="http://xyxdasnjss.iteye.com/blog/1563926">http://xyxdasnjss.iteye.com/blog/1563926</a></p>
-</div>
+                   <div class="summary">不说废话直接上图 下面进度的显示是使用的一个进度条 然后进行重新定制而产生的。 还可以通过图片来完成。 下面是github地址 github地址 <a href="http://xiangyuan.github.io/posts/2012/12/03/iosxia-shi-xian-lei-si-wei-xin-lu-yin-shi-de-ui/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Thu 03 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/" rel="bookmark" title="Permalink to oc消息转发">
-                        oc消息转发
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-da-yin-shi-tu-de-zi-shi-tu/" rel="bookmark" title="Permalink to ios中打印视图的子视图">
+                        ios中打印视图的子视图
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="section" id="id1">
-<h2>消息转发流程</h2>
-<p>当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message
-forwarding)流程开始启动。</p>
-<ol class="arabic">
-<li><p class="first">动态方法解析(Dynamic Method Resolution或Lazy method resolution)</p>
-<p>向当前类(Class)发送<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/clm/NSObject/resolveInstanceMethod:">resolveInstanceMethod:</a>(对于类方法则为`resolveClassMethod:<a href="#id2"><span class="problematic" id="id3">`</span></a>_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。</p>
-<div class="system-message" id="id2">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst</tt>, line 16); <em><a href="#id3">backlink</a></em></p>
-<p>Inline interpreted text or phrase reference start-string without end-string.</p>
-</div>
-</li>
-<li><p class="first">快速转发路径(Fast forwarding path)</p>
-<p>若果当前target实现了<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/instm/NSObject/forwardingTargetForSelector:">forwardingTargetForSelector:</a>方法,则调用此方法。如果此方法返回除nil和self的其他对象，则向返回对象重新发送消息。</p>
-</li>
-<li><p class="first">慢速转发路径(Normal forwarding path)</p>
-<p>首先runtime发送<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/instm/NSObject/methodSignatureForSelector:">methodSignatureForSelector:</a>消息查看Selector对应的方法签名，即参数与返回值的类型信息。如果有方法签名返回，runtime则根据方法签名创建描述该消息的<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSInvocation_Class/Reference/Reference.html">NSInvocation</a>，向当前对象发送<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/instm/NSObject/forwardInvocation:">forwardInvocation:</a>消息，以创建的NSInvocation对象作为参数；若methodSignatureForSelector:无方法签名返回，则向当前对象发送<a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/instm/NSObject/doesNotRecognizeSelector:">doesNotRecognizeSelector:</a>消息,程序抛出异常退出。</p>
-</li>
-</ol>
-</div>
-</div>
+                   <div class="summary">ios中有时想看uikit里面类里所带的所有子视图 以便我们重新定制 因为定制方式有： 1、重合，多个组件的重新组合来达到目标。 2、继承uikit里面的组件进新重新添加。 3、继承uikit组件然后再重画 所以就有看的需求。 NSString* getFullClassDescription(Class klass) { NSString *description = [klass description]; while ([klass superclass]) { klass = [klass superclass]; description = [description stringByAppendingFormat:@":%@", [klass description]]; } return description; } void dumpViews(UIView* view, NSString *label, NSString *indent) { Class klass = [view class]; NSString *classDescription = getFullClassDescription(klass); if ([label ... <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-da-yin-shi-tu-de-zi-shi-tu/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Thu 03 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2011/11/03/macxia-ge-chu-li-plistwen-jian-de-gong-ju/" rel="bookmark" title="Permalink to mac下一个处理plist文件的工具">
-                        mac下一个处理plist文件的工具
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/" rel="bookmark" title="Permalink to android应用中实现drag listview">
+                        android应用中实现drag listview
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="line-block">
-<div class="line">mac下一个处理plist文件的工具位于</div>
-<div class="line-block">
-<div class="line">/usr/libexec/PlistBuddy 工具</div>
-</div>
-</div>
-</div>
+                   <div class="summary">一些应用在拖动一个列表项时会浮现一个小图片用于代表当前拖动的列表项 核心代码如下。 //自定义ListView，准备改造成自己想要的ListView //这样的好处是我们不仅可以直接使用ListView很多现成的稳定的方法，而且可以重写方法改写ListView的行为（利用的是java面向对象的继承特性，本人喜欢在任何代码中分析面向对象的特性、原则和模式） public class DragListView extends ListView { private static final String TAG = DragListView.class.getSimpleName(); /** * 被拖拽项的影像，其实就是一个ImageView * */ private ImageView dragImageView; private int dragPointX;//手指拖动的位置坐标 private int dragPointY; private int dragOffsetX;//拖动影像与手指拖动位置的偏移 private int dragOffsetY; private int dragDownX;//手指开始拖拽的起始点x坐标 private WindowManager windowManager;// windows窗口控制类 private ... <a href="http://xiangyuan.github.io/posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 October 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2011/10/02/ios-fa-urlqing-qiu-shi-zhu-yi/" rel="bookmark" title="Permalink to ios 发url请求时注意">
-                        ios 发url请求时注意
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/python-vim/" rel="bookmark" title="Permalink to python+vim 开发环境">
+                        python+vim 开发环境
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>今天在做自动补全请求时出现下面错误</p>
-<pre class="literal-block">
-Error Domain=NSURLErrorDomain Code=-1000 &quot;bad URL&quot;
-</pre>
-<p>后来发现，是因为url地址里面需要将中文字符转换下</p>
-<p>得用下面方法处理</p>
-<pre class="literal-block">
-NSString *properlyEscapedURL = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-</pre>
-<p>以此记录</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 02 August 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/" rel="bookmark" title="Permalink to linux多定时器实现">
-                        linux多定时器实现
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>这是一个小小的开源项目，实现linux上的多定时器，在我的博客里面也提过一篇关于定时器的文章。</p>
-<p>项目地址：</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>_</p>
-<div class="system-message" id="id1">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst</tt>, line 11); <em><a href="#id2">backlink</a></em></p>
-Inline literal start-string without end-string.</div>
-<!-- _: https://github.com/xiangyuan/multitimer%20 -->
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst</tt>, line 13)</p>
-malformed hyperlink target.</div>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 03 May 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2011/05/03/object-c-qu-diao-wei-bu-fu-hao/" rel="bookmark" title="Permalink to object c 去掉尾部符号">
-                        object c 去掉尾部符号
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><pre class="literal-block">
-NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
-//    NSString *nStr = &#64;&quot;~`!&#64;#$%^&amp;*;:\&quot;',.?&quot;;
-    NSMutableCharacterSet *set = [[NSMutableCharacterSet alloc] init];
-   [set formUnionWithCharacterSet:[NSCharacterSet lowercaseLetterCharacterSet]];//小写字母
-    NSLog(&#64;&quot;1 %&#64;&quot;,[str stringByTrimmingCharactersInSet:set]);
-   [set formUnionWithCharacterSet:[NSCharacterSet uppercaseLetterCharacterSet]];//大写字母
-    NSLog(&#64;&quot;2 %&#64;&quot;,[str stringByTrimmingCharactersInSet:set]);
-   [set formUnionWithCharacterSet:[NSCharacterSet symbolCharacterSet]];//符号
-     NSLog(&#64;&quot;3 %&#64;&quot;,[str stringByTrimmingCharactersInSet:set]);
-    [set formUnionWithCharacterSet:[NSCharacterSet punctuationCharacterSet]];//标点
-    NSLog(&#64;&quot;4 %&#64;&quot;,[str stringByTrimmingCharactersInSet:set]);
-</pre>
-</div>
+                   <div class="summary">Vim as a PHP IDE This Vim configuration is meant to be used to make Vim act more like System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/python_vim.rst, line 9) Line block ends without a blank line. an IDE. I use it mostly under MacVIM ... <a href="http://xiangyuan.github.io/posts/2012/12/03/python-vim/">read more</a></div>
 
 
             </div>
         </article>
 <p class="paginator">
         <a href="http://xiangyuan.github.io/author/xiang-yuan4.html">&laquo;</a>
-    Page 5 / 5
+    Page 5 / 9
+        <a href="http://xiangyuan.github.io/author/xiang-yuan6.html">&raquo;</a>
 </p>
 
           </section>
@@ -363,10 +151,10 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -374,13 +162,18 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -389,18 +182,21 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -410,6 +206,8 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -441,6 +239,8 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
 
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
       
 
@@ -454,8 +254,6 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -505,7 +303,6 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -525,6 +322,8 @@ NSString * str = &#64;&quot;今天你还，好吗&#64;？￥＃￥&quot;;
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -52,455 +53,92 @@
           <section id="content" class="hyphenate">
 
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Wed 05 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/wen-jian-xia-zai-shi-hui-yong-dao-de-httpxie-yi-she-zhi/" rel="bookmark" title="Permalink to 文件下载时会用到的http协议设置">
-                        文件下载时会用到的http协议设置
+                    <a href="http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/" rel="bookmark" title="Permalink to cocos2d中与ios中加载custom fonts">
+                        cocos2d中与ios中加载custom fonts
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="line-block">
-<div class="line">http协议中的应答头 说明</div>
-<div class="line-block">
-<div class="line">1.Allow 服务器支持哪些请求方法（如GET、POST等）。</div>
-<div class="line">2.Content-Encoding</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/http_protocol.rst</tt>, line 8)</p>
-Line block ends without a blank line.</div>
-<p>文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档
-的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE
-4、IE
-5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-
-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。
-|  3.Content-Length
-表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入
-ByteArrayOutputStram，完成后查看其大小，然后把该值放入Content-Length头，最后通过
-byteArrayStream.writeTo(response.getOutputStream()发送内容。
-|  4.Content-Type
-表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置
-Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。
-|  5.Date
-当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。
-|  6.Expires 应该在什么时候认为文档已经过期，从而不再缓存它？
-|  7.Last-Modified
-文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文
-档才会返回，否则返回一个304（Not
-Modified）状态。Last-Modified也可用setDateHeader方法来设置。
-|  8.Location
-表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。
-|  9.Refresh
-表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader(“Refresh”,
-“5; URL=http://host/path”)让浏览器读取指定的页面。
-|  注意这种功能通常是通过设置HTML页面HEAD区的＜META HTTP-EQUIV=”Refresh”
-CONTENT=”5;URL=http://host/path”＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的
-HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。</p>
-<p>而上面提到的MIME类型(Multipurpose Internet Mail Extensions 简称MIME
-多用途互联网络电子邮件格式的扩展):通常有application/msexcel
-application/msword application/x-msdownload application/mspowerpoint
-application/xml等.</p>
-</div>
+                   <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/coacos2d_ios_custom_fonts.rst, line 5) Field list ends without a blank line; unexpected unindent. :category:ios 下载免费字体 加载客户字体的一般步骤为 将ttf字体文件加入到工程资源文件中，确保在bundle里面可以找到。 向工程的Info.Plist文件中添加UIAppFonts的键值。 向2中的键值里面添加array对象的fonts名字。 保存Info.Plist文件。 可以通过如下方式进行文字使用。 [_mLabel setFont:[UIFont fontWithName:@"Alpha Romanie Outline G98" size:20]]; [_mLabel setText:@"What ... <a href="http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/androidquan-xian-jian-cha/" rel="bookmark" title="Permalink to android权限检查">
-                        android权限检查
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/iossuo-you-zhi-chi-de-zi-xing-ming-cheng-yi-ji-xiang-guan-yang-shi/" rel="bookmark" title="Permalink to ios所有支持的字型名称以及相关样式">
+                        ios所有支持的字型名称以及相关样式
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>1、checkpermission部分写到服务端的是：</p>
-<div class="line-block">
-<div class="line">writeInterfaceToken --&gt;&gt; android.app.IActivityManager</div>
-<div class="line-block">
-<div class="line">writeString---&gt; permission 字符串</div>
-<div class="line">writeInt --&gt;pid</div>
-<div class="line">writeInt --&gt;uid</div>
-<div class="line">写过去的code是Check_permission_transcation</div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/android_permission_check.rst</tt>, line 10)</p>
-Line block ends without a blank line.</div>
-<p>2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值
-|  只要分别是哪一个值就可以读取相关的值(理论)</p>
-<p>3、下面做验证</p>
-<p>从一些错误信息如下来看code是53</p>
-<pre class="literal-block">
-PID: 5165, UID: 10046
-D/android.app.IActivityManager
-Writing exception to parcel
-E/DatabaseUtils(2622): java.lang.SecurityException: Permission Denial: reading com.android.providers.contacts.ContactsProvider2 uri content://com.android.contacts/contacts from pid=5165, uid=10046 requires android.permission.READ_CONTACTS
-E/DatabaseUtils(2622):      at android.content.ContentProvider$Transport.enforceReadPermission(ContentProvider.java:295)
-E/DatabaseUtils(2622):      at android.content.ContentProvider$Transport.query(ContentProvider.java:177)
-</pre>
-</div>
+                   <div class="summary">发现一个很不错的东东 对比所有的ios字体样式。 如图： 连接地址 http://iosfonts.com/ <a href="http://xiangyuan.github.io/posts/2012/12/03/iossuo-you-zhi-chi-de-zi-xing-ming-cheng-yi-ji-xiang-guan-yang-shi/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/androidyuan-ma-xia-bian-yi-zi-you-gong-cheng-tong-yong-makemo-ban/" rel="bookmark" title="Permalink to android源码下编译自有工程通用make模板">
-                        android源码下编译自有工程通用make模板
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/" rel="bookmark" title="Permalink to cocos2d之入门">
+                        cocos2d之入门
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>android 源码下建立自有工程下编译</p>
-<p>1、source build/envsetup.sh</p>
-<p>下面列出一个通用makefile模板</p>
-<pre class="literal-block">
-# This makefile supplies the rules for building a library of JNI code for
-
-# use by our example of how to bundle a shared library with an APK.
-
-LOCAL_PATH:= $(call my-dir)
-
-tw_module_tags := eng debug
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE_TAGS := $(tw_module_tags)
-
-# This is the target being built.
-LOCAL_MODULE:= libmyhello
-
-#the target platform
-#TARGET_PLATFORM := android-4
-# All of the source files that we will compile.
-LOCAL_SRC_FILES:= \
-com_wonder_MyJniAppActivity.h calllocal.c
-#system lib to use log
-#LOCAL_LDLIBS+= -L$(SYSROOT)/system/lib -llog
-# All of the shared libraries we link against.
-LOCAL_SHARED_LIBRARIES := \
-liblog
-
-# No static libraries.
-LOCAL_STATIC_LIBRARIES :=
-# Also need the JNI headers.
-LOCAL_C_INCLUDES += \
-$(JNI_H_INCLUDE)
-
-LOCAL_ARM_MODE := arm
-# No special compiler flags.
-LOCAL_CFLAGS +=
-
-# Don't prelink this library. For more efficient code, you may want
-# to add this library to the prelink map and set this to true. However,
-# it's difficult to do this for applications that are not supplied as
-# part of a system image.
-
-LOCAL_PRELINK_MODULE := false
-
-include $(BUILD_SHARED_LIBRARY)
-</pre>
-</div>
+                   <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/cocos2d_tutorail.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:cocos2d cocos2d中核心以前关键的一些类别 像是现实如下的电影流程 导演---》场景--》各种层--》然后加杂着一些动作 CCDirector 切换场景 存储cocos2d配置信息 访问视图（uiview opengl等） 暂停、恢复和终止游戏 uikit与opengl坐标之间的转换。 这个类在整个框架里面像是一个mediator模式。 第二个概念 CCSecene 包括很多layer元素 综合就构成了一个场景 然后会有ccsprite精灵。 还有一些文字。 菜单等 ... <a href="http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/android-iotcl/" rel="bookmark" title="Permalink to android iotcl">
-                        android iotcl
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa/" rel="bookmark" title="Permalink to ios Image裁剪成圆形的方法">
+                        ios Image裁剪成圆形的方法
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="line-block">
-<div class="line">1、注入进程的libbinder中的hook的ioctl方法</div>
-<div class="line-block">
-<div class="line">应该是在framewords/base/libs/binder IPCThreadState.cpp中</div>
-</div>
-</div>
-<p>基中在talkWithDriver的发送方法里所调用的ioctl方法。</p>
-<p>还有比较重要的就是parcel</p>
-</div>
+                   <div class="summary">各种应用上面有很多圆形的图片显示。 如下图 我知道的实现方法有三种。 1、通过image mask来操作，需要添加mask目标图片。 2、通过imageview的layer来操作 如下代码 UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"oiuyfdsa.png"]]; imageView.frame = CGRectMake(20.f, 20.f, 100.f, 100.f); imageView.layer.masksToBounds = YES; imageView.layer.cornerRadius = 50; a.这种方法需要添加QuarztCore框架才能操作 b.cornerradus的确定问题 3、能过代码对画布裁剪成圆形--》然后再将原始图像画出来--》 -(UIImage*) circleImage:(UIImage*) image withParam ... <a href="http://xiangyuan.github.io/posts/2012/12/03/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/pythonda-bao-ios-ipabao/" rel="bookmark" title="Permalink to python打包ios ipa包">
-                        python打包ios ipa包
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioskai-fa-huo-androidkai-fa-gong-ju-zhi-zhua-bao/" rel="bookmark" title="Permalink to ios开发或android开发工具之抓包">
+                        ios开发或android开发工具之抓包
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>我们知道在ios上生成的itunes包应该是一个ipa的后缀的包，而不是直接xcode生成的.app的包。</p>
-<div class="line-block">
-<div class="line">ipa包的组成</div>
-<div class="line-block">
-<div class="line">其中有两项：itunes 所认识的一个图片名为iTunesArtwork</div>
-<div class="line">第二个重要的是 .app的应用程序</div>
-</div>
-</div>
-<p>其实生成ipa包很简单 就是通过 zip -r进行打包。</p>
-<p>1、方法一将就.app包直接拖到itunes就可</p>
-<p>但作为coder嘛 所以还是通过程序来吧。</p>
-<p>下面以python还达到此目的，原理如上面所讲的。</p>
-<pre class="literal-block">
-class package:
-    def __init__(self,origin_path,output_path):
-        self.origin_path = origin_path
-        self.output_path = output_path
-        homeDirectory = os.environ['HOME']
-        #project_directory = homeDirectory.join([os.path.sep,origin_path])
-        project_directory = homeDirectory + os.path.sep + origin_path
-        self.project_directory = project_directory
-
-    def get_current_path(self,path_name):
-        '''Get the current path
-        keywork arguments:
-        path_name-- the path name
-
-        return string
-        '''
-        return path_name;
-    def exec_cmd(self,cmd):
-        retCode = -1
-        try:
-            print cmd
-            retCode = subprocess.check_call(cmd)
-        except EnvironmentError:
-            print 'command execute encounter some error'
-        return retCode
-    def get_app_name(self):
-        if os.path.isdir(self.project_directory + os.path.sep + 'build/Release-iphoneos'):
-
-            os.chdir(self.project_directory + &quot;build/Release-iphoneos&quot;)
-            for fName in os.listdir(self.project_directory + os.path.sep + 'build/Release-iphoneos'):
-                #(filename,fileextend) = fName.rsplit('.')
-                pattern = re.compile(&quot;.app$&quot;)
-                if pattern.search(fName):
-                    (filename,fileextend) = fName.split('.')
-                    self.filename = filename
-                    print os.getcwd()
-                    self.exec_cmd(['zip','-r',filename + '.ipa',fName])
-
-        #print os.path.walk(self.project_directory + os.path.sep + 'build/Release-iphoneos')
-</pre>
-<div class="line-block">
-<div class="line">全部代码请查看 github地址</div>
-<div class="line-block">
-<div class="line"><a href="#id1"><span class="problematic" id="id2">``</span></a>_</div>
-<div class="line">里面还有很多需要完善的地方。</div>
-</div>
-</div>
-<div class="system-message" id="id1">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/python_package.rst</tt>, line 65); <em><a href="#id2">backlink</a></em></p>
-Inline literal start-string without end-string.</div>
-<!-- _: https://github.com/xiangyuan/iospackage -->
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/python_package.rst</tt>, line 68)</p>
-malformed hyperlink target.</div>
-</div>
+                   <div class="summary">在开发过程中 或是查看别人应用向服务端发送了什么数据 或是调用的接口，比如说papa图片录音的实现问题，它其实是分开的两部分内容，并不是将声音加在图片数据之上。而且音频格式是mp3 的。 工具连接地址 charles <a href="http://xiangyuan.github.io/posts/2012/12/03/ioskai-fa-huo-androidkai-fa-gong-ju-zhi-zhua-bao/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Sun 02 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/02/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa-zhi-er/" rel="bookmark" title="Permalink to ios Image裁剪成圆形的方法之二">
-                        ios Image裁剪成圆形的方法之二
+                    <a href="http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/" rel="bookmark" title="Permalink to uiscrollview覆盖子视图时引起的背景视图无事件">
+                        uiscrollview覆盖子视图时引起的背景视图无事件
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>各种应用上面有很多圆形的图片显示。</p>
-<div class="line-block">
-<div class="line">如下图</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/Screenshot-2012.12.02-12.39.26.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/Screenshot-2012.12.02-12.39.26-200x300.png" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">我知道的实现方法有三种。</div>
-<div class="line-block">
-<div class="line">1、通过image mask来操作，需要添加mask目标图片。</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">2、通过imageview的layer来操作</div>
-<div class="line-block">
-<div class="line">如下代码</div>
-</div>
-</div>
-<pre class="literal-block">
-UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:&#64;&quot;oiuyfdsa.png&quot;]];
-imageView.frame = CGRectMake(20.f, 20.f, 100.f, 100.f);
-imageView.layer.masksToBounds = YES;
-imageView.layer.cornerRadius = 50;
-</pre>
-<div class="line-block">
-<div class="line">a.这种方法需要添加QuarztCore框架才能操作</div>
-<div class="line-block">
-<div class="line">b.cornerradus的确定问题</div>
-</div>
-</div>
-<p>3、能过代码对画布裁剪成圆形--》然后再将原始图像画出来--》</p>
-<pre class="literal-block">
--(UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset {
-    UIGraphicsBeginImageContext(image.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 2);
-    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
-    CGRect rect = CGRectMake(inset, inset, image.size.width - inset * 2.0f, image.size.height - inset * 2.0f);
-    CGContextAddEllipseInRect(context, rect);
-    CGContextClip(context);
-
-    [image drawInRect:rect];
-    CGContextAddEllipseInRect(context, rect);
-    CGContextStrokePath(context);
-    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newimg;
-}
-</pre>
-<div class="line-block">
-<div class="line">上面代码注意 如果裁剪后没有使用 CGContextAddEllipseInRect(context,</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_image_round_corner.rst</tt>, line 50)</p>
-Line block ends without a blank line.</div>
-<p>rect);
-|  CGContextStrokePath(context); 这条代码
-就会引起背景为白色时看不出来任务效果。
-|  这里是椭圆操作
-|  圆操作你懂的。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Fri 30 November 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/11/30/about/" rel="bookmark" title="Permalink to About">
-                        About
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>关于 以此献给我们一起2b的那些年</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 26 June 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/06/26/navigatorshe-zhi-tou-ming/" rel="bookmark" title="Permalink to navigator设置透明">
-                        navigator设置透明
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">下面方面可以使得ios里面导航条变成透明的。</div>
-<div class="line-block">
-<div class="line">类似appflow的效果</div>
-</div>
-</div>
-<pre class="literal-block">
-[navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:&#64;&quot;topBarBg&#64;2x.png&quot;] forBarMetrics:UIBarMetricsDefault];
-       [navigationController.navigationBar setTranslucent:YES];
-</pre>
-<p>顺便把我测试中的mask图像的代码也写出来</p>
-<pre class="literal-block">
-UIImage * origin = [UIImage imageNamed:&#64;&quot;topBarBg&#64;2x.png&quot;];
-  CGImageRef mask = [UIImage imageNamed:&#64;&quot;mask.png&quot;].CGImage;
-  CGImageRef maskRef = CGImageMaskCreate(CGImageGetWidth(mask), CGImageGetHeight(mask), CGImageGetBitsPerComponent(mask), CGImageGetBitsPerPixel(mask), CGImageGetBytesPerRow(mask), CGImageGetDataProvider(mask), NULL, YES);
-  CGImageRef target = CGImageCreateWithMask(origin.CGImage, maskRef);
-  return [UIImage imageWithCGImage:target];
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Wed 30 May 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/05/30/mknetworkwang-luo-qing-qiu-guo-cheng-zhong-oncompletiondiao-yong-liang-ci-de-wen-ti/" rel="bookmark" title="Permalink to MKNetwork网络请求过程中onCompletion调用两次的问题">
-                        MKNetwork网络请求过程中onCompletion调用两次的问题
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>MKNetwork在网络请求过程中，MKNetworkOperation操作同一个url请求（GET请求）时会调用两次onCompletion。</p>
-<p>这样会引起两次的数据问题。</p>
-<p>现在一种解决方法。</p>
-<pre class="literal-block">
-if ([operation isCachedResponse]) {
-        //cached data
-        NSString *jonData = [[operation responseString] JSONString];//直接清除原理数据
-        NSLog(&#64;&quot;Cache %&#64;&quot;,jonData);
-        [operation cancel];
-    } else {
-        //if (cached == NO) {//追加数据
-            //fresh data
-            NSString *jonData = [[operation responseString] JSONString];
-            NSLog(&#64;&quot;Server %&#64;&quot;,jonData);
-       // }
-    }
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Thu 03 May 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/05/03/parallaxshi-chai-shi-tu-de-shi-xian/" rel="bookmark" title="Permalink to parallax视差视图的实现">
-                        parallax视差视图的实现
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/parallax.rst</tt>, line 5)</p>
-Field list ends without a blank line; unexpected unindent.</div>
-<p>:category:ios</p>
-<div class="line-block">
-<div class="line">视差视图的点型样子如下图。</div>
-<div class="line-block">
-<div class="line"><img alt="视差视图" src="https://a248.e.akamai.net/camo.github.com/216e26efb562153ce0135d92ae93da022eb385d3/687474703a2f2f692e696d67666c69702e636f6d2f357a35622e676966" /></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">实现方式我的github</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="https://github.com/xiangyuan/parallax">我的github</a></div>
-<div class="line">国外一哥们的</div>
-<div class="line"><a class="reference external" href="https://github.com/modocache/MDCParallaxView">MDCParallaxView</a></div>
-</div>
-</div>
-<p>上面的都存在一个共同的问题，那就是视差的背景图片是没有事件响应的。下一篇告诉怎么解决。</p>
-</div>
+                   <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/uiscrollview_cover_bottom.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:ios 上一篇我们说到的问题。如标题所示，开始问了一哥们。告诉我是不能解决。 根据我各种看文档发现这个问题也是可以解决的。那就是需要我们的视图重写 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 这个方法 然后根据是否在背景子视图的区域来 hitTest:withEvent:方法的处理流程如下: 首先调用当前视图的pointInside:withEvent:方法判断触摸点是否在当前视图内； 若返回NO,则hitTest ... <a href="http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/">read more</a></div>
 
 
             </div>
         </article>
 <p class="paginator">
         <a href="http://xiangyuan.github.io/author/xiang-yuan3.html">&laquo;</a>
-    Page 4 / 5
+    Page 4 / 9
         <a href="http://xiangyuan.github.io/author/xiang-yuan5.html">&raquo;</a>
 </p>
 
@@ -513,10 +151,10 @@ Field list ends without a blank line; unexpected unindent.</div>
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -524,13 +162,18 @@ Field list ends without a blank line; unexpected unindent.</div>
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -539,18 +182,21 @@ Field list ends without a blank line; unexpected unindent.</div>
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -560,6 +206,8 @@ Field list ends without a blank line; unexpected unindent.</div>
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -591,6 +239,8 @@ Field list ends without a blank line; unexpected unindent.</div>
 
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
       
 
@@ -604,8 +254,6 @@ Field list ends without a blank line; unexpected unindent.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -655,7 +303,6 @@ Field list ends without a blank line; unexpected unindent.</div>
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -675,6 +322,8 @@ Field list ends without a blank line; unexpected unindent.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

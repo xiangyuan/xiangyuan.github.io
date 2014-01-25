@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -61,7 +62,7 @@
                             拍照界面的定制
                         </a>
                     </h3></header>
-                    <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst, line 11) Line block ends without a blank line. https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
+                    <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput 3、设置预览层 _captureSession = [[AVCaptureSession alloc]init]; // Do any additional setup after loading the view, typically from a nib. AVCaptureDevice * device = [AVCaptureDevice ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -73,17 +74,6 @@
                         </a>
                     </h3></header>
                     <div class="summary">apple个人开发者证书无线发布app的实现，也就是说不经过发布到app store，直接在ios设备上安装app，注：ios设备不需要越狱。 之所以有这篇文章的产生，可以看这里： 不通过App Store，在iOS设备上直接安装应用程序 以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。 具体参考下面文章 <a href="http://xiangyuan.github.io/posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/">read more</a></div>
-                </div>
-            </article>
-            <article class="entry-overview">
-                <div class="date">Wed 16 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
-                <div class="detail">
-                    <header><h3>
-                        <a href="http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/" rel="bookmark" title="Permalink to mac下php相关配置文件">
-                            mac下php相关配置文件
-                        </a>
-                    </h3></header>
-                    <div class="summary">昨天偶尔想用php写一个发http请求来写一个api。 结果HttpRequest类找不到。 找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。 sudo find / php.ini 命令查找了一个居然没有这个文件。 php -i | less 用上述命令查看下. Configuration File (php.ini) Path /etc Loaded Configuration File （none） Scan this dir for additional .ini files (none) Additional .ini files parsed (none) 发现这个文件需要自己却创建一下. cp php.ini.default php.ini php.ini.default文件在/etc/目录下面，是一个默认的配置文件 ... <a href="http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/">read more</a></div>
                 </div>
             </article>
         </dl>
@@ -98,10 +88,10 @@
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -109,13 +99,18 @@
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -124,18 +119,21 @@
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -145,6 +143,8 @@
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -164,6 +164,8 @@
             <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
       
 
@@ -171,6 +173,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
       
 
       
@@ -192,8 +196,6 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -243,7 +245,6 @@
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -263,6 +264,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

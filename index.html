@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -52,6 +53,24 @@
           <section id="content" class="hyphenate">
 
         <article class="entry-overview">
+            <div class="date">Sat 25 January 2014 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="detail">
+                <header><h2>
+                    <a href="http://xiangyuan.github.io/posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/" rel="bookmark" title="Permalink to 检查ios应用中是否有存在没有使用过的图片资源文件">
+                        检查ios应用中是否有存在没有使用过的图片资源文件
+                    </a>
+                </h2></header>
+
+                   <div class="summary">我在开发ios应用的时候，会添加很多图片资源文件进去，更多时候当是多人协作时，添加的图片资源有些可能会没有使用的到，然而被我们忽略了。 然后我就用python写了一个脚本文件去查换一些没有使用的资源图片。在开始之前让我们先了解一下ack命令工具。 ack 是一个非常高效的查换工具 可以查找文件中哪些地方使用了一些特殊指定的字符串 比如 ack -i 'about' Install ack on OSX brew install ack find命令查找出所有图片 ack命令处理 得出所有的无用图片资源文件 #!/usr/bin/env python # -*- coding: utf-8 -*- # find no use image files # import os import subprocess # import shlex import pprint import glob path = '.' bundle = '' try: f = glob ... <a href="http://xiangyuan.github.io/posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/">read more</a></div>
+
+                    <div class="tags">
+                        <p>This entry was tagged on  
+                            <a href="http://xiangyuan.github.io/tag/ios.html">#ios</a> and                             <a href="http://xiangyuan.github.io/tag/python.html">#python</a></p>
+                    </div>
+
+            </div>
+        </article>
+        <article class="entry-overview">
             <div class="date">Tue 14 January 2014 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
@@ -60,19 +79,7 @@
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>看不懂  或许不是遥远，</p>
-<p>就是你我之间。</p>
-<p>有着那一条线，</p>
-<p>那么多路口，那么多转弯</p>
-<p>看不见，或是许多想念，</p>
-<p>就是你我之间。</p>
-<p>有着那一条线，</p>
-<p>有过些许，有过转念。</p>
-<p>踮脚张望已旧的嚣张，</p>
-<p>心却依旧彷徨。</p>
-<p>那条线,</p>
-<p>平行了过往。</p>
-</div>
+                   <div class="summary">看不懂 或许不是遥远， 就是你我之间。 有着那一条线， 那么多路口，那么多转弯 看不见，或是许多想念， 就是你我之间。 有着那一条线， 有过些许，有过转念。 踮脚张望已旧的嚣张， 心却依旧彷徨。 那条线, 平行了过往。 <a href="http://xiangyuan.github.io/posts/2014/01/14/na-tiao-xian/">read more</a></div>
 
                     <div class="tags">
                         <p>This entry was tagged on  
@@ -90,24 +97,7 @@
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><pre class="literal-block">
-CGRect frame = self.view.bounds;
-NSLog(&#64;&quot;%f %f %f %f&quot;,frame.origin.x,frame.origin.y,frame.size.width,frame.size.height);
-self.view.bounds = [UIScreen mainScreen].bounds;
-NSLog(&#64;&quot;%f %f %f %f&quot;,frame.origin.x,frame.origin.y,frame.size.width,frame.size.height);
-[self.view addSubview:_tabBarController.view];
-</pre>
-<div class="line-block">
-<div class="line">uitabbarcontroller被添加到另一个controller里面时，会出现一个20高度的空白，也就是</div>
-<div class="line-block">
-<div class="line">会引起整个视图向底部移动。</div>
-<div class="line">需要添加self.view.bounds = [UIScreen mainScreen].bounds; 就可以解决。</div>
-<div class="line">原因是两种情况依赖的父对象不同。</div>
-</div>
-</div>
-<p>##
-上面在ios7已有问题，不能再使用，可使用其他方式解决。</p>
-</div>
+                   <div class="summary">CGRect frame = self.view.bounds; NSLog(@"%f %f %f %f",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height); self.view.bounds = [UIScreen mainScreen].bounds; NSLog(@"%f %f %f %f",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height); [self.view addSubview:_tabBarController.view ... <a href="http://xiangyuan.github.io/posts/2013/06/03/controllerhu-jia-20xiang-su-xia-yi-wen-ti/">read more</a></div>
 
 
             </div>
@@ -121,23 +111,7 @@ NSLog(&#64;&quot;%f %f %f %f&quot;,frame.origin.x,frame.origin.y,frame.size.widt
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>在一个叫作群群的应用中，有一个效果。某一个按钮进行接动（pan）时，就会动态的出来一个菜单。</p>
-<p>然后发了一些时间作了一个实现。方案觉得还不怎地好。图片版权归群群应用所有。</p>
-<div class="line-block">
-<div class="line">实现效果如下图：</div>
-</div>
-<img alt="" src="images/Screenshot-2013.05.01-15.13.35.png" style="width: 200px; height: 300px;" />
-<img alt="" src="images/Screenshot-2013.05.01-15.13.39.png" style="width: 200px; height: 300px;" />
-<img alt="" src="images/Screenshot-2013.05.01-15.13.43.png" style="width: 200px; height: 300px;" />
-<div class="line-block">
-<div class="line">原理是</div>
-<div class="line-block">
-<div class="line">1、图片处理。</div>
-<div class="line">2、pan手势。</div>
-<div class="line">3、frame调整。</div>
-</div>
-</div>
-</div>
+                   <div class="summary">在一个叫作群群的应用中，有一个效果。某一个按钮进行接动（pan）时，就会动态的出来一个菜单。 然后发了一些时间作了一个实现。方案觉得还不怎地好。图片版权归群群应用所有。 实现效果如下图： 原理是 1、图片处理。 2、pan手势。 3、frame调整。 <a href="http://xiangyuan.github.io/posts/2013/05/01/ge-chou-la-jie-mian-cai-dan-shi-xian/">read more</a></div>
 
 
             </div>
@@ -151,296 +125,27 @@ NSLog(&#64;&quot;%f %f %f %f&quot;,frame.origin.x,frame.origin.y,frame.size.widt
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>在android平台中listview有一个thumb手机样式的拖动条，可以快速的拖动列表。</p>
-<p>在ios上这个却是没有的。</p>
-<p>在进行之前先来看一个场景，很多ios应用在看列表时，都会动态加载更多，然后随着列表项越来越多时。再到最上面时滚动就比较的费时，读一些内容软多的文字时也会碰到这种情况。</p>
-<p>zaker上面看文章时也会一个快速拖动条，看新闻体验就比较的好。</p>
-<p>这个手机样式图下图。</p>
-<img alt="" src="images/1AB64F7B-B686-4A71-AAF6-037E80C6C39F.png" style="width: 200px; height: 300px;" />
-<p>当然上图中的手指并不是图，是通过代码实现的。上面是table做的测试。下面是一个scrollview结果的图形。</p>
-<img alt="" src="images/9271739A-005A-41F3-9C2A-ACA3E189D62E.png" style="width: 200px; height: 300px;" />
-<p>一、下面先说说那个手指样式类图实现原理。</p>
-<p>手指图是上下都是一个三角形，通过path画一个三角形，然后将图形context反转再画一个三角。</p>
-<p>中间部分是一个pattern模式图形.</p>
-<p>画三角</p>
-<pre class="literal-block">
-/**
-    *  /\
-    ** --
-    *  | |
-    *  \/
-    */
-   CGRect bounds = self.bounds;
-   CGMutablePathRef pathref = CGPathCreateMutable();
-   CGContextSaveGState(ctx);
-   CGContextSetLineWidth(ctx, 2);
-   CGContextSetFillColorWithColor(ctx, [UIColor grayColor].CGColor);
-   CGPathMoveToPoint(pathref, NULL, bounds.origin.x + bounds.size.width / 2, 0.f);
-   CGPathAddLineToPoint(pathref, NULL, 0.f, kTriangleHeight);
-   CGPathAddLineToPoint(pathref, NULL, bounds.size.width, kTriangleHeight);
-   CGPathCloseSubpath(pathref);
-   CGContextAddPath(ctx, pathref);
-   CGContextDrawPath(ctx, kCGPathFill);
-   CGContextRestoreGState(ctx);
-
-   CGContextSaveGState(ctx);
-   CGContextTranslateCTM(ctx, 0.f, bounds.size.height);
-   CGContextScaleCTM(ctx, 1.f, -1);
-   CGContextSetLineWidth(ctx, 2);
-   CGContextSetFillColorWithColor(ctx, [UIColor grayColor].CGColor);
-   CGContextAddPath(ctx, pathref);
-   CGContextDrawPath(ctx, kCGPathFill);
-   CGContextRestoreGState(ctx);
-   CGPathRelease(pathref);
-</pre>
-<div class="line-block">
-<div class="line">2、模式画图</div>
-<div class="line-block">
-<div class="line">1.创建pattern</div>
-</div>
-</div>
-<pre class="literal-block">
-CGPatternRef CGPatternCreate (
-void *info,//传递给画图回调函数的参数
-CGRect bounds,//每一个单元格的大小，上图里面就是一个小圆
-CGAffineTransform matrix,//变换矩阵
-CGFloat xStep,//画完一个格后，x轴偏移
-CGFloat yStep,
-CGPatternTiling tiling,
-bool isColored,
-const CGPatternCallbacks *callbacks//画图回调
- );
-</pre>
-<p>2.完整代码</p>
-<pre class="literal-block">
-static const CGPatternCallbacks callbacks = { 0, &amp;drawCellCallback, NULL };
-
-    CGPatternRef pattern = CGPatternCreate(0, CGRectMake(0.0, 0.0, 6, 6), CGAffineTransformIdentity, 5, 7, kCGPatternTilingConstantSpacing, true, &amp;callbacks);
-    CGContextSetFillPattern(ctx, pattern, α);
-    CGPatternRelease(pattern);
-    CGContextFillRect(ctx, CGRectMake(2.f, kTriangleHeight + 4, bounds.size.width - 4, bounds.size.height - 2 * kTriangleHeight - 8));
-    CGContextRestoreGState(ctx);
-</pre>
-<p>二、然后就是实现触摸滚动了。</p>
-</div>
+                   <div class="summary">在android平台中listview有一个thumb手机样式的拖动条，可以快速的拖动列表。 在ios上这个却是没有的。 在进行之前先来看一个场景，很多ios应用在看列表时，都会动态加载更多，然后随着列表项越来越多时。再到最上面时滚动就比较的费时，读一些内容软多的文字时也会碰到这种情况。 zaker上面看文章时也会一个快速拖动条，看新闻体验就比较的好。 这个手机样式图下图。 当然上图中的手指并不是图，是通过代码实现的。上面是table做的测试。下面是一个scrollview结果的图形。 一、下面先说说那个手指样式类图实现原理。 手指图是上下都是一个三角形，通过path画一个三角形，然后将图形context反转再画一个三角。 中间部分是一个pattern模式图形. 画三角 /** * /\ ** -- * | | * \/ */ CGRect bounds = self.bounds; CGMutablePathRef pathref = CGPathCreateMutable(); CGContextSaveGState(ctx); CGContextSetLineWidth(ctx, 2); CGContextSetFillColorWithColor(ctx, [UIColor grayColor].CGColor); CGPathMoveToPoint(pathref, NULL, bounds.origin.x + bounds.size.width / 2 ... <a href="http://xiangyuan.github.io/posts/2013/04/27/iosshang-ke-tuo-dong-de-gun-dong-tiao/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 15 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Fri 26 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/04/15/uicolorshe-zhi-bei-jing-he-uiimagetu-pian-la-shen/" rel="bookmark" title="Permalink to UIColor设置背景和UIImage图片拉伸">
-                        UIColor设置背景和UIImage图片拉伸
+                    <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/" rel="bookmark" title="Permalink to HLS之ts文件格式分析">
+                        HLS之ts文件格式分析
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="section" id="uicolor">
-<h2><strong>①：UIColor设置背景</strong></h2>
-<p>通常我们在设置一个view的背景为一个图片的时候，我们往往在上面加上一个imageview，然后在imageview中添加图片作为背景，</p>
-<p>那如果app中要求的背景是一个草坪的图形，是不是我们就必须画一个和手机屏幕一样打的草坪的图片呢，其实没有必要，我们只需要一个小小的草坪的图片，然后让它在背景上面重复平铺就可以了。</p>
-<p>首先，准备一个草坪的图片<a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/04/bg.png"><img alt="草坪" src="http://kingiol.com/bl/wp-content/uploads/2013/04/bg.png" /></a></p>
-<p>然后我们就用这张图片在来填充这个屏幕的背景</p>
-<pre class="literal-block">
-UIImage *bgImage = [UIImage imageNamed:&#64;&quot;bg.png&quot;];
-self.view.backgroundColor = [UIColor colorWithPatternImage:bgImage];
-</pre>
-<p>然后运行app，查看屏幕中的背景变化：</p>
-<p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/04/QQ20130415-3.png"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2013/04/QQ20130415-3-154x300.png" /></a></p>
-</div>
-<div class="section" id="uiimage">
-<h2><strong>②：UIImage图片拉伸</strong></h2>
-<pre class="literal-block">
-UIImage *imageViewBg = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(50, 50, 50, 50)];
-</pre>
-<p>用此方法可以实现。边框区域不会拉伸，保持原样。</p>
-<p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/04/imageResize.png"><img alt="image2" src="http://kingiol.com/bl/wp-content/uploads/2013/04/imageResize-300x241.png" /></a></p>
-</div>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 09 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/04/09/opengles20zhi-er/" rel="bookmark" title="Permalink to opengles20之二">
-                        opengles20之二
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>关于上一篇写一个demo的，具地代码地址如下。有空再细细描述</p>
-<p>我的github地址：<a class="reference external" href="https://github.com/xiangyuan/gles20demo.git">https://github.com/xiangyuan/gles20demo.git</a></p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 01 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/" rel="bookmark" title="Permalink to Removing NSLogs for distribution">
-                        Removing NSLogs for distribution
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下:</div>
-<div class="line-block">
-<div class="line">在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">#if DEBUG</div>
-<div class="line-block">
-<div class="line">#warning NSLogs will be shown</div>
-<div class="line">#else</div>
-<div class="line">#define NSLog(...) {}</div>
-<div class="line">#endif</div>
-<div class="line">这样，在开发时会有NSLogs will be</div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/removing-nslogs-for-distribution.rst</tt>, line 11)</p>
-Line block ends without a blank line.</div>
-<p>shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Fri 22 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/03/22/fen-fan/" rel="bookmark" title="Permalink to 纷繁">
-                        纷繁
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">突然觉得人的一生非常短暂，而且人与人之间的差距。或是贫穷、或是富有，每个人都有自己要去做的一些事情。然而纷繁复杂的社会使那偶尔清静的一隅渐渐消逝。使得我们放下了好多曾经放在心上的事情也慢慢的被我们遗忘。</div>
-<div class="line"><br /></div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/emotion_feng_fan.rst</tt>, line 8)</p>
-Line block ends without a blank line.</div>
-<p>身边多了新的朋友、新的牵挂、新的责任，也让我们变得不知所挫。而且我相信人的一生说不定哪天就没有了，有很多的不平，很多的放不下在岁月中慢慢变淡。从而又进入了一个新的起点。
-|
-做一些没有做的事情就变得必要了，曾经自己觉得以后我们可以改变很多人，帮助很多人。岁月如河，随着时间的向前推移，那些让自己觉得是己任的东西太多被我们放下了。虽然我们不能改变世界，但我们可以改变自己。今天开始想做的事情一定去一件件的做完，就当作是死前的那种必要性的东西去看待。
-|
-没有人会在意你的不存在，因为或是没有被别人放在心上，或是被时间给冲淡。就像鲁迅一样有多少还记得这个模眉冷对千夫指，俯者甘为孺子牛的他，他就这样被我们给遗忘在历史的长河之中，就做些对他人有意义的事情吧，因为自己能改变的太少了。
-|  今天开始好好对待身边的每一个人，there are so many things i can’t to
-let you know,because i love you 。
-虽然你们不一定在乎我是谁，我要把一些事情给做到吧，因为哪天我会不在的，你们过的好就行。不求闻达于诸侯，但求放在心上。</p>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Fri 22 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/03/22/guan-yu-tu-xiang-maskyu-blendshi-xian-zhi/" rel="bookmark" title="Permalink to 关于图象mask与blend实现之一">
-                        关于图象mask与blend实现之一
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">1、关于使用 CGImageCreateWithMask(&lt;#CGImageRef image#&gt;, &lt;#CGImageRefmask#&gt;)来进行|| 掩码时。</div>
-<div class="line-block">
-<div class="line">情况一：第二个参数是用CGImageMaskCreate创建生成的 image mask。</div>
-<div class="line">那么就会是黑色部分出现，白色部分消失。</div>
-</div>
-</div>
-<pre class="literal-block">
-CGImageRef topRef = mask.CGImage;
-CGImageRef maskImage = CGImageMaskCreate(CGImageGetWidth(topRef),
-CGImageGetHeight(topRef), CGImageGetBitsPerComponent(topRef),
-CGImageGetBitsPerPixel(topRef), CGImageGetBytesPerRow(topRef),
-CGImageGetDataProvider(topRef), CGImageGetDecode(topRef), false);
-// CGImageRef target = CGImageCreateWithMask(origin.CGImage,maskImage);
-// UIImage \* image = [UIImage imageWithCGImage:target];
-
-//release
-CGImageRelease(maskImage);
-</pre>
-<div class="line-block">
-<div class="line">情况二：第二个参数是用cgimagecreate创建生成的一个image对象时，</div>
-<div class="line">那么就会和情况一产生相反的结果。多半可能会不显示.</div>
-</div>
-<p>注意：外部图片不能直接用来作为mask的图像。</p>
-<p>2、色彩来做为Mask</p>
-<p>3、context clip来实现Mask</p>
-<div class="line-block">
-<div class="line">使用两个图片实现圆角图形</div>
-<div class="line-block">
-<div class="line">如下代码</div>
-</div>
-</div>
-<pre class="literal-block">
-UIImage \*background = [UIImage imageNamed:&#64;&quot;logo\_back&quot;];
-UIImage \*front = [UIImage imageNamed:&#64;&quot;profile&quot;];
-
-CGContextRef context = UIGraphicsGetCurrentContext();
-CGContextSaveGState(context);
-CGContextSetBlendMode(context, kCGBlendModeDarken);
-CGRect size = CGRectMake(0.f, 0.f, background.size.width,background.size.height);
-[background drawAtPoint:CGPointMake(0.f, 0.f)];
-CGContextTranslateCTM(context, 0.f, background.size.height);
-CGContextScaleCTM(context, 1.f, -1);
-CGContextDrawImage(context, size, front.CGImage);
-CGContextRestoreGState(context);
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Tue 05 March 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/" rel="bookmark" title="Permalink to ios项目中c++头文件找不到错误">
-                        ios项目中c++头文件找不到错误
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。</p>
-<div class="line-block">
-<div class="line">但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_cplusplus_header.rst</tt>, line 10)</p>
-Line block ends without a blank line.</div>
-<p>found 编译错误。
-|  解决办法如下：</p>
-<pre class="literal-block">
-#include
-#ifdef __cplusplus
-#include
-#include
-#include
-#include
-#include
-#include
-#endif
-
-#ifdef __OBJC__
-#warning import some object c header file
-#endif
-</pre>
-</div>
+                   <div class="summary">HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，可实现流媒体的直播和点播，主要应用在iOS系统，为iOS设备（如iPhone、iPad）提供音视频直播和点播方案。HLS点播，基本上就是常见的分段HTTP点播，不同在于，它的分段非常小。 相对于常见的流媒体直播协议，例如RTMP协议、RTSP协议、MMS协议等，HLS直播最大的不同在于，直播客户端获取到的，并不是一个完整的数据流。HLS协议在服务器端将直播数据流存储为连续的、很短时长的媒体文件（MPEG-TS格式），而客户端则不断的下载并播放这些小文件，因为服务器端总是会将最新的直播数据生成新的小文件，这样客户端只要不停的按顺序播放从服务器获取到的文件，就实现了直播。由此可见，基本上可以认为，HLS是以点播的技术方式来实现直播。由于数据通过HTTP协议传输，所以完全不用考虑防火墙或者代理的问题，而且分段文件的时长很短，客户端可以很快的选择和切换码率，以适应不同带宽条件下的播放。不过HLS的这种技术特点，决定了它的延迟一般总是会高于普通的流媒体直播协议。 根据以上的了解要实现HTTP Live Streaming直播，需要研究并实现以下技术关键点 /* 采集视频源和音频源的数据 对原始数据进行H264编码和AAC编码 视频和音频数据封装为MPEG-TS包 HLS分段生成策略及m3u8索引文件 ... <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/">read more</a></div>
 
 
             </div>
         </article>
 <p class="paginator">
-    Page 1 / 5
+    Page 1 / 9
         <a href="http://xiangyuan.github.io/index2.html">&raquo;</a>
 </p>
 
@@ -453,10 +158,10 @@ Line block ends without a blank line.</div>
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -464,13 +169,18 @@ Line block ends without a blank line.</div>
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -479,18 +189,21 @@ Line block ends without a blank line.</div>
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -500,6 +213,8 @@ Line block ends without a blank line.</div>
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -519,6 +234,8 @@ Line block ends without a blank line.</div>
             <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
       
 
@@ -526,6 +243,8 @@ Line block ends without a blank line.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
       
 
       
@@ -547,8 +266,6 @@ Line block ends without a blank line.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -598,7 +315,6 @@ Line block ends without a blank line.</div>
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -618,6 +334,8 @@ Line block ends without a blank line.</div>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

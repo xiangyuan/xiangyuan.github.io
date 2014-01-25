@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -55,6 +56,17 @@
         <h1>Blog Archive</h1>
 
                 <h2>January 2014</h2>
+            <article class="entry-overview">
+                <div class="date">Sat 25 January 2014 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/" rel="bookmark" title="Permalink to 检查ios应用中是否有存在没有使用过的图片资源文件">
+                            检查ios应用中是否有存在没有使用过的图片资源文件
+                        </a>
+                    </h3></header>
+                    <div class="summary">我在开发ios应用的时候，会添加很多图片资源文件进去，更多时候当是多人协作时，添加的图片资源有些可能会没有使用的到，然而被我们忽略了。 然后我就用python写了一个脚本文件去查换一些没有使用的资源图片。在开始之前让我们先了解一下ack命令工具。 ack 是一个非常高效的查换工具 可以查找文件中哪些地方使用了一些特殊指定的字符串 比如 ack -i 'about' Install ack on OSX brew install ack find命令查找出所有图片 ack命令处理 得出所有的无用图片资源文件 #!/usr/bin/env python # -*- coding: utf-8 -*- # find no use image files # import os import subprocess # import shlex import pprint import glob path = '.' bundle = '' try: f = glob ... <a href="http://xiangyuan.github.io/posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/">read more</a></div>
+                </div>
+            </article>
             <article class="entry-overview">
                 <div class="date">Tue 14 January 2014 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
                 <div class="detail">
@@ -103,6 +115,17 @@
                 </div>
             </article>
             <article class="entry-overview">
+                <div class="date">Fri 26 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/" rel="bookmark" title="Permalink to HLS之ts文件格式分析">
+                            HLS之ts文件格式分析
+                        </a>
+                    </h3></header>
+                    <div class="summary">HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，可实现流媒体的直播和点播，主要应用在iOS系统，为iOS设备（如iPhone、iPad）提供音视频直播和点播方案。HLS点播，基本上就是常见的分段HTTP点播，不同在于，它的分段非常小。 相对于常见的流媒体直播协议，例如RTMP协议、RTSP协议、MMS协议等，HLS直播最大的不同在于，直播客户端获取到的，并不是一个完整的数据流。HLS协议在服务器端将直播数据流存储为连续的、很短时长的媒体文件（MPEG-TS格式），而客户端则不断的下载并播放这些小文件，因为服务器端总是会将最新的直播数据生成新的小文件，这样客户端只要不停的按顺序播放从服务器获取到的文件，就实现了直播。由此可见，基本上可以认为，HLS是以点播的技术方式来实现直播。由于数据通过HTTP协议传输，所以完全不用考虑防火墙或者代理的问题，而且分段文件的时长很短，客户端可以很快的选择和切换码率，以适应不同带宽条件下的播放。不过HLS的这种技术特点，决定了它的延迟一般总是会高于普通的流媒体直播协议。 根据以上的了解要实现HTTP Live Streaming直播，需要研究并实现以下技术关键点 /* 采集视频源和音频源的数据 对原始数据进行H264编码和AAC编码 视频和音频数据封装为MPEG-TS包 HLS分段生成策略及m3u8索引文件 ... <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/">read more</a></div>
+                </div>
+            </article>
+            <article class="entry-overview">
                 <div class="date">Mon 15 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
                 <div class="detail">
                     <header><h3>
@@ -132,7 +155,7 @@
                             Removing NSLogs for distribution
                         </a>
                     </h3></header>
-                    <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
+                    <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
                 </div>
             </article>
                 <h2>March 2013</h2>
@@ -144,7 +167,7 @@
                             纷繁
                         </a>
                     </h3></header>
-                    <div class="summary">突然觉得人的一生非常短暂，而且人与人之间的差距。或是贫穷、或是富有，每个人都有自己要去做的一些事情。然而纷繁复杂的社会使那偶尔清静的一隅渐渐消逝。使得我们放下了好多曾经放在心上的事情也慢慢的被我们遗忘。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/emotion_feng_fan.rst, line 8) Line block ends without a blank line. 身边多了新的朋友、新的牵挂、新的责任，也让我们变得不知所挫。而且我相信人的一生说不定哪天就没有了，有很多的不平，很多的放不下在岁月中慢慢变淡。从而又进入了一个新的起点。 | 做一些没有做的事情就变得必要了，曾经自己觉得以后我们可以改变很多人，帮助很多人。岁月如河，随着时间的向前推移，那些让自己觉得是己任的东西太多被我们放下了。虽然我们不能改变世界，但我们可以改变自己。今天开始想做的事情一定去一件件的做完，就当作是死前的那种必要性的东西去看待。 | 没有人会在意你的不存在，因为或是没有被别人放在心上，或是被时间给冲淡。就像鲁迅一样有多少还记得这个模眉冷对千夫指 ... <a href="http://xiangyuan.github.io/posts/2013/03/22/fen-fan/">read more</a></div>
+                    <div class="summary">突然觉得人的一生非常短暂，而且人与人之间的差距。或是贫穷、或是富有，每个人都有自己要去做的一些事情。然而纷繁复杂的社会使那偶尔清静的一隅渐渐消逝。使得我们放下了好多曾经放在心上的事情也慢慢的被我们遗忘。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/emotion_feng_fan.rst, line 8) Line block ends without a blank line. 身边多了新的朋友、新的牵挂、新的责任，也让我们变得不知所挫。而且我相信人的一生说不定哪天就没有了，有很多的不平，很多的放不下在岁月中慢慢变淡。从而又进入了一个新的起点。 | 做一些没有做的事情就变得必要了，曾经自己觉得以后我们可以改变很多人，帮助很多人。岁月如河，随着时间的向前推移，那些让自己觉得是己任的东西太多被我们放下了。虽然我们不能改变世界，但我们可以改变自己。今天开始想做的事情一定去一件件的做完，就当作是死前的那种必要性的东西去看待。 | 没有人会在意你的不存在，因为或是没有被别人放在心上 ... <a href="http://xiangyuan.github.io/posts/2013/03/22/fen-fan/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -166,7 +189,7 @@
                             ios项目中c++头文件找不到错误
                         </a>
                     </h3></header>
-                    <div class="summary">我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。 但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_cplusplus_header.rst, line 10) Line block ends without a blank line. found 编译错误。 | 解决办法如下： #include #ifdef __cplusplus #include #include #include #include #include #include #endif #ifdef __OBJC__ #warning import ... <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/">read more</a></div>
+                    <div class="summary">我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。 但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/ios_cplusplus_header.rst, line 10) Line block ends without a blank line. found 编译错误。 | 解决办法如下： #include #ifdef __cplusplus #include #include #include #include #include #include #endif #ifdef __OBJC__ ... <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/">read more</a></div>
                 </div>
             </article>
                 <h2>February 2013</h2>
@@ -189,7 +212,7 @@
                             opengles2.0那些事之一
                         </a>
                     </h3></header>
-                    <div class="summary">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。 至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。 在OpenGL System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst, line 9) Line block ends without a blank line. ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES 1.1的GL_OES_framebuffer_object扩展。 | 帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil targets您还可以创建多个帧缓冲对象在一个单一context中，可能在帧缓冲区之间的资源共享。 | 一般步骤 ... <a href="http://xiangyuan.github.io/posts/2013/02/04/opengles20na-xie-shi-zhi/">read more</a></div>
+                    <div class="summary">自从计划学习opengles以来，一直也没有做过记录。今天也算是第一篇吧，本人也是菜鸟，也看各种文章去学习。 至于那些介绍就不说，网上介绍还是比较的多的。我只记录要点。 在OpenGL System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/opengles2.0_one.rst, line 9) Line block ends without a blank line. ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES 1.1的GL_OES_framebuffer_object扩展。 | 帧缓冲对象允许您的应用程序能够精确地控制 color,depth,sentcil targets您还可以创建多个帧缓冲对象在一个单一context中 ... <a href="http://xiangyuan.github.io/posts/2013/02/04/opengles20na-xie-shi-zhi/">read more</a></div>
                 </div>
             </article>
                 <h2>January 2013</h2>
@@ -201,7 +224,7 @@
                             拍照界面的定制
                         </a>
                     </h3></header>
-                    <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst, line 11) Line block ends without a blank line. https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
+                    <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput 3、设置预览层 _captureSession = [[AVCaptureSession alloc]init]; // Do any additional setup after loading the view, typically from a nib. AVCaptureDevice * device = [AVCaptureDevice ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -213,17 +236,6 @@
                         </a>
                     </h3></header>
                     <div class="summary">apple个人开发者证书无线发布app的实现，也就是说不经过发布到app store，直接在ios设备上安装app，注：ios设备不需要越狱。 之所以有这篇文章的产生，可以看这里： 不通过App Store，在iOS设备上直接安装应用程序 以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。 具体参考下面文章 <a href="http://xiangyuan.github.io/posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/">read more</a></div>
-                </div>
-            </article>
-            <article class="entry-overview">
-                <div class="date">Wed 16 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
-                <div class="detail">
-                    <header><h3>
-                        <a href="http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/" rel="bookmark" title="Permalink to mac下php相关配置文件">
-                            mac下php相关配置文件
-                        </a>
-                    </h3></header>
-                    <div class="summary">昨天偶尔想用php写一个发http请求来写一个api。 结果HttpRequest类找不到。 找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。 sudo find / php.ini 命令查找了一个居然没有这个文件。 php -i | less 用上述命令查看下. Configuration File (php.ini) Path /etc Loaded Configuration File （none） Scan this dir for additional .ini files (none) Additional .ini files parsed (none) 发现这个文件需要自己却创建一下. cp php.ini.default php.ini php.ini.default文件在/etc/目录下面，是一个默认的配置文件 ... <a href="http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/">read more</a></div>
                 </div>
             </article>
                 <h2>December 2012</h2>
@@ -246,7 +258,7 @@
                             使用他人app里面图片
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/extract_other_app_images.rst, line 2) Title underline too short. 使用他人app里面图片 ################## 有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取 1、首先在itunes里面打开ipa包。 2、使用归档工具解压查看。 3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush 使用方法为 $ /Applications ... <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/extract_other_app_images.rst, line 2) Title underline too short. 使用他人app里面图片 ################## 有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取 1、首先在itunes里面打开ipa包。 2、使用归档工具解压查看。 3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush ... <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -257,7 +269,7 @@
                             图层几何(文档)
                         </a>
                     </h3></header>
-                    <div class="summary">动画主题里面 虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst, line 8) Line block ends without a blank line. 却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式 和显式动画。 | 下图显示可以在上下文中指定图层几何的属性: | 图层的 position 属性是一个 CGPoint System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst, line 15) Line ... <a href="http://xiangyuan.github.io/posts/2012/12/19/tu-ceng-ji-he-wen-dang/">read more</a></div>
+                    <div class="summary">动画主题里面 虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry.rst, line 8) Line block ends without a blank line. 却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式 和显式动画。 | 下图显示可以在上下文中指定图层几何的属性: | 图层的 position 属性是一个 CGPoint System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry ... <a href="http://xiangyuan.github.io/posts/2012/12/19/tu-ceng-ji-he-wen-dang/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -279,7 +291,7 @@
                             cocos2d中与ios中加载custom fonts
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst, line 5) Field list ends without a blank line; unexpected unindent. :category:ios 下载免费字体 加载客户字体的一般步骤为 将ttf字体文件加入到工程资源文件中，确保在bundle里面可以找到。 向工程的Info.Plist文件中添加UIAppFonts的键值。 向2中的键值里面添加array对象的fonts名字。 保存Info.Plist文件。 可以通过如下方式进行文字使用。 [_mLabel setFont:[UIFont fontWithName:@"Alpha Romanie Outline G98" size:20]]; [_mLabel setText:@"What Happened"]; 特别注意 ... <a href="http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/coacos2d_ios_custom_fonts.rst, line 5) Field list ends without a blank line; unexpected unindent. :category:ios 下载免费字体 加载客户字体的一般步骤为 将ttf字体文件加入到工程资源文件中，确保在bundle里面可以找到。 向工程的Info.Plist文件中添加UIAppFonts的键值。 向2中的键值里面添加array对象的fonts名字。 保存Info.Plist文件。 可以通过如下方式进行文字使用。 [_mLabel setFont:[UIFont fontWithName:@"Alpha Romanie Outline G98" size:20]]; [_mLabel setText:@"What ... <a href="http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -301,7 +313,7 @@
                             cocos2d之入门
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/cocos2d_tutorail.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:cocos2d cocos2d中核心以前关键的一些类别 像是现实如下的电影流程 导演---》场景--》各种层--》然后加杂着一些动作 CCDirector 切换场景 存储cocos2d配置信息 访问视图（uiview opengl等） 暂停、恢复和终止游戏 uikit与opengl坐标之间的转换。 这个类在整个框架里面像是一个mediator模式。 第二个概念 CCSecene 包括很多layer元素 综合就构成了一个场景 然后会有ccsprite精灵。 还有一些文字。 菜单等 CCSprite: CCLabel ... <a href="http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/cocos2d_tutorail.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:cocos2d cocos2d中核心以前关键的一些类别 像是现实如下的电影流程 导演---》场景--》各种层--》然后加杂着一些动作 CCDirector 切换场景 存储cocos2d配置信息 访问视图（uiview opengl等） 暂停、恢复和终止游戏 uikit与opengl坐标之间的转换。 这个类在整个框架里面像是一个mediator模式。 第二个概念 CCSecene 包括很多layer元素 综合就构成了一个场景 然后会有ccsprite精灵。 还有一些文字。 菜单等 ... <a href="http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -334,7 +346,7 @@
                             uiscrollview覆盖子视图时引起的背景视图无事件
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/uiscrollview_cover_bottom.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:ios 上一篇我们说到的问题。如标题所示，开始问了一哥们。告诉我是不能解决。 根据我各种看文档发现这个问题也是可以解决的。那就是需要我们的视图重写 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 这个方法 然后根据是否在背景子视图的区域来 hitTest:withEvent:方法的处理流程如下: 首先调用当前视图的pointInside:withEvent:方法判断触摸点是否在当前视图内； 若返回NO,则hitTest:withEvent:返回nil ... <a href="http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/uiscrollview_cover_bottom.rst, line 4) Field list ends without a blank line; unexpected unindent. :category:ios 上一篇我们说到的问题。如标题所示，开始问了一哥们。告诉我是不能解决。 根据我各种看文档发现这个问题也是可以解决的。那就是需要我们的视图重写 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 这个方法 然后根据是否在背景子视图的区域来 hitTest:withEvent:方法的处理流程如下: 首先调用当前视图的pointInside:withEvent:方法判断触摸点是否在当前视图内； 若返回NO,则hitTest ... <a href="http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -345,7 +357,7 @@
                             小总结--2012-4-24
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/summary.rst, line 6) Field list ends without a blank line; unexpected unindent. :category:碎碎念 回首过去的一年，从一个青涩的实习生慢慢走来。如今变成了一个某中意义上的老员工、 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/summary.rst, line 9) Line block ends without a blank line. 前辈 ... <a href="http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst, line 6) Field list ends without a blank line; unexpected unindent. :category:碎碎念 回首过去的一年，从一个青涩的实习生慢慢走来。如今变成了一个某中意义上的老员工、 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst, line 9) Line block ends without ... <a href="http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -356,7 +368,7 @@
                             ios中使用google voice
                         </a>
                     </h3></header>
-                    <div class="summary">现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。 缺点： 1、精确度不够。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_google_voice.rst, line 11) Line block ends without a blank line. 2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。 | 3、使用的是sbjson框架解析json数据，速度慢。 | 4、你的工程编译linker参数里面不能加 -all_load 不然就会引起相当大的问题。 以下使用的google voice的api是网上chrome的语音识别的api。 优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。 你可以将你的数据发到你自己的服务端 然后再转到google上去。 地址在我的bitbucket上面 地址在我的bitbucket上面 <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/">read more</a></div>
+                    <div class="summary">现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。 缺点： 1、精确度不够。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_google_voice.rst, line 11) Line block ends without a blank line. 2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。 | 3、使用的是sbjson框架解析json数据，速度慢。 | 4、你的工程编译linker参数里面不能加 -all_load 不然就会引起相当大的问题。 以下使用的google voice的api是网上chrome的语音识别的api。 优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。 你可以将你的数据发到你自己的服务端 然后再转到google上去。 地址在我的bitbucket上面 地址在我的bitbucket上面 <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -396,6 +408,17 @@
                 <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
                 <div class="detail">
                     <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2012/12/03/python-vim/" rel="bookmark" title="Permalink to python+vim 开发环境">
+                            python+vim 开发环境
+                        </a>
+                    </h3></header>
+                    <div class="summary">Vim as a PHP IDE This Vim configuration is meant to be used to make Vim act more like System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/python_vim.rst, line 9) Line block ends without a blank line. an IDE. I use it mostly under MacVIM ... <a href="http://xiangyuan.github.io/posts/2012/12/03/python-vim/">read more</a></div>
+                </div>
+            </article>
+            <article class="entry-overview">
+                <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
                         <a href="http://xiangyuan.github.io/posts/2012/12/03/pythonjie-shou-xi-tong-can-shu/" rel="bookmark" title="Permalink to python接收系统参数">
                             python接收系统参数
                         </a>
@@ -411,7 +434,7 @@
                             文件下载时会用到的http协议设置
                         </a>
                     </h3></header>
-                    <div class="summary">http协议中的应答头 说明 1.Allow 服务器支持哪些请求方法（如GET、POST等）。 2.Content-Encoding System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/http_protocol.rst, line 8) Line block ends without a blank line. 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档 的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept- Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面 ... <a href="http://xiangyuan.github.io/posts/2012/12/02/wen-jian-xia-zai-shi-hui-yong-dao-de-httpxie-yi-she-zhi/">read more</a></div>
+                    <div class="summary">http协议中的应答头 说明 1.Allow 服务器支持哪些请求方法（如GET、POST等）。 2.Content-Encoding System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/http_protocol.rst, line 8) Line block ends without a blank line. 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档 的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept- Encoding”)）检查浏览器是否支持gzip ... <a href="http://xiangyuan.github.io/posts/2012/12/02/wen-jian-xia-zai-shi-hui-yong-dao-de-httpxie-yi-she-zhi/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -422,7 +445,7 @@
                             android权限检查
                         </a>
                     </h3></header>
-                    <div class="summary">1、checkpermission部分写到服务端的是： writeInterfaceToken -->> android.app.IActivityManager writeString---> permission 字符串 writeInt -->pid writeInt -->uid 写过去的code是Check_permission_transcation System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/android_permission_check.rst, line 10) Line block ends without a blank line. 2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值 | 只要分别是哪一个值就可以读取相关的值(理论) 3、下面做验证 从一些错误信息如下来看code是53 PID: 5165, UID: 10046 D ... <a href="http://xiangyuan.github.io/posts/2012/12/02/androidquan-xian-jian-cha/">read more</a></div>
+                    <div class="summary">1、checkpermission部分写到服务端的是： writeInterfaceToken -->> android.app.IActivityManager writeString---> permission 字符串 writeInt -->pid writeInt -->uid 写过去的code是Check_permission_transcation System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/android_permission_check.rst, line 10) Line block ends without a blank line. 2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值 | 只要分别是哪一个值就可以读取相关的值(理论) 3、下面做验证 从一些错误信息如下来看code是53 PID: 5165, UID ... <a href="http://xiangyuan.github.io/posts/2012/12/02/androidquan-xian-jian-cha/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -469,18 +492,6 @@
                     <div class="summary">各种应用上面有很多圆形的图片显示。 如下图 我知道的实现方法有三种。 1、通过image mask来操作，需要添加mask目标图片。 2、通过imageview的layer来操作 如下代码 UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"oiuyfdsa.png"]]; imageView.frame = CGRectMake(20.f, 20.f, 100.f, 100.f); imageView.layer.masksToBounds = YES; imageView.layer.cornerRadius = 50; a.这种方法需要添加QuarztCore框架才能操作 b.cornerradus的确定问题 3、能过代码对画布裁剪成圆形--》然后再将原始图像画出来--》 -(UIImage*) circleImage:(UIImage*) image withParam ... <a href="http://xiangyuan.github.io/posts/2012/12/02/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa-zhi-er/">read more</a></div>
                 </div>
             </article>
-                <h2>November 2012</h2>
-            <article class="entry-overview">
-                <div class="date">Fri 30 November 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
-                <div class="detail">
-                    <header><h3>
-                        <a href="http://xiangyuan.github.io/posts/2012/11/30/about/" rel="bookmark" title="Permalink to About">
-                            About
-                        </a>
-                    </h3></header>
-                    <div class="summary">关于 以此献给我们一起2b的那些年 <a href="http://xiangyuan.github.io/posts/2012/11/30/about/">read more</a></div>
-                </div>
-            </article>
                 <h2>June 2012</h2>
             <article class="entry-overview">
                 <div class="date">Tue 26 June 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
@@ -513,7 +524,7 @@
                             parallax视差视图的实现
                         </a>
                     </h3></header>
-                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/parallax.rst, line 5) Field list ends without a blank line; unexpected unindent. :category:ios 视差视图的点型样子如下图。 实现方式我的github 我的github 国外一哥们的 MDCParallaxView 上面的都存在一个共同的问题，那就是视差的背景图片是没有事件响应的。下一篇告诉怎么解决。 <a href="http://xiangyuan.github.io/posts/2012/05/03/parallaxshi-chai-shi-tu-de-shi-xian/">read more</a></div>
+                    <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/parallax.rst, line 5) Field list ends without a blank line; unexpected unindent. :category:ios 视差视图的点型样子如下图。 实现方式我的github 我的github 国外一哥们的 MDCParallaxView 上面的都存在一个共同的问题，那就是视差的背景图片是没有事件响应的。下一篇告诉怎么解决。 <a href="http://xiangyuan.github.io/posts/2012/05/03/parallaxshi-chai-shi-tu-de-shi-xian/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -524,7 +535,7 @@
                             JWfolder列表展开时问题修正
                         </a>
                     </h3></header>
-                    <div class="summary">``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst, line 8); backlink Inline literal start-string without end-string. 这是一个可展开示例 但在使用到tableview里面操作时却会出现 重叠问题 解决办法 UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath]; CGFloat y = cell.frame.origin.y; CGFloat varY = abs(y - tableView.contentOffset.y); if (varY > 316.f) { CGPoint point = CGPointMake ... <a href="http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/">read more</a></div>
+                    <div class="summary">``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/jwfolder.rst, line 8); backlink Inline literal start-string without end-string. 这是一个可展开示例 但在使用到tableview里面操作时却会出现 重叠问题 解决办法 UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath]; CGFloat y = cell.frame.origin.y; CGFloat varY = abs(y - tableView.contentOffset.y); if (varY > 316.f) { CGPoint ... <a href="http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/">read more</a></div>
                 </div>
             </article>
                 <h2>February 2012</h2>
@@ -548,10 +559,21 @@
                             viewcontroller 生命周期
                         </a>
                     </h3></header>
-                    <div class="summary">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系 init方法 在init方法中实例化必要的对象（遵从LazyLoad思想） init方法中初始化ViewController本身 loadView方法 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst, line 9) Line block ends without a blank line. 当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。 | 如果手工维护views，必须重写该方法 | 如果使用IB维护views，必须不能重写该方法 | loadView和IB构建view | viewDidLoad方法 | 重写该方法以进一步定制view | 在iPhone OS 3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引 | viewDidLoad后调用数据Model | viewDidUnload方法 | 当系统内存吃紧的时候会调用该方法（注 ... <a href="http://xiangyuan.github.io/posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/">read more</a></div>
+                    <div class="summary">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系 init方法 在init方法中实例化必要的对象（遵从LazyLoad思想） init方法中初始化ViewController本身 loadView方法 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/viewcontroller_lifecircle.rst, line 9) Line block ends without a blank line. 当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。 | 如果手工维护views，必须重写该方法 | 如果使用IB维护views，必须不能重写该方法 | loadView和IB构建view | viewDidLoad方法 | 重写该方法以进一步定制view | 在iPhone OS 3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引 | viewDidLoad后调用数据Model | viewDidUnload方法 ... <a href="http://xiangyuan.github.io/posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/">read more</a></div>
                 </div>
             </article>
                 <h2>November 2011</h2>
+            <article class="entry-overview">
+                <div class="date">Wed 16 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/" rel="bookmark" title="Permalink to mac下php相关配置文件">
+                            mac下php相关配置文件
+                        </a>
+                    </h3></header>
+                    <div class="summary">昨天偶尔想用php写一个发http请求来写一个api。 结果HttpRequest类找不到。 找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。 sudo find / php.ini 命令查找了一个居然没有这个文件。 php -i | less 用上述命令查看下. Configuration File (php.ini) Path /etc Loaded Configuration File （none） Scan this dir for additional .ini files (none) Additional .ini files parsed (none) 发现这个文件需要自己却创建一下. cp php.ini.default php.ini php.ini.default文件在/etc/目录下面，是一个默认的配置文件 ... <a href="http://xiangyuan.github.io/posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/">read more</a></div>
+                </div>
+            </article>
             <article class="entry-overview">
                 <div class="date">Thu 03 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
                 <div class="detail">
@@ -560,7 +582,7 @@
                             oc消息转发
                         </a>
                     </h3></header>
-                    <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string. 快速转发路径(Fast ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
+                    <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -595,7 +617,7 @@
                             linux多定时器实现
                         </a>
                     </h3></header>
-                    <div class="summary">这是一个小小的开源项目，实现linux上的多定时器，在我的博客里面也提过一篇关于定时器的文章。 项目地址： ``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst, line 11); backlink Inline literal start-string without end-string. System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst, line 13) malformed hyperlink target. <a href="http://xiangyuan.github.io/posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/">read more</a></div>
+                    <div class="summary">这是一个小小的开源项目，实现linux上的多定时器，在我的博客里面也提过一篇关于定时器的文章。 项目地址： ``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst, line 11); backlink Inline literal start-string without end-string. System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst, line 13) malformed hyperlink target. <a href="http://xiangyuan.github.io/posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/">read more</a></div>
                 </div>
             </article>
                 <h2>May 2011</h2>
@@ -622,10 +644,10 @@
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -633,13 +655,18 @@
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -648,18 +675,21 @@
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -669,6 +699,8 @@
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -688,6 +720,8 @@
             <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
       
 
@@ -695,6 +729,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
       
 
       
@@ -716,8 +752,6 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -767,7 +801,6 @@
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -787,6 +820,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

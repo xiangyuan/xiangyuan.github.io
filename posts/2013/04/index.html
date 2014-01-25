@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -62,6 +63,17 @@
                         </a>
                     </h3></header>
                     <div class="summary">在android平台中listview有一个thumb手机样式的拖动条，可以快速的拖动列表。 在ios上这个却是没有的。 在进行之前先来看一个场景，很多ios应用在看列表时，都会动态加载更多，然后随着列表项越来越多时。再到最上面时滚动就比较的费时，读一些内容软多的文字时也会碰到这种情况。 zaker上面看文章时也会一个快速拖动条，看新闻体验就比较的好。 这个手机样式图下图。 当然上图中的手指并不是图，是通过代码实现的。上面是table做的测试。下面是一个scrollview结果的图形。 一、下面先说说那个手指样式类图实现原理。 手指图是上下都是一个三角形，通过path画一个三角形，然后将图形context反转再画一个三角。 中间部分是一个pattern模式图形. 画三角 /** * /\ ** -- * | | * \/ */ CGRect bounds = self.bounds; CGMutablePathRef pathref = CGPathCreateMutable(); CGContextSaveGState(ctx); CGContextSetLineWidth(ctx, 2); CGContextSetFillColorWithColor(ctx, [UIColor grayColor].CGColor); CGPathMoveToPoint(pathref, NULL, bounds.origin.x + bounds.size.width / 2 ... <a href="http://xiangyuan.github.io/posts/2013/04/27/iosshang-ke-tuo-dong-de-gun-dong-tiao/">read more</a></div>
+                </div>
+            </article>
+            <article class="entry-overview">
+                <div class="date">Fri 26 April 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/" rel="bookmark" title="Permalink to HLS之ts文件格式分析">
+                            HLS之ts文件格式分析
+                        </a>
+                    </h3></header>
+                    <div class="summary">HTTP Live Streaming（HLS）是苹果公司(Apple Inc.)实现的基于HTTP的流媒体传输协议，可实现流媒体的直播和点播，主要应用在iOS系统，为iOS设备（如iPhone、iPad）提供音视频直播和点播方案。HLS点播，基本上就是常见的分段HTTP点播，不同在于，它的分段非常小。 相对于常见的流媒体直播协议，例如RTMP协议、RTSP协议、MMS协议等，HLS直播最大的不同在于，直播客户端获取到的，并不是一个完整的数据流。HLS协议在服务器端将直播数据流存储为连续的、很短时长的媒体文件（MPEG-TS格式），而客户端则不断的下载并播放这些小文件，因为服务器端总是会将最新的直播数据生成新的小文件，这样客户端只要不停的按顺序播放从服务器获取到的文件，就实现了直播。由此可见，基本上可以认为，HLS是以点播的技术方式来实现直播。由于数据通过HTTP协议传输，所以完全不用考虑防火墙或者代理的问题，而且分段文件的时长很短，客户端可以很快的选择和切换码率，以适应不同带宽条件下的播放。不过HLS的这种技术特点，决定了它的延迟一般总是会高于普通的流媒体直播协议。 根据以上的了解要实现HTTP Live Streaming直播，需要研究并实现以下技术关键点 /* 采集视频源和音频源的数据 对原始数据进行H264编码和AAC编码 视频和音频数据封装为MPEG-TS包 HLS分段生成策略及m3u8索引文件 ... <a href="http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -94,7 +106,7 @@
                             Removing NSLogs for distribution
                         </a>
                     </h3></header>
-                    <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
+                    <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
                 </div>
             </article>
         </dl>
@@ -109,10 +121,10 @@
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -120,13 +132,18 @@
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -135,18 +152,21 @@
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -156,6 +176,8 @@
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -175,6 +197,8 @@
             <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
       
 
@@ -182,6 +206,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
       
 
       
@@ -203,8 +229,6 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -254,7 +278,6 @@
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -274,6 +297,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

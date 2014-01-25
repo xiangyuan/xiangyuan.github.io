@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -54,6 +55,17 @@
     <section id="content" class="body archives">
                 <h1>Blog Archive "November 2011"</h1>
             <article class="entry-overview">
+                <div class="date">Wed 16 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
+                <div class="detail">
+                    <header><h3>
+                        <a href="http://xiangyuan.github.io/posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/" rel="bookmark" title="Permalink to mac下php相关配置文件">
+                            mac下php相关配置文件
+                        </a>
+                    </h3></header>
+                    <div class="summary">昨天偶尔想用php写一个发http请求来写一个api。 结果HttpRequest类找不到。 找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。 sudo find / php.ini 命令查找了一个居然没有这个文件。 php -i | less 用上述命令查看下. Configuration File (php.ini) Path /etc Loaded Configuration File （none） Scan this dir for additional .ini files (none) Additional .ini files parsed (none) 发现这个文件需要自己却创建一下. cp php.ini.default php.ini php.ini.default文件在/etc/目录下面，是一个默认的配置文件 ... <a href="http://xiangyuan.github.io/posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/">read more</a></div>
+                </div>
+            </article>
+            <article class="entry-overview">
                 <div class="date">Thu 03 November 2011 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div> 
                 <div class="detail">
                     <header><h3>
@@ -61,7 +73,7 @@
                             oc消息转发
                         </a>
                     </h3></header>
-                    <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string. 快速转发路径(Fast ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
+                    <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
                 </div>
             </article>
             <article class="entry-overview">
@@ -96,7 +108,7 @@
                             linux多定时器实现
                         </a>
                     </h3></header>
-                    <div class="summary">这是一个小小的开源项目，实现linux上的多定时器，在我的博客里面也提过一篇关于定时器的文章。 项目地址： ``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst, line 11); backlink Inline literal start-string without end-string. System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst, line 13) malformed hyperlink target. <a href="http://xiangyuan.github.io/posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/">read more</a></div>
+                    <div class="summary">这是一个小小的开源项目，实现linux上的多定时器，在我的博客里面也提过一篇关于定时器的文章。 项目地址： ``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst, line 11); backlink Inline literal start-string without end-string. System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst, line 13) malformed hyperlink target. <a href="http://xiangyuan.github.io/posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/">read more</a></div>
                 </div>
             </article>
                 <h1>Blog Archive "May 2011"</h1>
@@ -123,10 +135,10 @@
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -134,13 +146,18 @@
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -149,18 +166,21 @@
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -170,6 +190,8 @@
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -189,6 +211,8 @@
             <li><a href="http://xiangyuan.github.io/posts/2014/01/index.html">January 2014</a></li>
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/06/index.html">June 2013</a></li>
       
 
@@ -196,6 +220,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/04/index.html">April 2013</a></li>
+      
+
       
 
       
@@ -217,8 +243,6 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -268,7 +292,6 @@
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -288,6 +311,8 @@
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

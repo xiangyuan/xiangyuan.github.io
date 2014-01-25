@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -52,633 +53,92 @@
           <section id="content" class="hyphenate">
 
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Wed 30 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/" rel="bookmark" title="Permalink to cocos2d之入门">
-                        cocos2d之入门
+                    <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/" rel="bookmark" title="Permalink to 拍照界面的定制">
+                        拍照界面的定制
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/cocos2d_tutorail.rst</tt>, line 4)</p>
-Field list ends without a blank line; unexpected unindent.</div>
-<p>:category:cocos2d</p>
-<p>cocos2d中核心以前关键的一些类别</p>
-<p>像是现实如下的电影流程</p>
-<p>导演---》场景--》各种层--》然后加杂着一些动作</p>
-<p>CCDirector</p>
-<ol class="arabic simple">
-<li>切换场景</li>
-<li>存储cocos2d配置信息</li>
-<li>访问视图（uiview opengl等）</li>
-<li>暂停、恢复和终止游戏</li>
-<li>uikit与opengl坐标之间的转换。</li>
-</ol>
-<div><p>这个类在整个框架里面像是一个mediator模式。</p>
-</div><div></div><div><p>第二个概念</p>
-</div><div><p>CCSecene</p>
-</div><div><ol class="arabic simple">
-<li>包括很多layer元素 综合就构成了一个场景</li>
-<li>然后会有ccsprite精灵。</li>
-<li>还有一些文字。</li>
-<li>菜单等</li>
-</ol>
-<div><p>CCSprite:</p>
-</div><div></div><div><p>CCLabel</p>
-</div><div></div><div><p>CCAction</p>
-</div><div></div><div><p>CCLayer等</p>
-</div><div><p>下面是类层次结构图</p>
-</div><div><p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_1.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_1-283x300.png" /></a></p>
-</div><div><p>action图2</p>
-</div><div><p><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_2.png"><img alt="image1" src="http://kingiol.com/bl/wp-content/uploads/2012/12/inherit_graph_2-206x300.png" /></a></p>
-</div></div></div>
+                   <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput 3、设置预览层 _captureSession = [[AVCaptureSession alloc]init]; // Do any additional setup after loading the view, typically from a nib. AVCaptureDevice * device = [AVCaptureDevice ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Mon 21 January 2013 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa/" rel="bookmark" title="Permalink to ios Image裁剪成圆形的方法">
-                        ios Image裁剪成圆形的方法
+                    <a href="http://xiangyuan.github.io/posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/" rel="bookmark" title="Permalink to apple个人开发者证书无线发布app的实现">
+                        apple个人开发者证书无线发布app的实现
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>各种应用上面有很多圆形的图片显示。</p>
-<div class="line-block">
-<div class="line">如下图</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/Screenshot-2012.12.02-12.39.26.png"><img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/Screenshot-2012.12.02-12.39.26-200x300.png" /></a></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">我知道的实现方法有三种。</div>
-<div class="line-block">
-<div class="line">1、通过image mask来操作，需要添加mask目标图片。</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">2、通过imageview的layer来操作</div>
-<div class="line-block">
-<div class="line">如下代码</div>
-</div>
-</div>
-<pre class="literal-block">
-UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:&#64;&quot;oiuyfdsa.png&quot;]];
-imageView.frame = CGRectMake(20.f, 20.f, 100.f, 100.f);
-imageView.layer.masksToBounds = YES;
-imageView.layer.cornerRadius = 50;
-</pre>
-<div class="line-block">
-<div class="line">a.这种方法需要添加QuarztCore框架才能操作</div>
-<div class="line-block">
-<div class="line">b.cornerradus的确定问题</div>
-</div>
-</div>
-<p>3、能过代码对画布裁剪成圆形--》然后再将原始图像画出来--》</p>
-<pre class="literal-block">
--(UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset {
-    UIGraphicsBeginImageContext(image.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 2);
-    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
-    CGRect rect = CGRectMake(inset, inset, image.size.width - inset * 2.0f, image.size.height - inset * 2.0f);
-    CGContextAddEllipseInRect(context, rect);
-    CGContextClip(context);
-
-    [image drawInRect:rect];
-    CGContextAddEllipseInRect(context, rect);
-    CGContextStrokePath(context);
-    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newimg;
-}
-</pre>
-<div class="line-block">
-<div class="line">上面代码注意 如果裁剪后没有使用 CGContextAddEllipseInRect(context,</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_image_round.rst</tt>, line 50)</p>
-Line block ends without a blank line.</div>
-<p>rect);
-|  CGContextStrokePath(context); 这条代码
-就会引起背景为白色时看不出来任务效果。
-|  这里是椭圆操作
-|  圆操作你懂的。</p>
-</div>
+                   <div class="summary">apple个人开发者证书无线发布app的实现，也就是说不经过发布到app store，直接在ios设备上安装app，注：ios设备不需要越狱。 之所以有这篇文章的产生，可以看这里： 不通过App Store，在iOS设备上直接安装应用程序 以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。 具体参考下面文章 <a href="http://xiangyuan.github.io/posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Thu 27 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioskai-fa-huo-androidkai-fa-gong-ju-zhi-zhua-bao/" rel="bookmark" title="Permalink to ios开发或android开发工具之抓包">
-                        ios开发或android开发工具之抓包
+                    <a href="http://xiangyuan.github.io/posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/" rel="bookmark" title="Permalink to lbs之两坐标点之间的距离">
+                        lbs之两坐标点之间的距离
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>在开发过程中 或是查看别人应用向服务端发送了什么数据</p>
-<p>或是调用的接口，比如说papa图片录音的实现问题，它其实是分开的两部分内容，并不是将声音加在图片数据之上。而且音频格式是mp3
-的。</p>
-<div class="line-block">
-<div class="line">工具连接地址</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="http://www.charlesproxy.com/">charles</a></div>
-</div>
-</div>
-</div>
+                   <div class="summary">在LBS应用中，需要知到两坐标点之间的距离，从而在手机应用中实现离自己多少距离的附近的人员。 计算方法从Haversine formula 这个公式得来。 查看wiki : Haversine公式 下面写出的php实现， public class LBS { private $earthRadius = 6367000; /* * Using the Haversine formula * *http://en.wikipedia.org/wiki/Haversine_formula * calculate the distance */ public function getDistance($lant1,$lon1,$lant2,$lon2) { $nDlat = ($lant1 - $lant2) * pi() / 180; $nDlon = ($lon1 - $lon2) * pi() / 180; $nA = pow (sin($nDlat / 2 ... <a href="http://xiangyuan.github.io/posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Wed 26 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/" rel="bookmark" title="Permalink to uiscrollview覆盖子视图时引起的背景视图无事件">
-                        uiscrollview覆盖子视图时引起的背景视图无事件
+                    <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/" rel="bookmark" title="Permalink to 使用他人app里面图片">
+                        使用他人app里面图片
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/uiscrollview_cover_bottom.rst</tt>, line 4)</p>
-Field list ends without a blank line; unexpected unindent.</div>
-<p>:category:ios</p>
-<div class="line-block">
-<div class="line">上一篇我们说到的问题。如标题所示，开始问了一哥们。告诉我是不能解决。</div>
-<div class="line-block">
-<div class="line">根据我各种看文档发现这个问题也是可以解决的。那就是需要我们的视图重写</div>
-</div>
-</div>
-<pre class="literal-block">
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-</pre>
-<p>这个方法 然后根据是否在背景子视图的区域来</p>
-<p>hitTest:withEvent:方法的处理流程如下:</p>
-<ol class="arabic simple">
-<li>首先调用当前视图的pointInside:withEvent:方法判断触摸点是否在当前视图内；</li>
-<li>若返回NO,则hitTest:withEvent:返回nil;</li>
-<li>若返回YES,则向当前视图的所有子视图(subviews)发送hitTest:withEvent:消息，所有子视图的遍历顺序是从top到bottom，即从subviews数组的末尾向前遍历,直到有子视图返回非空对象或者全部子视图遍历完毕；</li>
-<li>若第一次有子视图返回非空对象,则hitTest:withEvent:方法返回此对象，处理结束；</li>
-<li>如所有子视图都返回非，则hitTest:withEvent:方法返回自身(self)。</li>
-</ol>
-<p>就可以解决问题了</p>
-</div>
+                   <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/extract_other_app_images.rst, line 2) Title underline too short. 使用他人app里面图片 ################## 有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取 1、首先在itunes里面打开ipa包。 2、使用归档工具解压查看。 3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush ... <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Wed 19 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/" rel="bookmark" title="Permalink to 小总结--2012-4-24">
-                        小总结--2012-4-24
+                    <a href="http://xiangyuan.github.io/posts/2012/12/19/tu-ceng-ji-he-wen-dang/" rel="bookmark" title="Permalink to 图层几何(文档)">
+                        图层几何(文档)
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/summary.rst</tt>, line 6)</p>
-Field list ends without a blank line; unexpected unindent.</div>
-<p>:category:碎碎念</p>
-<div class="line-block">
-<div class="line">回首过去的一年，从一个青涩的实习生慢慢走来。如今变成了一个某中意义上的老员工、</div>
-<div class="line"><br /></div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/summary.rst</tt>, line 9)</p>
-Line block ends without a blank line.</div>
-<p>前辈。想想这一年自己学习到了些什么，个人又成长了什么。因为是一个码农，所以吐槽一下。
-|  一、 技术上：
-|
-从第一次接触github、bitbucket，到成为开源社区中的一只小小虫。仍记得大学里
-|
-面学习linux时的飘忽，根本就没有怎么地用过，再到后来的没有咋地用windows了。亲，这个世界变化真快。还记得那些年学的c++被自己丢的十万八千里了。再到混开源社区，拾起了c开发，也许这些以前不会想到。这就如恋爱，曾经以后自己很爱，不会忘记的沈家宜。也许在未来的某天，重新发现那些很需要的东西就那样的变淡了，可能就剩偶尔内心的一丝感伤与心灵些许难以释怀吧。
-|
-从看github里的第一个项目，当时好像是一个叫freerdp的项目，人生第一次发现，原来c代码可以写的那么优雅，那么酷，会让人迷恋的感觉。完完全全把我在大学里见的东西给颠覆了，发现大学里面的那些被忘的差不多的东西是那么垃圾。还记得张三丰教张无忌学太极剑时吧，最后一遍时问你还记得多少，得到的答案是全部忘记了。还好没有记得多少大学里面的东西了，也说明了人生的另一种学习观，保持一种清空的状态。一种从零开始的状态，不断的进步吧。从没有学过c到熟练使用c，这可许是工作后进步最大的一件事件吧。
-|
-记得大学时想去实现的事件，一定要学ios开发，这件事情也是工作后的另一大进步吧。
-|
-如今也虽然会了object-c的东西，却没有去实际的项目驱动吧。这个部分还会继续study下去。
-|
-还有就是看各种行业的一些动态，然后越发的自己懵懂了。还学习了一些其他比较杂的东西。然后就是参与一些开源项目。
-|  二、 生活上
-|
-这个方面吧，不太好说，算是比较混乱吧。可能您会觉得我比较无趣，大部分时间跟code过了。可能并不是每个人都会理解偶尔星巴克里code的那种状态。有几个志同道合的码农一块聊天，偶尔一起吃个饭，也还过的不孤单。情感上并不太行哈，身边净是一群基友，哈哈。不过以后“您”在那里。
-|  三、 未来规划
-|  曾经见到过这样一句话，“想想要成为什么样的人?
-如何成为这样的人?”。虽然自己一直也没有想清楚。所以可能又会继续做技术宅男，一些人心中的2B青年吧。前辈也跟我说自己想什么方向发展，对工作的环境又怎样的看待，自己的期待又是什么样子。这些问题我都会去想想。</p>
-<p>好了 原谅一个2B青年的吐槽吧。</p>
-</div>
+                   <div class="summary">动画主题里面 虽然图层和图层树与视图和视图的结构在很多方面具有相似性,但是图层的几何 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry.rst, line 8) Line block ends without a blank line. 却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式 和显式动画。 | 下图显示可以在上下文中指定图层几何的属性: | 图层的 position 属性是一个 CGPoint System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry ... <a href="http://xiangyuan.github.io/posts/2012/12/19/tu-ceng-ji-he-wen-dang/">read more</a></div>
 
 
             </div>
         </article>
         <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
+            <div class="date">Tue 18 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
             <div class="detail">
                 <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/" rel="bookmark" title="Permalink to ios中使用google voice">
-                        ios中使用google voice
+                    <a href="http://xiangyuan.github.io/posts/2012/12/18/ios-ge-qi-pao-liao-tian-ye-mian/" rel="bookmark" title="Permalink to ios一个汽泡聊天页面">
+                        ios一个汽泡聊天页面
                     </a>
                 </h2></header>
 
-                   <div class="clearboth"><p>现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。</p>
-<div class="line-block">
-<div class="line">缺点：</div>
-<div class="line-block">
-<div class="line">1、精确度不够。</div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/liyajie1209/coamee.com/myblog/content/ios_google_voice.rst</tt>, line 11)</p>
-Line block ends without a blank line.</div>
-<p>2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。
-|  3、使用的是sbjson框架解析json数据，速度慢。
-|  4、你的工程编译linker参数里面不能加 -all_load
-不然就会引起相当大的问题。</p>
-<div class="line-block">
-<div class="line">以下使用的google voice的api是网上chrome的语音识别的api。</div>
-<div class="line-block">
-<div class="line">优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">你可以将你的数据发到你自己的服务端 然后再转到google上去。</div>
-<div class="line-block">
-<div class="line">地址在我的bitbucket上面</div>
-<div class="line"><a class="reference external" href="https://bitbucket.org/xiangyuan/iphonegooglevoice">地址在我的bitbucket上面</a></div>
-</div>
-</div>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/iosxia-shi-xian-lei-si-wei-xin-lu-yin-shi-de-ui/" rel="bookmark" title="Permalink to ios下实现类似微信录音时的ui">
-                        ios下实现类似微信录音时的ui
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">不说废话直接上图</div>
-<div class="line-block">
-<div class="line"><img alt="image0" src="https://raw.github.com/xiangyuan/soundrecorderui/master/screeShot.png" /></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">下面进度的显示是使用的一个进度条 然后进行重新定制而产生的。</div>
-<div class="line-block">
-<div class="line">还可以通过图片来完成。</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">下面是github地址</div>
-<div class="line-block">
-<div class="line"><a class="reference external" href="https://github.com/xiangyuan/soundrecorderui">github地址</a></div>
-</div>
-</div>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-da-yin-shi-tu-de-zi-shi-tu/" rel="bookmark" title="Permalink to ios中打印视图的子视图">
-                        ios中打印视图的子视图
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><div class="line-block">
-<div class="line">ios中有时想看uikit里面类里所带的所有子视图</div>
-<div class="line-block">
-<div class="line">以便我们重新定制</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">因为定制方式有：</div>
-<div class="line-block">
-<div class="line">1、重合，多个组件的重新组合来达到目标。</div>
-<div class="line">2、继承uikit里面的组件进新重新添加。</div>
-<div class="line">3、继承uikit组件然后再重画</div>
-</div>
-</div>
-<p>所以就有看的需求。</p>
-<pre class="literal-block">
-NSString* getFullClassDescription(Class klass) {
-    NSString *description = [klass description];
-    while ([klass superclass])
-    {
-        klass = [klass superclass];
-        description = [description stringByAppendingFormat:&#64;&quot;:%&#64;&quot;, [klass description]];
-    }
-    return description;
-}
-
-
-void dumpViews(UIView* view, NSString *label, NSString *indent)  {
-    Class klass = [view class];
-    NSString *classDescription = getFullClassDescription(klass);
-    if ([label compare:&#64;&quot;&quot;] == NSOrderedSame)
-        NSLog(&#64;&quot;%&#64; %&#64;&quot;, classDescription, NSStringFromCGRect(view.frame));
-    else
-        NSLog(&#64;&quot;%&#64; %&#64; %&#64;&quot;, label, classDescription, NSStringFromCGRect(view.frame));
-    for (NSUInteger i = 0; i &lt; [view.subviews count]; i++)
-    {
-        UIView *subView = [view.subviews objectAtIndex:i];
-        NSString *newIndent = [[NSString alloc] initWithFormat:&#64;&quot;  %&#64;&quot;, indent];
-        NSString *newLabel = [[NSString alloc] initWithFormat:&#64;&quot;%&#64;%d:&quot;, newIndent, i];
-        dumpViews(subView, newLabel, newIndent);
-        [newLabel release];
-        [newIndent release];
-    }
-}
-
-uinavigatorbar 只有一个子视图是imageview 是layer对象 index是0
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/" rel="bookmark" title="Permalink to android应用中实现drag listview">
-                        android应用中实现drag listview
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>一些应用在拖动一个列表项时会浮现一个小图片用于代表当前拖动的列表项</p>
-<p>核心代码如下。</p>
-<pre class="literal-block">
-//自定义ListView，准备改造成自己想要的ListView
-
-//这样的好处是我们不仅可以直接使用ListView很多现成的稳定的方法，而且可以重写方法改写ListView的行为（利用的是java面向对象的继承特性，本人喜欢在任何代码中分析面向对象的特性、原则和模式）
-
-public class DragListView extends ListView {
-    private static final String TAG = DragListView.class.getSimpleName();
-    /**
-     * 被拖拽项的影像，其实就是一个ImageView
-     * */
-    private ImageView dragImageView;
-
-    private int dragPointX;//手指拖动的位置坐标
-    private int dragPointY;
-    private int dragOffsetX;//拖动影像与手指拖动位置的偏移
-    private int dragOffsetY;
-
-    private int dragDownX;//手指开始拖拽的起始点x坐标
-
-    private WindowManager windowManager;// windows窗口控制类
-
-    private WindowManager.LayoutParams windowParams;// 用于控制拖拽项的显示的参数
-
-    private DragListener mDragListener;
-
-    public DragListView(Context context, AttributeSet attrs) {
-
-        super(context, attrs);
-
-        setOnItemLongClickListener(new OnItemLongClickListener() {
-            &#64;Override
-            public boolean onItemLongClick(AdapterView&lt;?&gt; parent, View v,
-                    int position, long id) {
-                Log.e(TAG, &quot;onItemLongClick&quot;);
-                // 设置Drawingcache为true，获得选中项的影像bm，就是后面我们拖动的哪个头像
-                v.setDrawingCacheEnabled(true);
-                Bitmap bm = Bitmap.createBitmap(v.getDrawingCache());
-
-                startDrag(bm);
-                return true;
-            }
-        });
-    }
-
-    &#64;Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        // 捕获down事件
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            int x = (int) ev.getX();
-            int y = (int) ev.getY();
-
-            // 如果是无效位置(超出边界，分割线等位置)，返回
-            if (getCount() &lt; 1) {
-
-                return super.onInterceptTouchEvent(ev);
-
-            }
-
-            if (mDragListener != null) {
-                mDragListener.down(x, y);
-            }
-
-            ViewGroup itemView = (ViewGroup) getChildAt(0);
-
-            if (itemView != null) {
-                dragPointY = (int) (ev.getRawY() - (itemView.getHeight() / 2));
-                dragOffsetY = (itemView.getHeight() / 2);
-                dragOffsetX = (int) (itemView.getWidth() / 2);
-                dragPointX = x + dragOffsetX;
-                dragDownX = x;
-            }
-
-            return false;
-
-        }
-
-        return super.onInterceptTouchEvent(ev);
-
-    }
-
-    /**
-     *
-     * 准备拖动，初始化拖动项的图像
-     *
-     * &#64;param bm
-     *
-     * &#64;param y
-     */
-    public void startDrag(Bitmap bm) {
-        // 释放影像，在准备影像的时候，防止影像没释放，每次都执行一下
-        stopDrag();
-        windowParams = new WindowManager.LayoutParams();
-        // 从上到下计算y方向上的相对位置，
-        windowParams.gravity = Gravity.TOP | Gravity.LEFT;
-        windowParams.x = dragPointX;
-        windowParams.y = dragPointY;
-        windowParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        windowParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
-        LogEx.i(TAG, &quot;x:--&gt;&quot; + windowParams.x + &quot; y: &quot; + windowParams.y);
-        // 下面这些参数能够帮助准确定位到选中项点击位置，照抄即可
-        windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-                | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-
-        windowParams.format = PixelFormat.TRANSLUCENT;
-        windowParams.windowAnimations = 0;
-
-        // 把影像ImagView添加到当前视图中
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageBitmap(bm);
-        windowManager = (WindowManager) getContext().getSystemService(&quot;window&quot;);
-        windowManager.addView(imageView, windowParams);
-
-        // 把影像ImageView引用到变量drawImageView，用于后续操作(拖动，释放等等)
-        dragImageView = imageView;
-    }
-
-    /**
-     *
-     * 停止拖动，去除拖动项的头像
-     */
-
-    public void stopDrag() {
-        if (dragImageView != null) {
-            dragPointX = 0;
-            dragOffsetX = 0;
-            windowManager.removeView(dragImageView);
-            dragImageView = null;
-        }
-    }
-
-
-过客/ty  20:41:41
-    /**
-     *
-     * 触摸事件
-     */
-
-    &#64;Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        // LogEx.v(TAG, &quot;x: &quot; + ev.getX() + &quot; y: &quot; + ev.getY());
-        // 如果dragmageView为空，说明拦截事件中已经判定仅仅是点击，不是拖动，返回
-        // 如果点击的是无效位置，返回，需要重新判断
-        if (dragImageView != null) {
-            int action = ev.getAction();
-            int moveY = (int) ev.getY();
-            int moveX = (int) ev.getX();
-
-            switch (action) {
-            case MotionEvent.ACTION_UP:
-                // 释放拖动影像
-                stopDrag();
-                // 放下后，判断位置，实现相应的位置删除和插入
-                onDrop(moveX, moveY);
-                break;
-            case MotionEvent.ACTION_MOVE:
-
-                dragPointY = (int) ev.getRawY() - dragOffsetY;
-                dragPointX = (int) moveX + dragOffsetX;
-                // 拖动影像
-                onDrag(moveY, moveX);
-                break;
-            default:
-                break;
-            }
-            return true;
-        }
-        // 这个返回值能够实现selected的选中效果，如果返回true则无选中效果
-        return super.onTouchEvent(ev);
-
-    }
-
-    /**
-     *
-     * 拖动执行，在Move方法中执行
-     *
-     * &#64;param y
-     */
-
-    public void onDrag(int moveY, int moveX) {
-
-        if (dragImageView != null) {
-            windowParams.alpha = 0.8f;
-            windowParams.y = dragPointY;
-            windowParams.x = dragPointX;
-            windowManager.updateViewLayout(dragImageView, windowParams);
-        }
-
-        if (mDragListener != null) {
-            mDragListener.move(dragPointX, moveY);
-        }
-
-
-    }
-
-    /**
-     *
-     * 拖动放下的时候
-     *
-     * &#64;param y
-     */
-
-    public void onDrop(int x, int y) {
-        if (mDragListener != null) {
-            if (x &lt; dragDownX - 30) {
-                mDragListener.drop(dragPointX, y);
-            } else {
-                mDragListener.removeBg();
-            }
-        }
-
-    }
-
-    public void setPointView(DragListener dragListener) {
-        this.mDragListener = dragListener;
-    }
-
-    public interface DragListener {
-        void down(int x, int y);
-
-        void drop(int x, int y);
-
-        void move(int x, int y);
-
-        void removeBg();
-    }
-}
-</pre>
-</div>
-
-
-            </div>
-        </article>
-        <article class="entry-overview">
-            <div class="date">Mon 03 December 2012 by <a rel="author" href="http://xiangyuan.github.io/pages/aboutme.html">向远</a></div>
-            <div class="detail">
-                <header><h2>
-                    <a href="http://xiangyuan.github.io/posts/2012/12/03/pythonjie-shou-xi-tong-can-shu/" rel="bookmark" title="Permalink to python接收系统参数">
-                        python接收系统参数
-                    </a>
-                </h2></header>
-
-                   <div class="clearboth"><p>python接收系统参数时注意</p>
-<p>python接收系统参数时第0个参数是指当前指定的文件名</p>
-<p>而实际上的参数列表是从1开始的</p>
-</div>
+                   <div class="summary">效果如图所示。 项目地址：https://github.com/xiangyuan/BubbleMsg <a href="http://xiangyuan.github.io/posts/2012/12/18/ios-ge-qi-pao-liao-tian-ye-mian/">read more</a></div>
 
 
             </div>
         </article>
 <p class="paginator">
         <a href="http://xiangyuan.github.io/author/xiang-yuan2.html">&laquo;</a>
-    Page 3 / 5
+    Page 3 / 9
         <a href="http://xiangyuan.github.io/author/xiang-yuan4.html">&raquo;</a>
 </p>
 
@@ -691,10 +151,10 @@ public class DragListView extends ListView {
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -702,13 +162,18 @@ public class DragListView extends ListView {
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -717,18 +182,21 @@ public class DragListView extends ListView {
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -738,6 +206,8 @@ public class DragListView extends ListView {
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 
@@ -769,6 +239,8 @@ public class DragListView extends ListView {
 
       
 
+      
+
             <li><a href="http://xiangyuan.github.io/posts/2013/03/index.html">March 2013</a></li>
       
 
@@ -782,8 +254,6 @@ public class DragListView extends ListView {
       
 
             <li><a href="http://xiangyuan.github.io/posts/2013/01/index.html">January 2013</a></li>
-      
-
       
 
       
@@ -833,7 +303,6 @@ public class DragListView extends ListView {
 
       
 
-            <li><a href="http://xiangyuan.github.io/posts/2012/11/index.html">November 2012</a></li>
       
 
             <li><a href="http://xiangyuan.github.io/posts/2012/06/index.html">June 2012</a></li>
@@ -853,6 +322,8 @@ public class DragListView extends ListView {
       
 
             <li><a href="http://xiangyuan.github.io/posts/2011/11/index.html">November 2011</a></li>
+      
+
       
 
       

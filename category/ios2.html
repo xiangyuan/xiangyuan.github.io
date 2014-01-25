@@ -41,6 +41,7 @@
      <div class="col-1-1">        
        <ul id="mainnav">
           <li><a href="http://xiangyuan.github.io">home</a></li>
+          <li><a href="http://xiangyuan.github.io/pages/aboutme.html">About</a></li>
        </ul>
        <div id="blogtitle"><a href="http://xiangyuan.github.io">85后那些年</a></div>
        <div id="blogsubtitle"><a href="http://xiangyuan.github.io"></a></div>
@@ -103,7 +104,7 @@
                         Removing NSLogs for distribution
                     </a>
                 </h3></header>
-                <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
+                <div class="summary">在开发iOS应用时经常使用NSLog打印信息来调试，但在发布时这些打印信息应该去除,逐个的去注释掉打印语句太过麻烦，可以使用预处理宏在发布app时去掉打印，方法如下: 在每个工程里都有一个-Prefix.pch文件,在此文件中添加如下语句 #if DEBUG #warning NSLogs will be shown #else #define NSLog(...) {} #endif 这样，在开发时会有NSLogs will be System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/removing-nslogs-for-distribution.rst, line 11) Line block ends without a blank line. shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。 <a href="http://xiangyuan.github.io/posts/2013/04/01/removing-nslogs-for-distribution/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -125,7 +126,7 @@
                         ios项目中c++头文件找不到错误
                     </a>
                 </h3></header>
-                <div class="summary">我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。 但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_cplusplus_header.rst, line 10) Line block ends without a blank line. found 编译错误。 | 解决办法如下： #include #ifdef __cplusplus #include #include #include #include #include #include #endif #ifdef __OBJC__ #warning import ... <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/">read more</a></div>
+                <div class="summary">我们知道object-c与c++代码混合使用时，会将文件改为.mm的后缀。这个xcode在编译时就会使用clang和llvmg++来编译，一些标准备库文件就会正常识别。 但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2013/ios_cplusplus_header.rst, line 10) Line block ends without a blank line. found 编译错误。 | 解决办法如下： #include #ifdef __cplusplus #include #include #include #include #include #include #endif #ifdef __OBJC__ ... <a href="http://xiangyuan.github.io/posts/2013/03/05/iosxiang-mu-zhong-ctou-wen-jian-zhao-bu-dao-cuo-wu/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -147,7 +148,7 @@
                         拍照界面的定制
                     </a>
                 </h3></header>
-                <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst, line 11) Line block ends without a blank line. https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
+                <div class="summary">下面是通AVFoundation进行图像摄取，然后定制所显示的界面 AVCaptureSession使用，参照官方文档。 https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture.html#//apple_ref/doc/uid/TP40010188-CH5-SW2 原理图 下面是效果图如下，比较的简陋。 使用步骤； 1、创建AVCaptureSesssion 2、添加输入设备AVCaptureDeviceInput 3、设置预览层 _captureSession = [[AVCaptureSession alloc]init]; // Do any additional setup after loading the view, typically from a nib. AVCaptureDevice * device = [AVCaptureDevice ... <a href="http://xiangyuan.github.io/posts/2013/01/30/pai-zhao-jie-mian-de-ding-zhi/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -180,7 +181,7 @@
                         使用他人app里面图片
                     </a>
                 </h3></header>
-                <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/extract_other_app_images.rst, line 2) Title underline too short. 使用他人app里面图片 ################## 有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取 1、首先在itunes里面打开ipa包。 2、使用归档工具解压查看。 3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush 使用方法为 $ /Applications ... <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/">read more</a></div>
+                <div class="summary">System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/extract_other_app_images.rst, line 2) Title underline too short. 使用他人app里面图片 ################## 有时候我们看到某个app中有个有趣的图片，想获得这个图片，可以从该app的程序包中提取 1、首先在itunes里面打开ipa包。 2、使用归档工具解压查看。 3、有些png图片无法用”预览”程序显示,原因是Xcode在打包程序时，使用一个名为pngcrush的工具对png图片针对iphone进行了压缩优化处理，导致这些图片无法正常显示（可正常显示的png图片经pngcrush处理后无变化），pngcrush程序在Xcode的安装目录中存在，路径为/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush ... <a href="http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -224,7 +225,7 @@
                         ios中使用google voice
                     </a>
                 </h3></header>
-                <div class="summary">现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。 缺点： 1、精确度不够。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/ios_google_voice.rst, line 11) Line block ends without a blank line. 2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。 | 3、使用的是sbjson框架解析json数据，速度慢。 | 4、你的工程编译linker参数里面不能加 -all_load 不然就会引起相当大的问题。 以下使用的google voice的api是网上chrome的语音识别的api。 优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。 你可以将你的数据发到你自己的服务端 然后再转到google上去。 地址在我的bitbucket上面 地址在我的bitbucket上面 <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/">read more</a></div>
+                <div class="summary">现在主流的应用添加语音转中文的服务多数使用的科大讯飞的语音识别。 缺点： 1、精确度不够。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_google_voice.rst, line 11) Line block ends without a blank line. 2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。 | 3、使用的是sbjson框架解析json数据，速度慢。 | 4、你的工程编译linker参数里面不能加 -all_load 不然就会引起相当大的问题。 以下使用的google voice的api是网上chrome的语音识别的api。 优点是很精确 ，纠结点是 被GFW屏蔽 然后很是不稳定。 你可以将你的数据发到你自己的服务端 然后再转到google上去。 地址在我的bitbucket上面 地址在我的bitbucket上面 <a href="http://xiangyuan.github.io/posts/2012/12/03/ioszhong-shi-yong-google-voice/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -290,7 +291,7 @@
                         JWfolder列表展开时问题修正
                     </a>
                 </h3></header>
-                <div class="summary">``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst, line 8); backlink Inline literal start-string without end-string. 这是一个可展开示例 但在使用到tableview里面操作时却会出现 重叠问题 解决办法 UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath]; CGFloat y = cell.frame.origin.y; CGFloat varY = abs(y - tableView.contentOffset.y); if (varY > 316.f) { CGPoint point = CGPointMake ... <a href="http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/">read more</a></div>
+                <div class="summary">``_ System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/jwfolder.rst, line 8); backlink Inline literal start-string without end-string. 这是一个可展开示例 但在使用到tableview里面操作时却会出现 重叠问题 解决办法 UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath]; CGFloat y = cell.frame.origin.y; CGFloat varY = abs(y - tableView.contentOffset.y); if (varY > 316.f) { CGPoint ... <a href="http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -312,7 +313,7 @@
                         viewcontroller 生命周期
                     </a>
                 </h3></header>
-                <div class="summary">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系 init方法 在init方法中实例化必要的对象（遵从LazyLoad思想） init方法中初始化ViewController本身 loadView方法 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst, line 9) Line block ends without a blank line. 当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。 | 如果手工维护views，必须重写该方法 | 如果使用IB维护views，必须不能重写该方法 | loadView和IB构建view | viewDidLoad方法 | 重写该方法以进一步定制view | 在iPhone OS 3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引 | viewDidLoad后调用数据Model | viewDidUnload方法 | 当系统内存吃紧的时候会调用该方法（注 ... <a href="http://xiangyuan.github.io/posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/">read more</a></div>
+                <div class="summary">init、loadView、viewDidLoad、viewDidUnload、dealloc的关系 init方法 在init方法中实例化必要的对象（遵从LazyLoad思想） init方法中初始化ViewController本身 loadView方法 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2012/viewcontroller_lifecircle.rst, line 9) Line block ends without a blank line. 当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。 | 如果手工维护views，必须重写该方法 | 如果使用IB维护views，必须不能重写该方法 | loadView和IB构建view | viewDidLoad方法 | 重写该方法以进一步定制view | 在iPhone OS 3.0及之后的版本中，还应该重写viewDidUnload来释放对view的任何索引 | viewDidLoad后调用数据Model | viewDidUnload方法 ... <a href="http://xiangyuan.github.io/posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -323,7 +324,7 @@
                         oc消息转发
                     </a>
                 </h3></header>
-                <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string. 快速转发路径(Fast ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
+                <div class="summary">消息转发流程 当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message forwarding)流程开始启动。 动态方法解析(Dynamic Method Resolution或Lazy method resolution) 向当前类(Class)发送resolveInstanceMethod:(对于类方法则为`resolveClassMethod:`_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。 System Message: WARNING/2 (/Users/liyajie1209/coamee.com/myblog/content/blog/2011/oc_message.rst, line 16); backlink Inline interpreted text or phrase reference start-string without end-string ... <a href="http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/">read more</a></div>
             </div>
         </article>
         <article class="entry-overview">
@@ -347,10 +348,10 @@
 <div class="section-container">
    <h3>Blogroll</h3>
    <ul>
+      <li><a href="http://habibillah.wordpress.com/" target="_blank">habibillah@wordpress <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://getpelican.com/" target="_blank">Pelican <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://python.org/" target="_blank">Python.org <i class="fa fa-globe fa-fw"></i></a></li>
       <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2 <i class="fa fa-globe fa-fw"></i></a></li>
-      <li><a href="#" target="_blank">You can modify those links in your config file <i class="fa fa-globe fa-fw"></i></a></li>
    </ul>
 </div>
 
@@ -358,13 +359,18 @@
    <h3>Social Network</h3>
    <ul>
       <li>
-        <a href="#" target="_blank">You can add links in your config file&nbsp;
+        <a href="http://github.com/xiangyuan" target="_blank">Github&nbsp;
+           <i class="fa fa-github fa-fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://weibo.com/foralger" target="_blank">Weibo&nbsp;
            <i class="fa fa-globe fa-fw"></i>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">Another social link&nbsp;
-           <i class="fa fa-globe fa-fw"></i>
+        <a href="http://twitter.com/forAlger" target="_blank">Twitter&nbsp;
+           <i class="fa fa-twitter fa-fw"></i>
         </a>
       </li>
    </ul>
@@ -373,18 +379,21 @@
 <div class="section-container">
    <h3>Categories</h3>
    <ul>
+        <li><a href="http://xiangyuan.github.io/category/2012.html">2012 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/android.html">android <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/ios.html">ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/iosc.html">ios,c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosgong-ju.html">ios,工具 <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/iosopengles.html">ios,opengles <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux.html">linux <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/linux-c.html">linux c <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/mac.html">mac <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/macphp.html">mac,php <i class="fa fa-folder-open fa-fw"></i></a></li>
-        <li><a href="http://xiangyuan.github.io/category/misc.html">misc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/objc.html">objc <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/openglesios.html">opengles,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/python.html">python <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-ios.html">python, ios <i class="fa fa-folder-open fa-fw"></i></a></li>
+        <li><a href="http://xiangyuan.github.io/category/python-vim.html">python vim <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/pythonios.html">python,ios <i class="fa fa-folder-open fa-fw"></i></a></li>
         <li><a href="http://xiangyuan.github.io/category/sui-sui-nian.html">碎碎念 <i class="fa fa-folder-open fa-fw"></i></a></li>
    </ul>
@@ -394,6 +403,8 @@
    <h3>Tags</h3>
    <ul class="tagcloud">
         <li class="tag-4"><a href="http://xiangyuan.github.io/tag/qing-gan.html">#情感</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/python.html">#python</a></li>
+        <li class="tag-4"><a href="http://xiangyuan.github.io/tag/ios.html">#ios</a></li>
    </ul>
 </div>
 

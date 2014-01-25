@@ -1,5 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>85后那些年</title><link>http://xiangyuan.github.io/</link><description></description><atom:link href="http://xiangyuan.github.io/rss/index.xml" rel="self"></atom:link><lastBuildDate>Tue, 14 Jan 2014 22:57:00 +0800</lastBuildDate><item><title>那条线</title><link>http://xiangyuan.github.io/posts/2014/01/14/na-tiao-xian/</link><description>&lt;p&gt;看不懂  或许不是遥远，&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>85后那些年</title><link>http://xiangyuan.github.io/</link><description></description><atom:link href="http://xiangyuan.github.io/rss/index.xml" rel="self"></atom:link><lastBuildDate>Sat, 25 Jan 2014 16:32:00 +0800</lastBuildDate><item><title>检查ios应用中是否有存在没有使用过的图片资源文件</title><link>http://xiangyuan.github.io/posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/</link><description>&lt;p&gt;我在开发ios应用的时候，会添加很多图片资源文件进去，更多时候当是多人协作时，添加的图片资源有些可能会没有使用的到，然而被我们忽略了。&lt;/p&gt;
+&lt;p&gt;然后我就用python写了一个脚本文件去查换一些没有使用的资源图片。在开始之前让我们先了解一下ack命令工具。&lt;/p&gt;
+&lt;div class="section" id="ack"&gt;
+&lt;h2&gt;ack 是一个非常高效的查换工具&lt;/h2&gt;
+&lt;p&gt;可以查找文件中哪些地方使用了一些特殊指定的字符串
+比如&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+ack -i 'about'
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="install-ack-on-osx"&gt;
+&lt;h2&gt;Install ack on OSX&lt;/h2&gt;
+&lt;pre class="literal-block"&gt;
+brew install ack
+&lt;/pre&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;find命令查找出所有图片&lt;/li&gt;
+&lt;li&gt;ack命令处理&lt;/li&gt;
+&lt;li&gt;得出所有的无用图片资源文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class="literal-block"&gt;
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# find no use image files
+#
+import os
+import subprocess
+# import shlex
+import pprint
+import glob
+
+path = '.'
+bundle = ''
+
+try:
+   f = glob.glob('*.xcodeproj')
+   if not f:
+           print &amp;quot;can't find the xcode project&amp;quot;
+                   exit(1)
+                       else:
+                               fname = f[0]
+                                       name, ext = os.path.splitext(fname)
+                                               path = path + os.path.sep + name
+                                               except:
+                                                   exit(1)
+                                                   # root = os.path.expanduser(path)
+                                                   os.chdir(path)
+                                                   print os.getcwd()
+
+                                                   # files = os.listdir(root)
+                                                   # print files
+                                                   result = []
+                                                   try:
+                                                       command = 'find . -name &amp;quot;*.png&amp;quot; -or -name &amp;quot;*.jpg&amp;quot; -or -name &amp;quot;*.gif&amp;quot; -or -name &amp;quot;*.jpeg&amp;quot;'
+                                                           r = subprocess.check_output(command, shell=True)
+                                                               lines = r.split('\n')
+                                                                   for line in lines:
+                                                                           fname = os.path.basename(line)
+                                                                                   c = fname.count('&amp;#64;')
+                                                                                           if c &amp;gt; 0:
+                                                                                                       name, _ = fname.split('&amp;#64;')
+                                                                                                               else:
+                                                                                                                           name, ext = os.path.splitext(fname)
+                                                                                                                                   if name != '':
+                                                                                                                                               if not bundle:
+                                                                                                                                                               target = name
+                                                                                                                                                                           else:
+                                                                                                                                                                                           target = ''.join((bundle, name))
+                                                                                                                                                                                                       print target
+                                                                                                                                                                                                                   cmd = '/usr/local/bin/ack -i &amp;quot;%s&amp;quot;' % target
+                                                                                                                                                                                                                               c = subprocess.call(cmd, shell=True)
+                                                                                                                                                                                                                                           # p = subprocess.Popen(cmd, shell=True)
+                                                                                                                                                                                                                                                       # o, e = p.communicate()
+                                                                                                                                                                                                                                                                   if c == 1:
+                                                                                                                                                                                                                                                                                   result.append(target)
+                                                                                                                                                                                                                                                                                   except:
+                                                                                                                                                                                                                                                                                       raise
+
+                                                                                                                                                                                                                                                                                       print(&amp;quot;===================\n&amp;quot;)
+                                                                                                                                                                                                                                                                                       print(&amp;quot;no used files&amp;quot;)
+                                                                                                                                                                                                                                                                                       pprint.pprint(result)
+&lt;/pre&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xiangyuan</dc:creator><pubDate>Sat, 25 Jan 2014 16:32:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2014-01-25:posts/2014/01/25/jian-cha-iosying-yong-zhong-shi-fou-you-cun-zai-mei-you-shi-yong-guo-de-tu-pian-zi-yuan-wen-jian/</guid><category>python</category><category>ios</category></item><item><title>那条线</title><link>http://xiangyuan.github.io/posts/2014/01/14/na-tiao-xian/</link><description>&lt;p&gt;看不懂  或许不是遥远，&lt;/p&gt;
 &lt;p&gt;就是你我之间。&lt;/p&gt;
 &lt;p&gt;有着那一条线，&lt;/p&gt;
 &lt;p&gt;那么多路口，那么多转弯&lt;/p&gt;
@@ -33,9 +116,9 @@ NSLog(&amp;#64;&amp;quot;%f %f %f %f&amp;quot;,frame.origin.x,frame.origin.y,fra
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;实现效果如下图：&lt;/div&gt;
 &lt;/div&gt;
-&lt;img alt="" src="images/Screenshot-2013.05.01-15.13.35.png" style="width: 200px; height: 300px;" /&gt;
-&lt;img alt="" src="images/Screenshot-2013.05.01-15.13.39.png" style="width: 200px; height: 300px;" /&gt;
-&lt;img alt="" src="images/Screenshot-2013.05.01-15.13.43.png" style="width: 200px; height: 300px;" /&gt;
+&lt;img alt="screen shot" src="/images/Screenshot-2013.05.01-15.13.35.png" style="width: 200px; height: 300px;" /&gt;
+&lt;img alt="screen shot" src="/images/Screenshot-2013.05.01-15.13.39.png" style="width: 200px; height: 300px;" /&gt;
+&lt;img alt="screen shot" src="/images/Screenshot-2013.05.01-15.13.43.png" style="width: 200px; height: 300px;" /&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;原理是&lt;/div&gt;
 &lt;div class="line-block"&gt;
@@ -49,9 +132,9 @@ NSLog(&amp;#64;&amp;quot;%f %f %f %f&amp;quot;,frame.origin.x,frame.origin.y,fra
 &lt;p&gt;在进行之前先来看一个场景，很多ios应用在看列表时，都会动态加载更多，然后随着列表项越来越多时。再到最上面时滚动就比较的费时，读一些内容软多的文字时也会碰到这种情况。&lt;/p&gt;
 &lt;p&gt;zaker上面看文章时也会一个快速拖动条，看新闻体验就比较的好。&lt;/p&gt;
 &lt;p&gt;这个手机样式图下图。&lt;/p&gt;
-&lt;img alt="" src="images/1AB64F7B-B686-4A71-AAF6-037E80C6C39F.png" style="width: 200px; height: 300px;" /&gt;
+&lt;img alt="thumb imageview" src="/images/1AB64F7B-B686-4A71-AAF6-037E80C6C39F.png" style="width: 200px; height: 300px;" /&gt;
 &lt;p&gt;当然上图中的手指并不是图，是通过代码实现的。上面是table做的测试。下面是一个scrollview结果的图形。&lt;/p&gt;
-&lt;img alt="" src="images/9271739A-005A-41F3-9C2A-ACA3E189D62E.png" style="width: 200px; height: 300px;" /&gt;
+&lt;img alt="thumb imageview" src="/images/9271739A-005A-41F3-9C2A-ACA3E189D62E.png" style="width: 200px; height: 300px;" /&gt;
 &lt;p&gt;一、下面先说说那个手指样式类图实现原理。&lt;/p&gt;
 &lt;p&gt;手指图是上下都是一个三角形，通过path画一个三角形，然后将图形context反转再画一个三角。&lt;/p&gt;
 &lt;p&gt;中间部分是一个pattern模式图形.&lt;/p&gt;
@@ -115,7 +198,55 @@ static const CGPatternCallbacks callbacks = { 0, &amp;amp;drawCellCallback, NULL
     CGContextRestoreGState(ctx);
 &lt;/pre&gt;
 &lt;p&gt;二、然后就是实现触摸滚动了。&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Sat, 27 Apr 2013 18:13:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-04-27:posts/2013/04/27/iosshang-ke-tuo-dong-de-gun-dong-tiao/</guid></item><item><title>UIColor设置背景和UIImage图片拉伸</title><link>http://xiangyuan.github.io/posts/2013/04/15/uicolorshe-zhi-bei-jing-he-uiimagetu-pian-la-shen/</link><description>&lt;div class="section" id="uicolor"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Sat, 27 Apr 2013 18:13:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-04-27:posts/2013/04/27/iosshang-ke-tuo-dong-de-gun-dong-tiao/</guid></item><item><title>HLS之ts文件格式分析</title><link>http://xiangyuan.github.io/posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/</link><description>&lt;p&gt;HTTP Live Streaming（HLS）是苹果公司(Apple
+Inc.)实现的基于HTTP的流媒体传输协议，可实现流媒体的直播和点播，主要应用在iOS系统，为iOS设备（如iPhone、iPad）提供音视频直播和点播方案。HLS点播，基本上就是常见的分段HTTP点播，不同在于，它的分段非常小。&lt;/p&gt;
+&lt;p&gt;相对于常见的流媒体直播协议，例如RTMP协议、RTSP协议、MMS协议等，HLS直播最大的不同在于，直播客户端获取到的，并不是一个完整的数据流。HLS协议在服务器端将直播数据流存储为连续的、很短时长的媒体文件（MPEG-TS格式），而客户端则不断的下载并播放这些小文件，因为服务器端总是会将最新的直播数据生成新的小文件，这样客户端只要不停的按顺序播放从服务器获取到的文件，就实现了直播。由此可见，基本上可以认为，HLS是以点播的技术方式来实现直播。由于数据通过HTTP协议传输，所以完全不用考虑防火墙或者代理的问题，而且分段文件的时长很短，客户端可以很快的选择和切换码率，以适应不同带宽条件下的播放。不过HLS的这种技术特点，决定了它的延迟一般总是会高于普通的流媒体直播协议。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;根据以上的了解要实现HTTP Live Streaming直播，需要研究并实现以下技术关键点&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;/*&lt;/div&gt;
+&lt;div class="line"&gt;采集视频源和音频源的数据&lt;/div&gt;
+&lt;div class="line"&gt;对原始数据进行H264编码和AAC编码&lt;/div&gt;
+&lt;div class="line"&gt;视频和音频数据封装为MPEG-TS包&lt;/div&gt;
+&lt;div class="line"&gt;HLS分段生成策略及m3u8索引文件&lt;/div&gt;
+&lt;div class="line"&gt;HTTP传输协议&lt;/div&gt;
+&lt;div class="line"&gt;*/&lt;/div&gt;
+&lt;div class="line"&gt;本文介绍对ts文件的分析。一个ts大体结构如下&lt;/div&gt;
+&lt;div class="line"&gt;+＝pid-----------pid------------------&amp;gt;pid&lt;/div&gt;
+&lt;div class="line"&gt;| &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;| &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;|&lt;/div&gt;
+&lt;div class="line"&gt;| &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;| &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;|&lt;/div&gt;
+&lt;div class="line"&gt;ts-packet &amp;nbsp; ts-packet &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ts-packet&lt;/div&gt;
+&lt;div class="line"&gt;|&lt;/div&gt;
+&lt;div class="line"&gt;|&lt;/div&gt;
+&lt;div class="line"&gt;ts-packet ...&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;ts-packet:一般为固定188字节 ts-packet--|---ts_packet_header&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;|&lt;/div&gt;
+&lt;div class="line"&gt;|---pes_header(如果存在的话)&lt;/div&gt;
+&lt;div class="line"&gt;|&lt;/div&gt;
+&lt;div class="line"&gt;|----数据区&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;另外一些比较重要的是pat与pmt，在此不作介绍，&lt;a class="reference external" href="http://mumudvb.braice.net/mumudrupal/sites/default/files/iso13818-1.pdf"&gt;参看ISO文档&lt;/a&gt;&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;代码解析原理；&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;1、188字节读取&lt;/div&gt;
+&lt;div class="line"&gt;2、分析ts_header信息。&lt;/div&gt;
+&lt;div class="line"&gt;3、去掉ts_header长度，接着分析pes包信息（如果存在）&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;我的c简单操作部分代码，希望你加入完整。&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://github.com/xiangyuan/tsconstruct"&gt;https://github.com/xiangyuan/tsconstruct&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;接着要做的一件事情是将h264帧构造成ts格式流。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Fri, 26 Apr 2013 18:06:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-04-26:posts/2013/04/26/hlszhi-tswen-jian-ge-shi-fen-xi/</guid></item><item><title>UIColor设置背景和UIImage图片拉伸</title><link>http://xiangyuan.github.io/posts/2013/04/15/uicolorshe-zhi-bei-jing-he-uiimagetu-pian-la-shen/</link><description>&lt;div class="section" id="uicolor"&gt;
 &lt;h2&gt;&lt;strong&gt;①：UIColor设置背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;通常我们在设置一个view的背景为一个图片的时候，我们往往在上面加上一个imageview，然后在imageview中添加图片作为背景，&lt;/p&gt;
 &lt;p&gt;那如果app中要求的背景是一个草坪的图形，是不是我们就必须画一个和手机屏幕一样打的草坪的图片呢，其实没有必要，我们只需要一个小小的草坪的图片，然后让它在背景上面重复平铺就可以了。&lt;/p&gt;
@@ -155,7 +286,7 @@ UIImage *imageViewBg = [bgImage resizableImageWithCapInsets:UIEdgeInsetsMake(50,
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/removing-nslogs-for-distribution.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/removing-nslogs-for-distribution.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;shown的告警，此时NSLog打印可以正常显示；在发布时NSLog被定义为空语句，不打印任何数据。&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 01 Apr 2013 15:36:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-04-01:posts/2013/04/01/removing-nslogs-for-distribution/</guid></item><item><title>纷繁</title><link>http://xiangyuan.github.io/posts/2013/03/22/fen-fan/</link><description>&lt;div class="line-block"&gt;
@@ -163,7 +294,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/emotion_feng_fan.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/emotion_feng_fan.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;身边多了新的朋友、新的牵挂、新的责任，也让我们变得不知所挫。而且我相信人的一生说不定哪天就没有了，有很多的不平，很多的放不下在岁月中慢慢变淡。从而又进入了一个新的起点。
 |
@@ -224,7 +355,7 @@ CGContextRestoreGState(context);
 &lt;div class="line"&gt;但是出现了另外一问题。在.h的文件里面使用了c++的库文件时，却引起了not&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/ios_cplusplus_header.rst&lt;/tt&gt;, line 10)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/ios_cplusplus_header.rst&lt;/tt&gt;, line 10)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;found 编译错误。
 |  解决办法如下：&lt;/p&gt;
@@ -444,7 +575,7 @@ library去操作。&lt;a class="reference external" href="https://developer.appl
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/opengles2.0_one.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;ES规范要求每个实现都提供了一种机制，应用程序可以使用它来创建一个帧缓冲来保存渲染的图像。在iOS上，使用帧缓冲对象，这是建立在OpenGL
 ES 2.0的所有帧缓存，并提供所有iOS实现的OpenGL ES
@@ -504,7 +635,7 @@ targets您还可以创建多个帧缓冲对象在一个单一context中，可能
 &lt;div class="line"&gt;5、在三角形图元在光栅化之前，需要决定哪个是front-face 和back-face&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst&lt;/tt&gt;, line 51)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/opengles2.0_one.rst&lt;/tt&gt;, line 51)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;,front-face面对观察者的
 |  &lt;a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2013/05/115.jpg"&gt;&lt;img alt="image6" src="http://kingiol.com/bl/wp-content/uploads/2013/05/115-300x131.jpg" /&gt;&lt;/a&gt;
@@ -522,7 +653,7 @@ data。还有一些光照，纹理等操作。后面再发文章。随后会发�
 &lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/opengles2.0_one.rst&lt;/tt&gt;, line 65)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2013/opengles2.0_one.rst&lt;/tt&gt;, line 65)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;1。官方http://developer.apple.com/library/ios/#documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/Introduction/Introduction.html
 |  2、大神 &lt;a class="reference external" href="http://db-in.com/blog/"&gt;http://db-in.com/blog/&lt;/a&gt;
@@ -533,9 +664,6 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;div class="line"&gt;AVCaptureSession使用，参照官方文档。&lt;/div&gt;
 &lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/ios_token_picture.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
-Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture"&gt;https://developer.apple.com/library/ios/#documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/04_MediaCapture&lt;/a&gt;.html#//apple_ref/doc/uid/TP40010188-CH5-SW2&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;原理图&lt;/div&gt;
@@ -595,61 +723,7 @@ store，直接在ios设备上安装app，注：ios设备不需要越狱。&lt;/p
 &lt;p&gt;不通过App Store，在iOS设备上直接安装应用程序&lt;/p&gt;
 &lt;p&gt;以上步骤顺利经过测试。在摸索过程中参考了以下几篇文章，粘贴一下，以表示对作者迷途指导的感激之情。&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://aaronparecki.com/articles/2011/01/21/1/how-to-distribute-your-ios-apps-over-the-air"&gt;具体参考下面文章&lt;/a&gt;&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 21 Jan 2013 14:23:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-01-21:posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/</guid></item><item><title>mac下php相关配置文件</title><link>http://xiangyuan.github.io/posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/</link><description>&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;昨天偶尔想用php写一个发http请求来写一个api。&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;结果HttpRequest类找不到。&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-sudo find / php.ini
-&lt;/pre&gt;
-&lt;p&gt;命令查找了一个居然没有这个文件。&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-php -i | less
-&lt;/pre&gt;
-&lt;p&gt;用上述命令查看下.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-Configuration File (php.ini) Path   /etc
-Loaded Configuration File   （none）
-Scan this dir for additional .ini files (none)
-Additional .ini files parsed    (none)
-&lt;/pre&gt;
-&lt;p&gt;发现这个文件需要自己却创建一下.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-cp php.ini.default php.ini
-&lt;/pre&gt;
-&lt;p&gt;php.ini.default文件在/etc/目录下面，是一个默认的配置文件。需要把里面的display_error打开，否刚就不会出现错误信息在开发过程中。&lt;/p&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;回到最开始的问题，类找不到需要添加扩展。&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;phpinfo里面就可以发现下面这一项。&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="literal-block"&gt;
-extension_dir   /usr/lib/php/extensions/no-debug-non-zts-20090626   /usr/lib/php/extensions/no-debug-non-zts-20090626
-&lt;/pre&gt;
-&lt;p&gt;只xdebug.so扩展，添添加扩展。&lt;/p&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;在安装扩展时有一个命令pear&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;发现我的mac居然没有这个管理工具&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="literal-block"&gt;
-/usr/lib/php/
-&lt;/pre&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;在上面目录下面install-pear-nozlib.phar 这个文件&lt;/div&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;运行下面命令就可以安装成功了&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;pre class="literal-block"&gt;
-php install-pear-nozlib.phar
-&lt;/pre&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Wed, 16 Jan 2013 10:48:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-01-16:posts/2013/01/16/macxia-phpxiang-guan-pei-zhi-wen-jian/</guid></item><item><title>lbs之两坐标点之间的距离</title><link>http://xiangyuan.github.io/posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/</link><description>&lt;p&gt;在LBS应用中，需要知到两坐标点之间的距离，从而在手机应用中实现离自己多少距离的附近的人员。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 21 Jan 2013 14:23:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2013-01-21:posts/2013/01/21/applege-ren-kai-fa-zhe-zheng-shu-wu-xian-fa-bu-appde-shi-xian/</guid></item><item><title>lbs之两坐标点之间的距离</title><link>http://xiangyuan.github.io/posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/</link><description>&lt;p&gt;在LBS应用中，需要知到两坐标点之间的距离，从而在手机应用中实现离自己多少距离的附近的人员。&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;计算方法从Haversine formula 这个公式得来。&lt;/div&gt;
 &lt;div class="line-block"&gt;
@@ -684,7 +758,7 @@ public class LBS {
 &lt;div class="line"&gt;现在引起另外一问题，如果数据量大时，查找附近人的方法。网上有专门介绍方法的。参见。|  &lt;a class="reference external" href="http://tech.idv2.com/2011/07/05/geohash-intro/"&gt;查找附近人的方法&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Thu, 27 Dec 2012 21:51:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-27:posts/2012/12/27/lbszhi-liang-zuo-biao-dian-zhi-jian-de-ju-chi/</guid></item><item><title>使用他人app里面图片</title><link>http://xiangyuan.github.io/posts/2012/12/26/shi-yong-ta-ren-appli-mian-tu-pian/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/extract_other_app_images.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/extract_other_app_images.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
 &lt;p&gt;Title underline too short.&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 使用他人app里面图片
@@ -715,7 +789,7 @@ public class LBS {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;却不同,它更加简单通俗。图层的所有几何属性,包括图层的矩阵变换,都可以隐式
 和显式动画。
@@ -725,7 +799,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;div class="line"&gt;图层的 position 属性是一个 CGPoint&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst&lt;/tt&gt;, line 15)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry.rst&lt;/tt&gt;, line 15)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;的值,它指定图层相当于它父图层的位置, 该值基于父图层的坐标系。
 |  图层的 bounds 属性是一个 CGRect
@@ -743,7 +817,7 @@ bounds、和 anchorPoint 的属性相关。&lt;/p&gt;
 &lt;div class="line"&gt;图层的 anchorPoint 属性是一个 CGPoint 值,它指定了一个基于图层 bounds&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/gemotry.rst&lt;/tt&gt;, line 30)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/gemotry.rst&lt;/tt&gt;, line 30)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;的符 合位置坐标系的位置。锚点(anchor point)指定了 bounds 相对于 position
 的值,同
@@ -762,7 +836,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;img alt="chat Screenshot" class="image" src="images/Screenshot.png" style="width: 200px; height: 300px;" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/xiangyuan/BubbleMsg"&gt;项目地址：https://github.com/xiangyuan/BubbleMsg&lt;/a&gt;&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Tue, 18 Dec 2012 17:17:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-18:posts/2012/12/18/ios-ge-qi-pao-liao-tian-ye-mian/</guid></item><item><title>cocos2d中与ios中加载custom fonts</title><link>http://xiangyuan.github.io/posts/2012/12/05/cocos2dzhong-yu-ioszhong-jia-zai-custom-fonts/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst&lt;/tt&gt;, line 5)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/coacos2d_ios_custom_fonts.rst&lt;/tt&gt;, line 5)&lt;/p&gt;
 Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;:category:ios&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -789,7 +863,7 @@ Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/coacos2d_ios_custom_fonts.rst&lt;/tt&gt;, line 41)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/coacos2d_ios_custom_fonts.rst&lt;/tt&gt;, line 41)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;size:20]]加载使用的名字并不是文件的名字。
 |  真实名可以通过双击ttf文件可以看到。否则就会加载不成功。&lt;/p&gt;
@@ -799,7 +873,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://kingiol.com/bl/wp-content/uploads/2012/12/t.jpg"&gt;&lt;img alt="image0" src="http://kingiol.com/bl/wp-content/uploads/2012/12/t-300x167.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;连接地址&amp;nbsp;&lt;a class="reference external" href="http://iosfonts.com/"&gt;http://iosfonts.com/&lt;/a&gt;&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 12:00:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/iossuo-you-zhi-chi-de-zi-xing-ming-cheng-yi-ji-xiang-guan-yang-shi/</guid></item><item><title>cocos2d之入门</title><link>http://xiangyuan.github.io/posts/2012/12/03/cocos2dzhi-ru-men/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/cocos2d_tutorail.rst&lt;/tt&gt;, line 4)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/cocos2d_tutorail.rst&lt;/tt&gt;, line 4)&lt;/p&gt;
 Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;:category:cocos2d&lt;/p&gt;
 &lt;p&gt;cocos2d中核心以前关键的一些类别&lt;/p&gt;
@@ -884,7 +958,7 @@ imageView.layer.cornerRadius = 50;
 &lt;div class="line"&gt;上面代码注意 如果裁剪后没有使用 CGContextAddEllipseInRect(context,&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/ios_image_round.rst&lt;/tt&gt;, line 50)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_image_round.rst&lt;/tt&gt;, line 50)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;rect);
 |  CGContextStrokePath(context); 这条代码
@@ -901,7 +975,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 10:32:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/ioskai-fa-huo-androidkai-fa-gong-ju-zhi-zhua-bao/</guid></item><item><title>uiscrollview覆盖子视图时引起的背景视图无事件</title><link>http://xiangyuan.github.io/posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/uiscrollview_cover_bottom.rst&lt;/tt&gt;, line 4)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/uiscrollview_cover_bottom.rst&lt;/tt&gt;, line 4)&lt;/p&gt;
 Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;:category:ios&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -924,7 +998,7 @@ Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;/ol&gt;
 &lt;p&gt;就可以解决问题了&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 10:26:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/uiscrollviewfu-gai-zi-shi-tu-shi-yin-qi-de-bei-jing-shi-tu-wu-shi-jian/</guid></item><item><title>小总结--2012-4-24</title><link>http://xiangyuan.github.io/posts/2012/12/03/xiao-zong-jie-2012-4-24/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/summary.rst&lt;/tt&gt;, line 6)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst&lt;/tt&gt;, line 6)&lt;/p&gt;
 Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;:category:碎碎念&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -932,7 +1006,7 @@ Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/summary.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/summary.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;前辈。想想这一年自己学习到了些什么，个人又成长了什么。因为是一个码农，所以吐槽一下。
 |  一、 技术上：
@@ -964,7 +1038,7 @@ Line block ends without a blank line.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/ios_google_voice.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_google_voice.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;2、新的表态库里面加了umeng统计，导致与你自己项目里面的一些东西会参生冲突。
 |  3、使用的是sbjson框架解析json数据，速度慢。
@@ -1280,7 +1354,43 @@ public class DragListView extends ListView {
     }
 }
 &lt;/pre&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 09:35:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/</guid></item><item><title>python接收系统参数</title><link>http://xiangyuan.github.io/posts/2012/12/03/pythonjie-shou-xi-tong-can-shu/</link><description>&lt;p&gt;python接收系统参数时注意&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 09:35:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/androidying-yong-zhong-shi-xian-drag-listview/</guid></item><item><title>python+vim 开发环境</title><link>http://xiangyuan.github.io/posts/2012/12/03/python-vim/</link><description>&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Vim as a PHP IDE&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;This Vim configuration is meant to be used to make Vim act more like&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/python_vim.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
+Line block ends without a blank line.&lt;/div&gt;
+&lt;p&gt;an IDE. I use it mostly under MacVIM, so some things may be weird in
+different environments. For now, I'm just planning on using github to
+make managing my VIM configuraiton more easy, especially with deploying
+it to different environments. I'm not sure if I will make this a
+community projects.&lt;/p&gt;
+&lt;p&gt;I do use this configuration on Linux while running plain vim, and it
+works fine for the most part.&lt;/p&gt;
+&lt;p&gt;上面的一稿文章。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;2、python的安装pydiction&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://github.com/fsouza/Pydiction.git"&gt;https://github.com/fsouza/Pydiction.git&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;3、c/c++编写ide安装&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://github.com/vim-scripts/c.vim.git"&gt;https://github.com/vim-scripts/c.vim.git&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;4、安装cocoa的vim&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://github.com/msanders/cocoa.vim.git"&gt;https://github.com/msanders/cocoa.vim.git&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;更新为python-mode插件&lt;/strong&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 09:25:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/python-vim/</guid></item><item><title>python接收系统参数</title><link>http://xiangyuan.github.io/posts/2012/12/03/pythonjie-shou-xi-tong-can-shu/</link><description>&lt;p&gt;python接收系统参数时注意&lt;/p&gt;
 &lt;p&gt;python接收系统参数时第0个参数是指当前指定的文件名&lt;/p&gt;
 &lt;p&gt;而实际上的参数列表是从1开始的&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 03 Dec 2012 09:17:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-03:posts/2012/12/03/pythonjie-shou-xi-tong-can-shu/</guid></item><item><title>文件下载时会用到的http协议设置</title><link>http://xiangyuan.github.io/posts/2012/12/02/wen-jian-xia-zai-shi-hui-yong-dao-de-httpxie-yi-she-zhi/</link><description>&lt;div class="line-block"&gt;
@@ -1291,7 +1401,7 @@ public class DragListView extends ListView {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/http_protocol.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/http_protocol.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档
 的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE
@@ -1336,7 +1446,7 @@ application/xml等.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/android_permission_check.rst&lt;/tt&gt;, line 10)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/android_permission_check.rst&lt;/tt&gt;, line 10)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;2、现在我们可以读出interfacetoken的值,只是出现了两次android.app.IActivityManager字符串值
 |  只要分别是哪一个值就可以读取相关的值(理论)&lt;/p&gt;
@@ -1468,11 +1578,11 @@ class package:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/python_package.rst&lt;/tt&gt;, line 65); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/python_package.rst&lt;/tt&gt;, line 65); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 Inline literal start-string without end-string.&lt;/div&gt;
 &lt;!-- _: https://github.com/xiangyuan/iospackage --&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/python_package.rst&lt;/tt&gt;, line 68)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/python_package.rst&lt;/tt&gt;, line 68)&lt;/p&gt;
 malformed hyperlink target.&lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Sun, 02 Dec 2012 13:00:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-02:posts/2012/12/02/pythonda-bao-ios-ipabao/</guid></item><item><title>ios Image裁剪成圆形的方法之二</title><link>http://xiangyuan.github.io/posts/2012/12/02/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa-zhi-er/</link><description>&lt;p&gt;各种应用上面有很多圆形的图片显示。&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -1528,15 +1638,14 @@ imageView.layer.cornerRadius = 50;
 &lt;div class="line"&gt;上面代码注意 如果裁剪后没有使用 CGContextAddEllipseInRect(context,&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/ios_image_round_corner.rst&lt;/tt&gt;, line 50)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/ios_image_round_corner.rst&lt;/tt&gt;, line 50)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;rect);
 |  CGContextStrokePath(context); 这条代码
 就会引起背景为白色时看不出来任务效果。
 |  这里是椭圆操作
 |  圆操作你懂的。&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Sun, 02 Dec 2012 12:51:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-02:posts/2012/12/02/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa-zhi-er/</guid></item><item><title>About</title><link>http://xiangyuan.github.io/posts/2012/11/30/about/</link><description>&lt;p&gt;关于 以此献给我们一起2b的那些年&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Fri, 30 Nov 2012 05:37:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-11-30:posts/2012/11/30/about/</guid></item><item><title>navigator设置透明</title><link>http://xiangyuan.github.io/posts/2012/06/26/navigatorshe-zhi-tou-ming/</link><description>&lt;div class="line-block"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Sun, 02 Dec 2012 12:51:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-12-02:posts/2012/12/02/ios-imagecai-jian-cheng-yuan-xing-de-fang-fa-zhi-er/</guid></item><item><title>navigator设置透明</title><link>http://xiangyuan.github.io/posts/2012/06/26/navigatorshe-zhi-tou-ming/</link><description>&lt;div class="line-block"&gt;
 &lt;div class="line"&gt;下面方面可以使得ios里面导航条变成透明的。&lt;/div&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;类似appflow的效果&lt;/div&gt;
@@ -1572,7 +1681,7 @@ if ([operation isCachedResponse]) {
     }
 &lt;/pre&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Wed, 30 May 2012 17:45:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-05-30:posts/2012/05/30/mknetworkwang-luo-qing-qiu-guo-cheng-zhong-oncompletiondiao-yong-liang-ci-de-wen-ti/</guid></item><item><title>parallax视差视图的实现</title><link>http://xiangyuan.github.io/posts/2012/05/03/parallaxshi-chai-shi-tu-de-shi-xian/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/parallax.rst&lt;/tt&gt;, line 5)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/parallax.rst&lt;/tt&gt;, line 5)&lt;/p&gt;
 Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;:category:ios&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -1592,7 +1701,7 @@ Field list ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;上面的都存在一个共同的问题，那就是视差的背景图片是没有事件响应的。下一篇告诉怎么解决。&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Thu, 03 May 2012 10:17:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-05-03:posts/2012/05/03/parallaxshi-chai-shi-tu-de-shi-xian/</guid></item><item><title>JWfolder列表展开时问题修正</title><link>http://xiangyuan.github.io/posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/</link><description>&lt;p&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;``&lt;/span&gt;&lt;/a&gt;_&lt;/p&gt;
 &lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst&lt;/tt&gt;, line 8); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/jwfolder.rst&lt;/tt&gt;, line 8); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 Inline literal start-string without end-string.&lt;/div&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;这是一个可展开示例&lt;/div&gt;
@@ -1647,7 +1756,7 @@ UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
 &lt;/pre&gt;
 &lt;!-- _: https://github.com/jwilling/JWFolders.git --&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/jwfolder.rst&lt;/tt&gt;, line 61)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/jwfolder.rst&lt;/tt&gt;, line 61)&lt;/p&gt;
 malformed hyperlink target.&lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Thu, 03 May 2012 09:32:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-05-03:posts/2012/05/03/jwfolderlie-biao-zhan-kai-shi-wen-ti-xiu-zheng/</guid></item><item><title>天气预报组件</title><link>http://xiangyuan.github.io/posts/2012/02/29/tian-qi-yu-bao-zu-jian/</link><description>&lt;p&gt;一个天气显示组件，显示城市地址，图片 温度 具体时间&lt;/p&gt;
 &lt;div class="line-block"&gt;
@@ -1669,7 +1778,7 @@ malformed hyperlink target.&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/viewcontroller_lifecircle.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2012/viewcontroller_lifecircle.rst&lt;/tt&gt;, line 9)&lt;/p&gt;
 Line block ends without a blank line.&lt;/div&gt;
 &lt;p&gt;当view需要被展示而它却是nil时，viewController会调用该方法。不要直接调用该方法。
 |  如果手工维护views，必须重写该方法
@@ -1717,7 +1826,61 @@ viewDidUnload中被release的对象必须是很容易被重新创建的对象（
 }
 &lt;/pre&gt;
 &lt;p&gt;转自：&lt;a class="reference external" href="http://xyxdasnjss.iteye.com/blog/1563926"&gt;http://xyxdasnjss.iteye.com/blog/1563926&lt;/a&gt;&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 30 Jan 2012 17:47:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-01-30:posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/</guid></item><item><title>oc消息转发</title><link>http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/</link><description>&lt;div class="section" id="id1"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Mon, 30 Jan 2012 17:47:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2012-01-30:posts/2012/01/30/viewcontroller-sheng-ming-zhou-qi/</guid></item><item><title>mac下php相关配置文件</title><link>http://xiangyuan.github.io/posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/</link><description>&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;昨天偶尔想用php写一个发http请求来写一个api。&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;结果HttpRequest类找不到。&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;找资料时就发现有提及php.ini这个文件，由于之前也没有接触过这些东西。&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo find / php.ini
+&lt;/pre&gt;
+&lt;p&gt;命令查找了一个居然没有这个文件。&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+php -i | less
+&lt;/pre&gt;
+&lt;p&gt;用上述命令查看下.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Configuration File (php.ini) Path   /etc
+Loaded Configuration File   （none）
+Scan this dir for additional .ini files (none)
+Additional .ini files parsed    (none)
+&lt;/pre&gt;
+&lt;p&gt;发现这个文件需要自己却创建一下.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cp php.ini.default php.ini
+&lt;/pre&gt;
+&lt;p&gt;php.ini.default文件在/etc/目录下面，是一个默认的配置文件。需要把里面的display_error打开，否刚就不会出现错误信息在开发过程中。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;回到最开始的问题，类找不到需要添加扩展。&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;phpinfo里面就可以发现下面这一项。&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+extension_dir   /usr/lib/php/extensions/no-debug-non-zts-20090626   /usr/lib/php/extensions/no-debug-non-zts-20090626
+&lt;/pre&gt;
+&lt;p&gt;只xdebug.so扩展，添添加扩展。&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;在安装扩展时有一个命令pear&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;发现我的mac居然没有这个管理工具&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+/usr/lib/php/
+&lt;/pre&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;在上面目录下面install-pear-nozlib.phar 这个文件&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;运行下面命令就可以安装成功了&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+php install-pear-nozlib.phar
+&lt;/pre&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Wed, 16 Nov 2011 10:48:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2011-11-16:posts/2011/11/16/macxia-phpxiang-guan-pei-zhi-wen-jian/</guid></item><item><title>oc消息转发</title><link>http://xiangyuan.github.io/posts/2011/11/03/ocxiao-xi-zhuan-fa/</link><description>&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;消息转发流程&lt;/h2&gt;
 &lt;p&gt;当向Objective-C对象发送一个消息，但runtime在当前类及父类中找不到此selector对应的方法时，消息转发(message
 forwarding)流程开始启动。&lt;/p&gt;
@@ -1725,7 +1888,7 @@ forwarding)流程开始启动。&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;动态方法解析(Dynamic Method Resolution或Lazy method resolution)&lt;/p&gt;
 &lt;p&gt;向当前类(Class)发送&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/clm/NSObject/resolveInstanceMethod:"&gt;resolveInstanceMethod:&lt;/a&gt;(对于类方法则为`resolveClassMethod:&lt;a href="#id2"&gt;&lt;span class="problematic" id="id3"&gt;`&lt;/span&gt;&lt;/a&gt;_)消息，如果返回YES,则系统认为请求的方法已经加入到了，则会重新发送消息。&lt;/p&gt;
 &lt;div class="system-message" id="id2"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/oc_message.rst&lt;/tt&gt;, line 16); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2011/oc_message.rst&lt;/tt&gt;, line 16); &lt;em&gt;&lt;a href="#id3"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Inline interpreted text or phrase reference start-string without end-string.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -1757,11 +1920,11 @@ NSString *properlyEscapedURL = [url stringByAddingPercentEscapesUsingEncoding:NS
 &lt;p&gt;项目地址：&lt;/p&gt;
 &lt;p&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;``&lt;/span&gt;&lt;/a&gt;_&lt;/p&gt;
 &lt;div class="system-message" id="id1"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst&lt;/tt&gt;, line 11); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 Inline literal start-string without end-string.&lt;/div&gt;
 &lt;!-- _: https://github.com/xiangyuan/multitimer%20 --&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/linux-timmer.rst&lt;/tt&gt;, line 13)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/liyajie1209/coamee.com/myblog/content/blog/2011/linux-timmer.rst&lt;/tt&gt;, line 13)&lt;/p&gt;
 malformed hyperlink target.&lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">向远</dc:creator><pubDate>Tue, 02 Aug 2011 14:59:00 +0800</pubDate><guid>tag:xiangyuan.github.io,2011-08-02:posts/2011/08/02/linuxduo-ding-shi-qi-shi-xian/</guid></item><item><title>object c 去掉尾部符号</title><link>http://xiangyuan.github.io/posts/2011/05/03/object-c-qu-diao-wei-bu-fu-hao/</link><description>&lt;pre class="literal-block"&gt;
 NSString * str = &amp;#64;&amp;quot;今天你还，好吗&amp;#64;？￥＃￥&amp;quot;;
